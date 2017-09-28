@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
 		11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */; };
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
 				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
+				1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
 				11E4BCA81F7D125E00169F6C /* SearchTextField.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
