@@ -14,6 +14,7 @@
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
 		11B6A70A1F7C5D2700AD3FCE /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */; };
 		11B6A7151F7C5D2700AD3FCE /* SeasonOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */; };
+		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
 		11E4BCA81F7D125E00169F6C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* SearchTextField.swift */; };
 		11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCAA1F7D130300169F6C /* UIImage.swift */; };
 		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
@@ -50,6 +51,7 @@
 		11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneUITests.swift; sourceTree = "<group>"; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		11E4BCA71F7D125E00169F6C /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		11E4BCAA1F7D130300169F6C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
+				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -343,9 +346,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -379,6 +385,7 @@
 				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
 				11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
+				11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
