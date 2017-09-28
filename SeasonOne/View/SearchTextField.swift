@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchTextField: UITextField {
 
-    private let backgroundLayer = CALayer()
+    private let backgroundView = UIView()
     private let placeholderLabel = UILabel()
     private let imageView = UIImageView()
     
     override func draw(_ rect: CGRect) {
         initBackground()
-        initPlaceholder()
         initImage()
+        initPlaceholder()
         initKeyboard()
         initClearButton()
+        
+        self.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     override func drawPlaceholder(in rect: CGRect) {
@@ -27,21 +30,15 @@ class SearchTextField: UITextField {
     }
     
     func initBackground() {
-        backgroundLayer.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height)
-        backgroundLayer.backgroundColor = UIColor.black.withAlphaComponent(0.12).cgColor
-        backgroundLayer.cornerRadius = 8.0;
-        backgroundLayer.masksToBounds = true
-        self.layer.addSublayer(backgroundLayer)
-    }
-    
-    func initPlaceholder() {
-        placeholderLabel.text = placeholder
-        placeholderLabel.textAlignment = .left
-        placeholderLabel.textColor = UIColor.black.withAlphaComponent(0.38)
-        placeholderLabel.font = self.font
-        placeholderLabel.frame = bounds.offsetBy(dx: 32, dy: 0)
+        backgroundView.isUserInteractionEnabled = false
+        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.12)
+        backgroundView.layer.cornerRadius = 8.0;
+        backgroundView.layer.masksToBounds = true
+        self.addSubview(backgroundView)
         
-        self.addSubview(placeholderLabel)
+        backgroundView.snp.makeConstraints { (make) -> Void in
+            make.edges.equalTo(self)
+        }
     }
     
     func initImage() {
@@ -49,9 +46,29 @@ class SearchTextField: UITextField {
             imageView.image = image.withRenderingMode(.alwaysTemplate)
             imageView.tintColor = UIColor.black.withAlphaComponent(0.54)
             imageView.contentMode = .center
-            imageView.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: 32, height: bounds.size.height)
-            
             self.addSubview(imageView)
+            
+            imageView.snp.makeConstraints { (make) -> Void in
+                make.left.equalTo(self).offset(0)
+                make.top.equalTo(self).offset(0)
+                make.bottom.equalTo(self).offset(0)
+                make.width.equalTo(32)
+            }
+        }
+    }
+    
+    func initPlaceholder() {
+        placeholderLabel.text = placeholder
+        placeholderLabel.textAlignment = .left
+        placeholderLabel.textColor = UIColor.black.withAlphaComponent(0.38)
+        placeholderLabel.font = self.font
+        self.addSubview(placeholderLabel)
+        
+        placeholderLabel.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(imageView.snp.right).offset(0)
+            make.right.equalTo(self).offset(0)
+            make.top.equalTo(self).offset(0)
+            make.bottom.equalTo(self).offset(0)
         }
     }
     
@@ -71,31 +88,21 @@ class SearchTextField: UITextField {
         clearButton.setImage(clearButtonImage, for: .normal)
     }
     
-    func animatePlaceholder() {
-        UIView.animate(withDuration: 0.1, animations: {
-//            if self.text!.isEmpty {
-//                self.placeholderLabel.alpha = 1
-//            } else {
-//                self.placeholderLabel.alpha = 0
-//            }
-        })
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: 32, dy: 1)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.offsetBy(dx: 32, dy: 1)
     }
     
-    
-    
-    override func willMove(toSuperview newSuperview: UIView?) {
-        if newSuperview != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidChange), name: NSNotification.Name.UITextFieldTextDidChange, object: self)
-        } else {
-            NotificationCenter.default.removeObserver(self)
+    @objc func textFieldEditingChanged(sender: UITextField!) {
+        UIView.animate(withDuration: 0.1) {
+            if sender.text!.isEmpty {
+                self.placeholderLabel.alpha = 1
+            } else {
+                self.placeholderLabel.alpha = 0
+            }
         }
-    }
-    
-    @objc func textFieldDidChange() {
-        animatePlaceholder()
     }
 }
