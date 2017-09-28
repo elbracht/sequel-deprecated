@@ -104,8 +104,10 @@
 		11B6A6F01F7C5D2700AD3FCE /* SeasonOne */ = {
 			isa = PBXGroup;
 			children = (
+				11E4BCA41F7D11C900169F6C /* Model */,
+				11E4BCA31F7D11C400169F6C /* View */,
+				11E4BCA21F7D11B500169F6C /* Controller */,
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
-				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
 				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
@@ -130,6 +132,28 @@
 				11B6A7161F7C5D2700AD3FCE /* Info.plist */,
 			);
 			path = SeasonOneUITests;
+			sourceTree = "<group>";
+		};
+		11E4BCA21F7D11B500169F6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11E4BCA31F7D11C400169F6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11E4BCA41F7D11C900169F6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F2C710532032AB339822BD9A /* Pods */ = {
