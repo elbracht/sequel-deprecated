@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
+		118C8BDC1F7E8DC80018015E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Colors.swift */; };
 		11B2E1AE1F7E7E7200C1DA20 /* SearchConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
 		11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
+		118C8BDB1F7E8DC80018015E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConstants.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */,
+				118C8BDB1F7E8DC80018015E /* Colors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11B2E1AE1F7E7E7200C1DA20 /* SearchConstants.swift in Sources */,
+				118C8BDC1F7E8DC80018015E /* Colors.swift in Sources */,
 				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
 				11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,

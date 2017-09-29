@@ -29,7 +29,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
 
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        cancelButton.tintColor = Colors.accent
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         searchIconTextField.placeholder = "Search"
-        searchIconTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        searchIconTextField.tintColor = Colors.accent
         searchIconTextField.delegate = self
         self.view.addSubview(searchIconTextField)
         
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        scrollIndicatorImageView.tintColor = UIColor.black.withAlphaComponent(0.12)
+        scrollIndicatorImageView.tintColor = Colors.black.withAlphaComponent(0.12)
         scrollIndicatorImageView.alpha = 0
         self.view.addSubview(scrollIndicatorImageView)
         
@@ -80,29 +80,29 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     
     func searchIconTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = UIColor.black.withAlphaComponent(0.12)
-            self.searchIconTextField.iconColor = UIColor.black.withAlphaComponent(0.54)
-            self.searchIconTextField.placeholderColor = UIColor.black.withAlphaComponent(0.38)
+            self.searchIconTextField.backgroundColor = Colors.black.withAlphaComponent(0.12)
+            self.searchIconTextField.iconColor = Colors.black.withAlphaComponent(0.54)
+            self.searchIconTextField.placeholderColor = Colors.black.withAlphaComponent(0.38)
         }
     }
     
     func searchIconTextFieldActive() {
         UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
-            self.searchIconTextField.iconColor = UIColor.white
-            self.searchIconTextField.placeholderColor = UIColor.white
+            self.searchIconTextField.backgroundColor = Colors.accent
+            self.searchIconTextField.iconColor = Colors.white
+            self.searchIconTextField.placeholderColor = Colors.white
         }
     }
     
     func scrollIndicatorImageViewDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = UIColor.black.withAlphaComponent(0.12)
+            self.scrollIndicatorImageView.tintColor = Colors.black.withAlphaComponent(0.12)
         }
     }
     
     func scrollIndicatorImageViewActive() {
         UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+            self.scrollIndicatorImageView.tintColor = Colors.accent
         }
     }
     

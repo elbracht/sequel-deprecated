@@ -26,7 +26,7 @@ class SearchController: UIViewController {
     
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        cancelButton.tintColor = Colors.accent
         cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         self.view.addSubview(cancelButton)
         
@@ -38,7 +38,7 @@ class SearchController: UIViewController {
         }
         
         searchIconTextField.placeholder = "Search"
-        searchIconTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        searchIconTextField.tintColor = Colors.accent
         searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
         searchIconTextField.keyboardType = .alphabet
         searchIconTextField.keyboardAppearance = .light
