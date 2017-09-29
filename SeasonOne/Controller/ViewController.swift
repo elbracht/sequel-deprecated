@@ -32,10 +32,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(50)
+            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
             make.right.equalTo(self.view).offset(cancelButton.intrinsicContentSize.width)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(36)
+            make.height.equalTo(SearchConstants.height)
         }
         
         searchIconTextField.placeholder = "Search"
@@ -44,10 +44,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(searchIconTextField)
         
         searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(50)
-            make.left.equalTo(self.view).offset(16)
-            make.right.equalTo(cancelButton.snp.left).offset(-16)
-            make.height.equalTo(36)
+            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
+            make.left.equalTo(self.view).offset(SearchConstants.padding.left)
+            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.padding.right)
+            make.height.equalTo(SearchConstants.height)
         }
     }
     
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     func searchIconTextFieldRubberBand(becomeFirstResponder: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
             self.searchIconTextField.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.view).offset(50)
+                make.top.equalTo(self.view).offset(SearchConstants.padding.top)
             }
             self.view.layoutIfNeeded()
         }, completion: { (success) in
@@ -96,15 +96,14 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
     
     @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
-        let searchTrigger = CGFloat(250)
         let yTranslation = sender.translation(in: self.view).y
         
         searchIconTextField.snp.updateConstraints { (make) -> Void in
-            let offset = 50 + (yTranslation / 10)
+            let offset = SearchConstants.padding.top + (yTranslation / 10)
             make.top.equalTo(self.view).offset(offset)
         }
         
-        if (yTranslation > searchTrigger) {
+        if (yTranslation > SearchConstants.triggerPosition) {
             searchIconTextFieldActive()
         } else {
             searchIconTextFieldDefault()
@@ -112,7 +111,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         
         if (sender.state == UIGestureRecognizerState.ended) {
             searchIconTextFieldDefault()
-            if (yTranslation > searchTrigger) {
+            if (yTranslation > SearchConstants.triggerPosition) {
                 searchIconTextFieldRubberBand(becomeFirstResponder: true)
             } else {
                 searchIconTextFieldRubberBand(becomeFirstResponder: false)

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class SearchController: UIViewController {
-
+    
     let searchIconTextField = IconTextField(icon: UIImage(named: "search")!)
     let cancelButton = UIButton(type: .system)
     
@@ -31,10 +31,10 @@ class SearchController: UIViewController {
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(50)
-            make.right.equalTo(self.view).offset(-16)
+            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
+            make.right.equalTo(self.view).offset(-SearchConstants.padding.right)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(36)
+            make.height.equalTo(SearchConstants.height)
         }
         
         searchIconTextField.placeholder = "Search"
@@ -48,10 +48,10 @@ class SearchController: UIViewController {
         self.view.addSubview(searchIconTextField)
         
         searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(50)
-            make.left.equalTo(self.view).offset(16)
-            make.right.equalTo(cancelButton.snp.left).offset(-8)
-            make.height.equalTo(36)
+            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
+            make.left.equalTo(self.view).offset(SearchConstants.padding.left)
+            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.buttonPadding)
+            make.height.equalTo(SearchConstants.height)
         }
     }
     
