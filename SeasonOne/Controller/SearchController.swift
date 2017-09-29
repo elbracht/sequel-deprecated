@@ -11,7 +11,7 @@ import SnapKit
 
 class SearchController: UIViewController {
 
-    let searchTextField = SearchTextField()
+    let searchIconTextField = IconTextField(icon: UIImage(named: "search")!)
     let cancelButton = UIButton(type: .system)
     
     override func viewDidLoad() {
@@ -37,11 +37,17 @@ class SearchController: UIViewController {
             make.height.equalTo(36)
         }
         
-        searchTextField.placeholder = "Search"
-        searchTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
-        self.view.addSubview(searchTextField)
+        searchIconTextField.placeholder = "Search"
+        searchIconTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
+        searchIconTextField.keyboardType = .alphabet
+        searchIconTextField.keyboardAppearance = .light
+        searchIconTextField.autocorrectionType = .no
+        searchIconTextField.autocapitalizationType = .sentences
+        searchIconTextField.returnKeyType = .search
+        self.view.addSubview(searchIconTextField)
         
-        searchTextField.snp.makeConstraints { (make) -> Void in
+        searchIconTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(50)
             make.left.equalTo(self.view).offset(16)
             make.right.equalTo(cancelButton.snp.left).offset(-8)
@@ -50,7 +56,7 @@ class SearchController: UIViewController {
     }
     
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        searchTextField.endEditing(true)
+        searchIconTextField.endEditing(true)
         self.dismiss(animated: true)
     }
 }

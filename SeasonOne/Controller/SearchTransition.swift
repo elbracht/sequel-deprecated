@@ -41,10 +41,10 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
             if let viewController = transitionContext.viewController(forKey: .from) as? ViewController {
                 containerView.addSubview(searchViewController.view)
                 searchViewController.view.alpha = 0
-                searchViewController.searchTextField.becomeFirstResponder()
+                searchViewController.searchIconTextField.becomeFirstResponder()
                 
                 UIView.animate(withDuration: 0.2, animations: {
-                    viewController.searchTextField.snp.updateConstraints { (make) -> Void in
+                    viewController.searchIconTextField.snp.updateConstraints { (make) -> Void in
                         make.right.equalTo(viewController.cancelButton.snp.left).offset(-8)
                     }
                     
@@ -57,7 +57,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     searchViewController.view.alpha = 1
                     transitionContext.completeTransition(success)
                     
-                    viewController.searchTextField.snp.updateConstraints { (make) -> Void in
+                    viewController.searchIconTextField.snp.updateConstraints { (make) -> Void in
                         make.right.equalTo(viewController.cancelButton.snp.left).offset(-16)
                     }
                     
@@ -71,10 +71,10 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func dismiss(transitionContext: UIViewControllerContextTransitioning) {
         if let searchViewController = transitionContext.viewController(forKey: .from) as? SearchController {
-            searchViewController.searchTextField.endEditing(true)
+            searchViewController.searchIconTextField.endEditing(true)
             
             UIView.animate(withDuration: 0.2, animations: {
-                searchViewController.searchTextField.snp.updateConstraints { (make) -> Void in
+                searchViewController.searchIconTextField.snp.updateConstraints { (make) -> Void in
                     make.right.equalTo(searchViewController.cancelButton.snp.left).offset(-16)
                 }
                 
@@ -87,7 +87,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 searchViewController.view.removeFromSuperview()
                 transitionContext.completeTransition(success)
                 
-                searchViewController.searchTextField.snp.updateConstraints { (make) -> Void in
+                searchViewController.searchIconTextField.snp.updateConstraints { (make) -> Void in
                     make.right.equalTo(searchViewController.cancelButton.snp.left).offset(-8)
                 }
                 

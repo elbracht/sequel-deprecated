@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
-
-    let searchTextField = SearchTextField()
+    
+    let searchIconTextField = IconTextField(icon: UIImage(named: "search")!)
     let cancelButton = UIButton(type: .system)
     
     override func viewDidLoad() {
@@ -35,12 +35,12 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.height.equalTo(36)
         }
         
-        searchTextField.placeholder = "Search"
-        searchTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
-        searchTextField.delegate = self
-        self.view.addSubview(searchTextField)
+        searchIconTextField.placeholder = "Search"
+        searchIconTextField.tintColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+        searchIconTextField.delegate = self
+        self.view.addSubview(searchIconTextField)
         
-        searchTextField.snp.makeConstraints { (make) -> Void in
+        searchIconTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(50)
             make.left.equalTo(self.view).offset(16)
             make.right.equalTo(cancelButton.snp.left).offset(-16)
