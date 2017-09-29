@@ -17,6 +17,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         super.viewDidLoad()
         
         initSearchBar()
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
+        self.view.addGestureRecognizer(panGestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +64,61 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         searchController.transitioningDelegate = self
         present(searchController, animated: true)
         return false
+    }
+    
+    func searchIconTextFieldDefault() {
+        UIView.animate(withDuration: 0.1) {
+            self.searchIconTextField.backgroundColor = UIColor.black.withAlphaComponent(0.12)
+            self.searchIconTextField.iconColor = UIColor.black.withAlphaComponent(0.54)
+            self.searchIconTextField.placeholderColor = UIColor.black.withAlphaComponent(0.38)
+        }
+    }
+    
+    func searchIconTextFieldActive() {
+        UIView.animate(withDuration: 0.1) {
+            self.searchIconTextField.backgroundColor = UIColor(hue: 1.00, saturation: 0.61, brightness: 0.88, alpha: 1.00)
+            self.searchIconTextField.iconColor = UIColor.white
+            self.searchIconTextField.placeholderColor = UIColor.white
+        }
+    }
+    
+    func searchIconTextFieldRubberBand(becomeFirstResponder: Bool) {
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
+            self.searchIconTextField.snp.updateConstraints { (make) -> Void in
+                make.top.equalTo(self.view).offset(50)
+            }
+            self.view.layoutIfNeeded()
+        }, completion: { (success) in
+            if (becomeFirstResponder) {
+                self.searchIconTextField.becomeFirstResponder()
+            }
+        })
+    }
+    
+    @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
+        let searchTrigger = CGFloat(250)
+        let yTranslation = sender.translation(in: self.view).y
+        
+        searchIconTextField.snp.updateConstraints { (make) -> Void in
+            let offset = 50 + (yTranslation / 10)
+            make.top.equalTo(self.view).offset(offset)
+        }
+        
+        if (yTranslation > searchTrigger) {
+            searchIconTextFieldActive()
+        } else {
+            searchIconTextFieldDefault()
+        }
+        
+        if (sender.state == UIGestureRecognizerState.ended) {
+            searchIconTextFieldDefault()
+            if (yTranslation > searchTrigger) {
+                searchIconTextFieldRubberBand(becomeFirstResponder: true)
+            } else {
+                searchIconTextFieldRubberBand(becomeFirstResponder: false)
+            }
+            
+        }
     }
 }
 
