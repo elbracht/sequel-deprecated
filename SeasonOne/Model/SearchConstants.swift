@@ -9,9 +9,9 @@
 import UIKit
 
 struct SearchConstants {
-    static let height: CGFloat = 36
-    static let padding = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 16)
-    static let buttonPadding: CGFloat = 8
+    static let searchHeight: CGFloat = 36
+    static let searchPadding = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 16)
+    static let searchTriggerPosition: CGFloat = 250
+    static let cancelButtonPadding: CGFloat = 8
     static let scrollIndicatorPadding: CGFloat = 8
-    static let triggerPosition: CGFloat = 250
 }

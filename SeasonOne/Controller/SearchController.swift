@@ -31,10 +31,10 @@ class SearchController: UIViewController {
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
-            make.right.equalTo(self.view).offset(-SearchConstants.padding.right)
+            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
+            make.right.equalTo(self.view).offset(-SearchConstants.searchPadding.right)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(SearchConstants.height)
+            make.height.equalTo(SearchConstants.searchHeight)
         }
         
         searchIconTextField.placeholder = "Search"
@@ -48,10 +48,10 @@ class SearchController: UIViewController {
         self.view.addSubview(searchIconTextField)
         
         searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
-            make.left.equalTo(self.view).offset(SearchConstants.padding.left)
-            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.buttonPadding)
-            make.height.equalTo(SearchConstants.height)
+            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
+            make.left.equalTo(self.view).offset(SearchConstants.searchPadding.left)
+            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.cancelButtonPadding)
+            make.height.equalTo(SearchConstants.searchHeight)
         }
     }
     

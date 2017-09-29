@@ -33,10 +33,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
+            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
             make.right.equalTo(self.view).offset(cancelButton.intrinsicContentSize.width)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(SearchConstants.height)
+            make.height.equalTo(SearchConstants.searchHeight)
         }
         
         searchIconTextField.placeholder = "Search"
@@ -45,10 +45,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(searchIconTextField)
         
         searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.padding.top)
-            make.left.equalTo(self.view).offset(SearchConstants.padding.left)
-            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.padding.right)
-            make.height.equalTo(SearchConstants.height)
+            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
+            make.left.equalTo(self.view).offset(SearchConstants.searchPadding.left)
+            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.searchPadding.right)
+            make.height.equalTo(SearchConstants.searchHeight)
         }
         
         scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(scrollIndicatorImageView)
         
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            let offset = SearchConstants.padding.top + SearchConstants.height + SearchConstants.scrollIndicatorPadding
+            let offset = SearchConstants.searchPadding.top + SearchConstants.searchHeight + SearchConstants.scrollIndicatorPadding
             make.top.equalTo(self.view).offset(offset)
             make.centerX.equalTo(self.view)
         }
@@ -121,11 +121,11 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     func searchRubberBand(becomeFirstResponder: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
             self.searchIconTextField.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.view).offset(SearchConstants.padding.top)
+                make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
             }
             
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                let offset = SearchConstants.padding.top + SearchConstants.height + SearchConstants.scrollIndicatorPadding
+                let offset = SearchConstants.searchPadding.top + SearchConstants.searchHeight + SearchConstants.scrollIndicatorPadding
                 make.top.equalTo(self.view).offset(offset)
             }
             
@@ -145,16 +145,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         scrollIndicatorImageViewFadeIn()
         
         searchIconTextField.snp.updateConstraints { (make) -> Void in
-            let offset = SearchConstants.padding.top + (yTranslation / scrollSpeedSlow)
+            let offset = SearchConstants.searchPadding.top + (yTranslation / scrollSpeedSlow)
             make.top.equalTo(self.view).offset(offset)
         }
         
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            let offset = SearchConstants.padding.top + SearchConstants.height + SearchConstants.scrollIndicatorPadding + (yTranslation / scrollSpeedFast)
+            let offset = SearchConstants.searchPadding.top + SearchConstants.searchHeight + SearchConstants.scrollIndicatorPadding + (yTranslation / scrollSpeedFast)
             make.top.equalTo(self.view).offset(offset)
         }
         
-        if (yTranslation > SearchConstants.triggerPosition) {
+        if (yTranslation > SearchConstants.searchTriggerPosition) {
             searchIconTextFieldActive()
             scrollIndicatorImageViewActive()
         } else {
@@ -167,7 +167,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             scrollIndicatorImageViewDefault()
             scrollIndicatorImageViewFadeOut()
             
-            if (yTranslation > SearchConstants.triggerPosition) {
+            if (yTranslation > SearchConstants.searchTriggerPosition) {
                 searchRubberBand(becomeFirstResponder: true)
             } else {
                 searchRubberBand(becomeFirstResponder: false)
