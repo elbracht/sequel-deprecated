@@ -89,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		118C8BDA1F7E80A60018015E /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		11B6A6E51F7C5D2700AD3FCE = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +125,7 @@
 				11E4BCA41F7D11C900169F6C /* Model */,
 				11E4BCA31F7D11C400169F6C /* View */,
 				11E4BCA21F7D11B500169F6C /* Controller */,
+				118C8BDA1F7E80A60018015E /* Transition */,
 				11E4BCA91F7D12DB00169F6C /* Helper */,
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
 				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
@@ -150,7 +159,6 @@
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
 				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
-				1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
