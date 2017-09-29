@@ -19,10 +19,6 @@ class SearchController: UIViewController {
         
         initSearchBar()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)

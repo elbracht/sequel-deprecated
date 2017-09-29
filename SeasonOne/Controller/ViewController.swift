@@ -22,10 +22,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)
