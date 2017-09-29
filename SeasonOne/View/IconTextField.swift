@@ -105,11 +105,13 @@ class IconTextField: UITextField {
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: 32, dy: 1)
+        let padding = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 24)
+        return UIEdgeInsetsInsetRect(bounds, padding)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: 32, dy: 1)
+        let padding = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 24)
+        return UIEdgeInsetsInsetRect(bounds, padding)
     }
     
     @objc func textFieldEditingChanged(sender: UITextField!) {
