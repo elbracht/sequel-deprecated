@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		118C8BDC1F7E8DC80018015E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Colors.swift */; };
 		11B2E1AE1F7E7E7200C1DA20 /* SearchConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextFieldTests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConstants.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
+				1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */,
 			);
 			path = SeasonOneTests;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 					};
 					11B6A7041F7C5D2700AD3FCE = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 11B6A6ED1F7C5D2700AD3FCE;
 					};
@@ -407,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,12 +593,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = SeasonOneTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeasonOne.app/SeasonOne";
@@ -605,6 +612,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = SeasonOneTests/Info.plist;

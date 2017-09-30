@@ -14,21 +14,27 @@ class IconTextField: UITextField {
     private let iconImageView = UIImageView()
     private let placeholderLabel = UILabel()
     
+    public var icon: UIImage? {
+        didSet {
+            iconImageView.image = icon?.withRenderingMode(.alwaysTemplate)
+        }
+    }
+    
     public var iconColor: UIColor? {
         didSet {
             iconImageView.tintColor = iconColor
         }
     }
     
-    public var placeholderColor: UIColor? {
-        didSet {
-            placeholderLabel.textColor = placeholderColor
-        }
-    }
-    
     override var placeholder: String? {
         didSet {
             placeholderLabel.text = placeholder
+        }
+    }
+    
+    public var placeholderColor: UIColor? {
+        didSet {
+            placeholderLabel.textColor = placeholderColor
         }
     }
     
@@ -39,27 +45,20 @@ class IconTextField: UITextField {
         }
     }
     
-    init(icon: UIImage, frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        initIconTextField(icon: icon)
-    }
-    
-    init(icon: UIImage) {
-        super.init(frame: CGRect())
-        initIconTextField(icon: icon)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func initIconTextField(icon: UIImage) {
+        
         initBackground()
-        initIcon(icon)
+        initIcon()
         initPlaceholder()
         initClearButton()
         
         self.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // init(coder:) has not been implemented
+        return nil
     }
     
     override func drawPlaceholder(in rect: CGRect) {
@@ -72,8 +71,7 @@ class IconTextField: UITextField {
         self.layer.masksToBounds = true
     }
     
-    func initIcon(_ icon: UIImage) {
-        iconImageView.image = icon.withRenderingMode(.alwaysTemplate)
+    func initIcon() {
         iconImageView.tintColor = UIColor.black.withAlphaComponent(0.54)
         iconImageView.contentMode = .center
         self.addSubview(iconImageView)

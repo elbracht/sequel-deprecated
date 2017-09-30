@@ -11,7 +11,7 @@ import SnapKit
 
 class SearchController: UIViewController {
     
-    let searchIconTextField = IconTextField(icon: UIImage(named: "search")!)
+    let searchIconTextField = IconTextField(frame: CGRect())
     let cancelButton = UIButton(type: .system)
     
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class SearchController: UIViewController {
         }
         
         searchIconTextField.placeholder = "Search"
+        searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.tintColor = Colors.accent
         searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
         searchIconTextField.keyboardType = .alphabet

@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
-    let searchIconTextField = IconTextField(icon: UIImage(named: "search")!)
+    let searchIconTextField = IconTextField(frame: CGRect())
     let cancelButton = UIButton(type: .system)
     let scrollIndicatorImageView = UIImageView()
     
@@ -36,6 +36,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         searchIconTextField.placeholder = "Search"
+        searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.tintColor = Colors.accent
         searchIconTextField.delegate = self
         self.view.addSubview(searchIconTextField)
