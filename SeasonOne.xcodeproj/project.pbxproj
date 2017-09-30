@@ -15,8 +15,6 @@
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
-		11B6A70A1F7C5D2700AD3FCE /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */; };
-		11B6A7151F7C5D2700AD3FCE /* SeasonOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
 		11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* IconTextField.swift */; };
 		11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCAA1F7D130300169F6C /* UIImage.swift */; };
@@ -52,10 +50,8 @@
 		11B6A6FE1F7C5D2700AD3FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B6A7001F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7051F7C5D2700AD3FCE /* SeasonOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneTests.swift; sourceTree = "<group>"; };
 		11B6A70B1F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneUITests.swift; sourceTree = "<group>"; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		11E4BCA71F7D125E00169F6C /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
@@ -141,7 +137,6 @@
 		11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */,
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
 			);
 			path = SeasonOneTests;
@@ -150,7 +145,6 @@
 		11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */,
 				11B6A7161F7C5D2700AD3FCE /* Info.plist */,
 			);
 			path = SeasonOneUITests;
@@ -413,7 +407,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B6A70A1F7C5D2700AD3FCE /* SeasonOneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B6A7151F7C5D2700AD3FCE /* SeasonOneUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
