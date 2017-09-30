@@ -16,6 +16,7 @@
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
+		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
 		11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* IconTextField.swift */; };
 		11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCAA1F7D130300169F6C /* UIImage.swift */; };
@@ -55,6 +56,7 @@
 		11B6A70B1F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		11E4BCA71F7D125E00169F6C /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		11E4BCAA1F7D130300169F6C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				11B6A7161F7C5D2700AD3FCE /* Info.plist */,
+				11DEDA961F7EDA520048F9DC /* SearchUITests.swift */,
 			);
 			path = SeasonOneUITests;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
