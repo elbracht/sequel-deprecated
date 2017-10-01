@@ -15,16 +15,23 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     let cancelButton = UIButton(type: .system)
     let scrollIndicatorImageView = UIImageView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(nibName: nil, bundle: nil)
         
-        initSearchBar()
+        initCancelButton()
+        initSearchIconTextField()
+        initScrollIndicatorImageView()
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
-
-    func initSearchBar() {
+    
+    required init?(coder aDecoder: NSCoder) {
+        // init(coder:) has not been implemented
+        return nil
+    }
+    
+    func initCancelButton() {
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = FontConstant.body
         cancelButton.tintColor = ColorConstant.accent
@@ -36,7 +43,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
             make.height.equalTo(SearchConstant.searchHeight)
         }
-        
+    }
+    
+    func initSearchIconTextField() {
         searchIconTextField.textColor = ColorConstant.white
         searchIconTextField.tintColor = ColorConstant.accent
         searchIconTextField.font = FontConstant.body
@@ -52,7 +61,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.searchPadding.right)
             make.height.equalTo(SearchConstant.searchHeight)
         }
-        
+    }
+    
+    func initScrollIndicatorImageView() {
         scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
         scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
         scrollIndicatorImageView.alpha = 0
