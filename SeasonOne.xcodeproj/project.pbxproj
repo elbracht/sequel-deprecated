@@ -7,21 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */; };
+		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
+		118C8BDC1F7E8DC80018015E /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* ColorConstant.swift */; };
+		11B2E1AE1F7E7E7200C1DA20 /* SearchConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
 		11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */; };
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
-		11B6A70A1F7C5D2700AD3FCE /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */; };
-		11B6A7151F7C5D2700AD3FCE /* SeasonOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */; };
-		11E4BC9A1F7D103200169F6C /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC921F7D103200169F6C /* Ubuntu-Bold.ttf */; };
-		11E4BC9B1F7D103200169F6C /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC931F7D103200169F6C /* Ubuntu-BoldItalic.ttf */; };
-		11E4BC9C1F7D103200169F6C /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC941F7D103200169F6C /* Ubuntu-Italic.ttf */; };
-		11E4BC9D1F7D103200169F6C /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC951F7D103200169F6C /* Ubuntu-Light.ttf */; };
-		11E4BC9E1F7D103200169F6C /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC961F7D103200169F6C /* Ubuntu-LightItalic.ttf */; };
-		11E4BC9F1F7D103200169F6C /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC971F7D103200169F6C /* Ubuntu-Medium.ttf */; };
-		11E4BCA01F7D103200169F6C /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC981F7D103200169F6C /* Ubuntu-MediumItalic.ttf */; };
-		11E4BCA11F7D103200169F6C /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E4BC991F7D103200169F6C /* Ubuntu-Regular.ttf */; };
+		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
+		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
+		11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* IconTextField.swift */; };
+		11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCAA1F7D130300169F6C /* UIImage.swift */; };
+		11ED81691F81189000E8379E /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */; };
+		11ED816A1F81189000E8379E /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */; };
+		11ED816B1F81189000E8379E /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */; };
+		11ED816C1F81189000E8379E /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */; };
+		11ED816D1F81189000E8379E /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */; };
+		11ED816E1F81189000E8379E /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */; };
+		11ED816F1F81189000E8379E /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */; };
+		11ED81701F81189000E8379E /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */; };
+		11ED81721F811A6200E8379E /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* FontConstant.swift */; };
 		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextFieldTests.swift; sourceTree = "<group>"; };
+		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
+		118C8BDB1F7E8DC80018015E /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
+		11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConstant.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,19 +62,22 @@
 		11B6A6FE1F7C5D2700AD3FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B6A7001F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7051F7C5D2700AD3FCE /* SeasonOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneTests.swift; sourceTree = "<group>"; };
 		11B6A70B1F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneUITests.swift; sourceTree = "<group>"; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11E4BC921F7D103200169F6C /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
-		11E4BC931F7D103200169F6C /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
-		11E4BC941F7D103200169F6C /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
-		11E4BC951F7D103200169F6C /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
-		11E4BC961F7D103200169F6C /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
-		11E4BC971F7D103200169F6C /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
-		11E4BC981F7D103200169F6C /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
-		11E4BC991F7D103200169F6C /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
+		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		11E4BCA71F7D125E00169F6C /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
+		11E4BCAA1F7D130300169F6C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		11ED81711F811A6200E8379E /* FontConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
 		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.release.xcconfig"; sourceTree = "<group>"; };
 		B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,10 +109,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		118C8BDA1F7E80A60018015E /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		11B6A6E51F7C5D2700AD3FCE = {
 			isa = PBXGroup;
 			children = (
-				11E4BC911F7D103200169F6C /* Ressources */,
+				11ED81601F81188F00E8379E /* Ressources */,
 				11B6A6F01F7C5D2700AD3FCE /* SeasonOne */,
 				11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */,
 				11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */,
@@ -121,8 +143,13 @@
 		11B6A6F01F7C5D2700AD3FCE /* SeasonOne */ = {
 			isa = PBXGroup;
 			children = (
+				11E4BCA41F7D11C900169F6C /* Model */,
+				11E4BCA31F7D11C400169F6C /* View */,
+				11E4BCA21F7D11B500169F6C /* Controller */,
+				11ED81731F811DBC00E8379E /* Constant */,
+				118C8BDA1F7E80A60018015E /* Transition */,
+				11E4BCA91F7D12DB00169F6C /* Helper */,
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
-				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
 				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
@@ -134,8 +161,8 @@
 		11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A7091F7C5D2700AD3FCE /* SeasonOneTests.swift */,
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
+				1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */,
 			);
 			path = SeasonOneTests;
 			sourceTree = "<group>";
@@ -143,25 +170,67 @@
 		11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A7141F7C5D2700AD3FCE /* SeasonOneUITests.swift */,
 				11B6A7161F7C5D2700AD3FCE /* Info.plist */,
+				11DEDA961F7EDA520048F9DC /* SearchUITests.swift */,
 			);
 			path = SeasonOneUITests;
 			sourceTree = "<group>";
 		};
-		11E4BC911F7D103200169F6C /* Ressources */ = {
+		11E4BCA21F7D11B500169F6C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				11E4BC921F7D103200169F6C /* Ubuntu-Bold.ttf */,
-				11E4BC931F7D103200169F6C /* Ubuntu-BoldItalic.ttf */,
-				11E4BC941F7D103200169F6C /* Ubuntu-Italic.ttf */,
-				11E4BC951F7D103200169F6C /* Ubuntu-Light.ttf */,
-				11E4BC961F7D103200169F6C /* Ubuntu-LightItalic.ttf */,
-				11E4BC971F7D103200169F6C /* Ubuntu-Medium.ttf */,
-				11E4BC981F7D103200169F6C /* Ubuntu-MediumItalic.ttf */,
-				11E4BC991F7D103200169F6C /* Ubuntu-Regular.ttf */,
+				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
+				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		11E4BCA31F7D11C400169F6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11E4BCA71F7D125E00169F6C /* IconTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11E4BCA41F7D11C900169F6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11E4BCA91F7D12DB00169F6C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				11E4BCAA1F7D130300169F6C /* UIImage.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		11ED81601F81188F00E8379E /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */,
+				11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */,
+				11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */,
+				11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */,
+				11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */,
+				11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */,
+				11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */,
+				11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		11ED81731F811DBC00E8379E /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */,
+				118C8BDB1F7E8DC80018015E /* ColorConstant.swift */,
+				11ED81711F811A6200E8379E /* FontConstant.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		F2C710532032AB339822BD9A /* Pods */ = {
@@ -256,6 +325,7 @@
 					};
 					11B6A7041F7C5D2700AD3FCE = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 11B6A6ED1F7C5D2700AD3FCE;
 					};
@@ -291,16 +361,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11E4BC9B1F7D103200169F6C /* Ubuntu-BoldItalic.ttf in Resources */,
+				11ED816A1F81189000E8379E /* Ubuntu-BoldItalic.ttf in Resources */,
 				11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */,
 				11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */,
-				11E4BC9E1F7D103200169F6C /* Ubuntu-LightItalic.ttf in Resources */,
-				11E4BC9C1F7D103200169F6C /* Ubuntu-Italic.ttf in Resources */,
-				11E4BC9D1F7D103200169F6C /* Ubuntu-Light.ttf in Resources */,
-				11E4BC9F1F7D103200169F6C /* Ubuntu-Medium.ttf in Resources */,
-				11E4BC9A1F7D103200169F6C /* Ubuntu-Bold.ttf in Resources */,
-				11E4BCA11F7D103200169F6C /* Ubuntu-Regular.ttf in Resources */,
-				11E4BCA01F7D103200169F6C /* Ubuntu-MediumItalic.ttf in Resources */,
+				11ED816D1F81189000E8379E /* Ubuntu-LightItalic.ttf in Resources */,
+				11ED816B1F81189000E8379E /* Ubuntu-Italic.ttf in Resources */,
+				11ED816C1F81189000E8379E /* Ubuntu-Light.ttf in Resources */,
+				11ED816E1F81189000E8379E /* Ubuntu-Medium.ttf in Resources */,
+				11ED81691F81189000E8379E /* Ubuntu-Bold.ttf in Resources */,
+				11ED81701F81189000E8379E /* Ubuntu-Regular.ttf in Resources */,
+				11ED816F1F81189000E8379E /* Ubuntu-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +415,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -376,9 +449,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B2E1AE1F7E7E7200C1DA20 /* SearchConstant.swift in Sources */,
+				118C8BDC1F7E8DC80018015E /* ColorConstant.swift in Sources */,
+				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
+				11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
+				11ED81721F811A6200E8379E /* FontConstant.swift in Sources */,
+				11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
+				11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B6A70A1F7C5D2700AD3FCE /* SeasonOneTests.swift in Sources */,
+				1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B6A7151F7C5D2700AD3FCE /* SeasonOneUITests.swift in Sources */,
+				11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,12 +649,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = SeasonOneTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeasonOne.app/SeasonOne";
@@ -586,6 +668,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = SeasonOneTests/Info.plist;
