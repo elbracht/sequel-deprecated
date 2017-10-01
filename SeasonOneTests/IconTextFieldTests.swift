@@ -29,6 +29,7 @@ class IconTextFieldTests: XCTestCase {
         iconTextField.placeholder = "Search"
         iconTextField.placeholderColor = UIColor.black
         iconTextField.clearButtonImage = UIImage(named: "clear")
+        iconTextField.clearButtonColor = UIColor.black
         iconTextField.clearButtonPadding = 16
         
         XCTAssertNotNil(iconTextField)
