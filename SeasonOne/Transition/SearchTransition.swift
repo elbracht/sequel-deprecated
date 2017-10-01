@@ -43,6 +43,8 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
             make.right.equalTo(controller.view).offset(-16)
         }
         
+        controller.searchIconTextField.iconColor = ColorConstant.white
+        
         controller.view.layoutIfNeeded()
     }
     
@@ -54,6 +56,8 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
         controller.cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(controller.view).offset(controller.cancelButton.intrinsicContentSize.width)
         }
+        
+        controller.searchIconTextField.iconColor = ColorConstant.white.withAlphaComponent(0.54)
         
         controller.view.layoutIfNeeded()
     }
@@ -67,6 +71,8 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
             make.right.equalTo(controller.view).offset(controller.cancelButton.intrinsicContentSize.width)
         }
         
+        controller.searchIconTextField.iconColor = ColorConstant.white.withAlphaComponent(0.54)
+        
         controller.view.layoutIfNeeded()
     }
     
@@ -78,6 +84,10 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
         controller.cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(controller.view).offset(-16)
         }
+        
+        controller.searchIconTextField.iconColor = ColorConstant.white
+        
+        controller.view.layoutIfNeeded()
     }
     
     func present(transitionContext: UIViewControllerContextTransitioning) {

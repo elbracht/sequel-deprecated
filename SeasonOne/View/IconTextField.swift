@@ -38,7 +38,7 @@ class IconTextField: UITextField {
         }
     }
     
-    public var placeholderColor: UIColor = UIColor.black.withAlphaComponent(0.54) {
+    public var placeholderColor: UIColor = UIColor.white.withAlphaComponent(0.54) {
         didSet {
             updatePlaceholder()
         }
@@ -58,7 +58,7 @@ class IconTextField: UITextField {
         }
     }
 
-    public var iconColor: UIColor = UIColor.black.withAlphaComponent(0.54) {
+    public var iconColor: UIColor = UIColor.white.withAlphaComponent(0.54) {
         didSet {
             updateIcon()
         }
@@ -76,10 +76,16 @@ class IconTextField: UITextField {
         }
     }
     
+    public var clearButtonColor: UIColor = UIColor.white.withAlphaComponent(0.54) {
+        didSet {
+            updateClearButton()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = UIColor.black.withAlphaComponent(0.12)
+        backgroundColor = UIColor.white.withAlphaComponent(0.12)
         self.clearButtonMode = .always
         self.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
@@ -130,7 +136,8 @@ class IconTextField: UITextField {
     
     func updateClearButton() {
         let clearButton = self.value(forKey: "_clearButton") as! UIButton
-        clearButton.setImage(clearButtonImage, for: .normal)
+        clearButton.setImage(clearButtonImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+        clearButton.imageView?.tintColor = clearButtonColor
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -158,7 +165,7 @@ class IconTextField: UITextField {
     }
     
     func getPaddingForRect() -> UIEdgeInsets {
-        return UIEdgeInsets(top: self.padding.top + 1, left: getPaddingLeft(), bottom: self.padding.bottom, right: getPaddingRight())
+        return UIEdgeInsets(top: self.padding.top, left: getPaddingLeft(), bottom: self.padding.bottom, right: getPaddingRight())
     }
     
     func getPaddingLeft() -> CGFloat {

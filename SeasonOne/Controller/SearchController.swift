@@ -34,14 +34,16 @@ class SearchController: UIViewController {
             make.height.equalTo(SearchConstant.searchHeight)
         }
         
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.icon = UIImage(named: "search")
+        searchIconTextField.textColor = ColorConstant.white
         searchIconTextField.tintColor = ColorConstant.accent
-        searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
+        searchIconTextField.iconColor = ColorConstant.white
+        searchIconTextField.font = FontConstant.body
+        searchIconTextField.placeholder = "Search"
+        searchIconTextField.icon = UIImage(named: "search")
+        searchIconTextField.clearButtonImage = UIImage(named: "clear")
         searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
         searchIconTextField.keyboardType = .alphabet
-        searchIconTextField.keyboardAppearance = .light
+        searchIconTextField.keyboardAppearance = .dark
         searchIconTextField.autocorrectionType = .no
         searchIconTextField.autocapitalizationType = .sentences
         searchIconTextField.returnKeyType = .search

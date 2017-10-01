@@ -37,10 +37,11 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.height.equalTo(SearchConstant.searchHeight)
         }
         
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.icon = UIImage(named: "search")
+        searchIconTextField.textColor = ColorConstant.white
         searchIconTextField.tintColor = ColorConstant.accent
+        searchIconTextField.font = FontConstant.body
+        searchIconTextField.placeholder = "Search"
+        searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
         searchIconTextField.delegate = self
         self.view.addSubview(searchIconTextField)
@@ -53,7 +54,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        scrollIndicatorImageView.tintColor = ColorConstant.black.withAlphaComponent(0.12)
+        scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
         scrollIndicatorImageView.alpha = 0
         self.view.addSubview(scrollIndicatorImageView)
         
@@ -81,9 +82,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     
     func searchIconTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = ColorConstant.black.withAlphaComponent(0.12)
-            self.searchIconTextField.iconColor = ColorConstant.black.withAlphaComponent(0.54)
-            self.searchIconTextField.placeholderColor = ColorConstant.black.withAlphaComponent(0.38)
+            self.searchIconTextField.backgroundColor = ColorConstant.white.withAlphaComponent(0.12)
+            self.searchIconTextField.iconColor = ColorConstant.white.withAlphaComponent(0.54)
+            self.searchIconTextField.placeholderColor = ColorConstant.white.withAlphaComponent(0.54)
         }
     }
     
@@ -97,7 +98,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     
     func scrollIndicatorImageViewDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = ColorConstant.black.withAlphaComponent(0.12)
+            self.scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
         }
     }
     
