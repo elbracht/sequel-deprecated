@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
 
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.titleLabel?.font = Fonts.body
         cancelButton.tintColor = Colors.accent
         self.view.addSubview(cancelButton)
         
@@ -37,6 +38,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         searchIconTextField.placeholder = "Search"
+        searchIconTextField.font = Fonts.body
         searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.tintColor = Colors.accent
         searchIconTextField.cornerRadius = SearchConstants.searchHeight / 2

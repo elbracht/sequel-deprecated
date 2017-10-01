@@ -28,6 +28,7 @@
 		11ED816E1F81189000E8379E /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */; };
 		11ED816F1F81189000E8379E /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */; };
 		11ED81701F81189000E8379E /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */; };
+		11ED81721F811A6200E8379E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* Fonts.swift */; };
 		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
 		11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		11ED81711F811A6200E8379E /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.release.xcconfig"; sourceTree = "<group>"; };
 		B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				11B2E1AD1F7E7E7200C1DA20 /* SearchConstants.swift */,
 				118C8BDB1F7E8DC80018015E /* Colors.swift */,
+				11ED81711F811A6200E8379E /* Fonts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
+				11ED81721F811A6200E8379E /* Fonts.swift in Sources */,
 				11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
 				11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */,
