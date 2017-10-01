@@ -39,6 +39,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         searchIconTextField.placeholder = "Search"
         searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.tintColor = Colors.accent
+        searchIconTextField.cornerRadius = SearchConstants.searchHeight / 2
         searchIconTextField.delegate = self
         self.view.addSubview(searchIconTextField)
         

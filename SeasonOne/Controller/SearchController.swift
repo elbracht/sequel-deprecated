@@ -37,6 +37,7 @@ class SearchController: UIViewController {
         searchIconTextField.icon = UIImage(named: "search")
         searchIconTextField.tintColor = Colors.accent
         searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
+        searchIconTextField.cornerRadius = SearchConstants.searchHeight / 2
         searchIconTextField.keyboardType = .alphabet
         searchIconTextField.keyboardAppearance = .light
         searchIconTextField.autocorrectionType = .no
