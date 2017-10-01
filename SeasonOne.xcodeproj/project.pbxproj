@@ -20,15 +20,11 @@
 		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
 		11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* IconTextField.swift */; };
 		11E4BCAB1F7D130300169F6C /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCAA1F7D130300169F6C /* UIImage.swift */; };
-		11ED81691F81189000E8379E /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */; };
-		11ED816A1F81189000E8379E /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */; };
-		11ED816B1F81189000E8379E /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */; };
-		11ED816C1F81189000E8379E /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */; };
-		11ED816D1F81189000E8379E /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */; };
-		11ED816E1F81189000E8379E /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */; };
-		11ED816F1F81189000E8379E /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */; };
-		11ED81701F81189000E8379E /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */; };
 		11ED81721F811A6200E8379E /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* FontConstant.swift */; };
+		11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81741F81227200E8379E /* Montserrat-Bold.ttf */; };
+		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
+		11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81761F81227200E8379E /* Montserrat-Medium.ttf */; };
+		11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81771F81227200E8379E /* Montserrat-Regular.ttf */; };
 		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,15 +65,11 @@
 		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		11E4BCA71F7D125E00169F6C /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		11E4BCAA1F7D130300169F6C /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
-		11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
-		11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
-		11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
-		11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
-		11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
-		11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
-		11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		11ED81711F811A6200E8379E /* FontConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
+		11ED81741F81227200E8379E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		11ED81761F81227200E8379E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		11ED81771F81227200E8379E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.release.xcconfig"; sourceTree = "<group>"; };
 		B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,14 +203,10 @@
 		11ED81601F81188F00E8379E /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				11ED81611F81188F00E8379E /* Ubuntu-Bold.ttf */,
-				11ED81621F81188F00E8379E /* Ubuntu-BoldItalic.ttf */,
-				11ED81631F81188F00E8379E /* Ubuntu-Italic.ttf */,
-				11ED81641F81188F00E8379E /* Ubuntu-Light.ttf */,
-				11ED81651F81188F00E8379E /* Ubuntu-LightItalic.ttf */,
-				11ED81661F81188F00E8379E /* Ubuntu-Medium.ttf */,
-				11ED81671F81188F00E8379E /* Ubuntu-MediumItalic.ttf */,
-				11ED81681F81188F00E8379E /* Ubuntu-Regular.ttf */,
+				11ED81741F81227200E8379E /* Montserrat-Bold.ttf */,
+				11ED81751F81227200E8379E /* Montserrat-Light.ttf */,
+				11ED81761F81227200E8379E /* Montserrat-Medium.ttf */,
+				11ED81771F81227200E8379E /* Montserrat-Regular.ttf */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -361,16 +349,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11ED816A1F81189000E8379E /* Ubuntu-BoldItalic.ttf in Resources */,
+				11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */,
+				11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */,
+				11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */,
 				11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */,
 				11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */,
-				11ED816D1F81189000E8379E /* Ubuntu-LightItalic.ttf in Resources */,
-				11ED816B1F81189000E8379E /* Ubuntu-Italic.ttf in Resources */,
-				11ED816C1F81189000E8379E /* Ubuntu-Light.ttf in Resources */,
-				11ED816E1F81189000E8379E /* Ubuntu-Medium.ttf in Resources */,
-				11ED81691F81189000E8379E /* Ubuntu-Bold.ttf in Resources */,
-				11ED81701F81189000E8379E /* Ubuntu-Regular.ttf in Resources */,
-				11ED816F1F81189000E8379E /* Ubuntu-MediumItalic.ttf in Resources */,
+				11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
