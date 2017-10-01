@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Fonts {
+struct FontConstant {
     static let display = UIFont(name: "Ubuntu-Light", size: 30)
     static let display2 = UIFont(name: "Ubuntu-Medium", size: 30)
     static let headline = UIFont(name: "Ubuntu-Light", size: 24)

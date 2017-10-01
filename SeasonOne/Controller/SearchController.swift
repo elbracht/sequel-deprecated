@@ -22,24 +22,24 @@ class SearchController: UIViewController {
     
     func initSearchBar() {
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.titleLabel?.font = Fonts.body
-        cancelButton.tintColor = Colors.accent
+        cancelButton.titleLabel?.font = FontConstant.body
+        cancelButton.tintColor = ColorConstant.accent
         cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         self.view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
-            make.right.equalTo(self.view).offset(-SearchConstants.searchPadding.right)
+            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
+            make.right.equalTo(self.view).offset(-SearchConstant.searchPadding.right)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(SearchConstants.searchHeight)
+            make.height.equalTo(SearchConstant.searchHeight)
         }
         
         searchIconTextField.placeholder = "Search"
-        searchIconTextField.font = Fonts.body
+        searchIconTextField.font = FontConstant.body
         searchIconTextField.icon = UIImage(named: "search")
-        searchIconTextField.tintColor = Colors.accent
+        searchIconTextField.tintColor = ColorConstant.accent
         searchIconTextField.clearButtonImage = UIImage(named: "clear")?.alpha(0.38)
-        searchIconTextField.cornerRadius = SearchConstants.searchHeight / 2
+        searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
         searchIconTextField.keyboardType = .alphabet
         searchIconTextField.keyboardAppearance = .light
         searchIconTextField.autocorrectionType = .no
@@ -48,10 +48,10 @@ class SearchController: UIViewController {
         self.view.addSubview(searchIconTextField)
         
         searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstants.searchPadding.top)
-            make.left.equalTo(self.view).offset(SearchConstants.searchPadding.left)
-            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstants.cancelButtonPadding)
-            make.height.equalTo(SearchConstants.searchHeight)
+            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
+            make.left.equalTo(self.view).offset(SearchConstant.searchPadding.left)
+            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.cancelButtonPadding)
+            make.height.equalTo(SearchConstant.searchHeight)
         }
     }
     
