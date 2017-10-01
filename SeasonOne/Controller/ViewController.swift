@@ -11,9 +11,9 @@ import SnapKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
-    let searchIconTextField = IconTextField(frame: CGRect())
-    let cancelButton = UIButton(type: .system)
-    let scrollIndicatorImageView = UIImageView()
+    var cancelButton: UIButton!
+    var searchIconTextField: IconTextField!
+    var scrollIndicatorImageView: UIImageView!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,6 +32,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
     
     func initCancelButton() {
+        cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = FontConstant.body
         cancelButton.tintColor = ColorConstant.accent
@@ -46,6 +47,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
     
     func initSearchIconTextField() {
+        searchIconTextField = IconTextField(frame: CGRect())
         searchIconTextField.textColor = ColorConstant.white
         searchIconTextField.tintColor = ColorConstant.accent
         searchIconTextField.font = FontConstant.body
@@ -64,6 +66,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
     
     func initScrollIndicatorImageView() {
+        scrollIndicatorImageView = UIImageView()
         scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
         scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
         scrollIndicatorImageView.alpha = 0

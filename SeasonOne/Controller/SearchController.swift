@@ -11,8 +11,8 @@ import SnapKit
 
 class SearchController: UIViewController {
     
-    var searchIconTextField: IconTextField!
     var cancelButton: UIButton!
+    var searchIconTextField: IconTextField!
     
     init() {
         super.init(nibName: nil, bundle: nil)
