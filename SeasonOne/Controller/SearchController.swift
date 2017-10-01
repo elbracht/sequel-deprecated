@@ -11,16 +11,23 @@ import SnapKit
 
 class SearchController: UIViewController {
     
-    let searchIconTextField = IconTextField(frame: CGRect())
-    let cancelButton = UIButton(type: .system)
+    var searchIconTextField: IconTextField!
+    var cancelButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(nibName: nil, bundle: nil)
         
-        initSearchBar()
+        initCancelButton()
+        initSearchIconTextField()
     }
     
-    func initSearchBar() {
+    required init?(coder aDecoder: NSCoder) {
+        // init(coder:) has not been implemented
+        return nil
+    }
+    
+    func initCancelButton() {
+        cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = FontConstant.body
         cancelButton.tintColor = ColorConstant.accent
@@ -33,7 +40,10 @@ class SearchController: UIViewController {
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
             make.height.equalTo(SearchConstant.searchHeight)
         }
-        
+    }
+    
+    func initSearchIconTextField() {
+        searchIconTextField = IconTextField(frame: CGRect())
         searchIconTextField.textColor = ColorConstant.white
         searchIconTextField.tintColor = ColorConstant.accent
         searchIconTextField.iconColor = ColorConstant.white
