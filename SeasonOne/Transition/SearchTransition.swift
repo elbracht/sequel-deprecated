@@ -34,54 +34,6 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func searchSwipeLeft(controller: ViewController) {
-        controller.searchTextField.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.cancelButton.snp.left).offset(-8)
-        }
-        
-        controller.cancelButton.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.view).offset(-16)
-        }
-        
-        controller.view.layoutIfNeeded()
-    }
-    
-    func searchSwipeLeftReset(controller: ViewController) {
-        controller.searchTextField.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.cancelButton.snp.left).offset(-16)
-        }
-        
-        controller.cancelButton.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.view).offset(controller.cancelButton.intrinsicContentSize.width)
-        }
-        
-        controller.view.layoutIfNeeded()
-    }
-    
-    func searchSwipeRight(controller: SearchController) {
-        controller.searchTextField.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.cancelButton.snp.left).offset(-16)
-        }
-        
-        controller.cancelButton.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.view).offset(controller.cancelButton.intrinsicContentSize.width)
-        }
-        
-        controller.view.layoutIfNeeded()
-    }
-    
-    func searchSwipeRightReset(controller: SearchController) {
-        controller.searchTextField.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.cancelButton.snp.left).offset(-8)
-        }
-        
-        controller.cancelButton.snp.updateConstraints { (make) -> Void in
-            make.right.equalTo(controller.view).offset(-16)
-        }
-        
-        controller.view.layoutIfNeeded()
-    }
-    
     func present(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         
@@ -90,29 +42,28 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 containerView.addSubview(toController.view)
                 
                 toController.view.alpha = 0
-                toController.searchTextField.becomeFirstResponder()
+                toController.searchView.searchTextField.becomeFirstResponder()
+                toController.searchView.swipeLeft()
                 
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.searchSwipeLeft(controller: fromController)
-                }, completion: { (success) in
-                    toController.view.alpha = 1
+                fromController.searchView.animateSwipe(.left, completion: { (success) in
                     transitionContext.completeTransition(success)
-                    self.searchSwipeLeftReset(controller: fromController)
+                    
+                    toController.view.alpha = 1
+                    fromController.searchView.swipeRight()
                 })
             }
         }
     }
     
     func dismiss(transitionContext: UIViewControllerContextTransitioning) {
-        if let searchViewController = transitionContext.viewController(forKey: .from) as? SearchController {
-            searchViewController.searchTextField.endEditing(true)
+        if let fromController = transitionContext.viewController(forKey: .from) as? SearchController {
+            fromController.searchView.searchTextField.endEditing(true)
             
-            UIView.animate(withDuration: 0.2, animations: {
-                self.searchSwipeRight(controller: searchViewController)
-            }, completion: { (success) in
-                searchViewController.view.removeFromSuperview()
+            fromController.searchView.animateSwipe(.right, completion: { (success) in
                 transitionContext.completeTransition(success)
-                self.searchSwipeRightReset(controller: searchViewController)
+                
+                fromController.view.removeFromSuperview()
+                fromController.searchView.swipeLeft()
             })
         }
     }
