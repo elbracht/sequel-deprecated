@@ -25,8 +25,8 @@ class SearchView: UIView {
         self.addSubview(searchTextField)
         
         searchTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self).offset(SearchConstant.searchPadding.top)
-            make.left.equalTo(self).offset(SearchConstant.searchPadding.left)
+            make.top.equalTo(self).offset(insets.top)
+            make.left.equalTo(self).offset(insets.left)
             make.right.equalTo(cancelButton.snp.left).offset(-insets.right)
             make.height.equalTo(height)
         }
@@ -40,7 +40,7 @@ class SearchView: UIView {
         self.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self).offset(SearchConstant.searchPadding.top)
+            make.top.equalTo(self).offset(insets.top)
             make.right.equalTo(self).offset(cancelButton.intrinsicContentSize.width)
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
             make.height.equalTo(height)
