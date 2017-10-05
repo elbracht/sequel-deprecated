@@ -12,16 +12,16 @@ import SnapKit
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
     var cancelButton: UIButton!
-    var searchIconTextField: IconTextField!
+    var searchTextField: SearchTextField!
     var scrollIndicatorImageView: UIImageView!
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
         initCancelButton()
-        initSearchIconTextField()
+        initSearchTextField()
         initScrollIndicatorImageView()
-        
+
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
@@ -46,18 +46,12 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
     }
     
-    func initSearchIconTextField() {
-        searchIconTextField = IconTextField(frame: CGRect())
-        searchIconTextField.textColor = ColorConstant.white
-        searchIconTextField.tintColor = ColorConstant.accent
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.icon = UIImage(named: "search")
-        searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
-        searchIconTextField.delegate = self
-        self.view.addSubview(searchIconTextField)
+    func initSearchTextField() {
+        searchTextField = SearchTextField()
+        searchTextField.delegate = self
+        self.view.addSubview(searchTextField)
         
-        searchIconTextField.snp.makeConstraints { (make) -> Void in
+        searchTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
             make.left.equalTo(self.view).offset(SearchConstant.searchPadding.left)
             make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.searchPadding.right)
@@ -94,22 +88,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         return false
     }
     
-    func searchIconTextFieldDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = ColorConstant.white.withAlphaComponent(0.12)
-            self.searchIconTextField.iconColor = ColorConstant.white.withAlphaComponent(0.54)
-            self.searchIconTextField.placeholderColor = ColorConstant.white.withAlphaComponent(0.54)
-        }
-    }
-    
-    func searchIconTextFieldActive() {
-        UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = ColorConstant.accent
-            self.searchIconTextField.iconColor = ColorConstant.white
-            self.searchIconTextField.placeholderColor = ColorConstant.white
-        }
-    }
-    
     func scrollIndicatorImageViewDefault() {
         UIView.animate(withDuration: 0.1) {
             self.scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
@@ -136,7 +114,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     
     func searchRubberBand(becomeFirstResponder: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
-            self.searchIconTextField.snp.updateConstraints { (make) -> Void in
+            self.searchTextField.snp.updateConstraints { (make) -> Void in
                 make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
             }
             
@@ -148,7 +126,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             self.view.layoutIfNeeded()
         }, completion: { (success) in
             if (becomeFirstResponder) {
-                self.searchIconTextField.becomeFirstResponder()
+                self.searchTextField.becomeFirstResponder()
             }
         })
     }
@@ -160,7 +138,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         
         scrollIndicatorImageViewFadeIn()
         
-        searchIconTextField.snp.updateConstraints { (make) -> Void in
+        searchTextField.snp.updateConstraints { (make) -> Void in
             let offset = SearchConstant.searchPadding.top + (yTranslation / scrollSpeedSlow)
             make.top.equalTo(self.view).offset(offset)
         }
@@ -171,15 +149,15 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
         
         if (yTranslation > SearchConstant.searchTriggerPosition) {
-            searchIconTextFieldActive()
+            searchTextField.animateHightlight(state: .end)
             scrollIndicatorImageViewActive()
         } else {
-            searchIconTextFieldDefault()
+            searchTextField.animateHightlight(state: .start)
             scrollIndicatorImageViewDefault()
         }
         
         if (sender.state == UIGestureRecognizerState.ended) {
-            searchIconTextFieldDefault()
+            searchTextField.animateHightlight(state: .start)
             scrollIndicatorImageViewDefault()
             scrollIndicatorImageViewFadeOut()
             

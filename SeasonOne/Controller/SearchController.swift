@@ -12,13 +12,13 @@ import SnapKit
 class SearchController: UIViewController {
     
     var cancelButton: UIButton!
-    var searchIconTextField: IconTextField!
+    var searchTextField: SearchTextField!
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
         initCancelButton()
-        initSearchIconTextField()
+        initSearchTextField()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,24 +42,13 @@ class SearchController: UIViewController {
         }
     }
     
-    func initSearchIconTextField() {
-        searchIconTextField = IconTextField(frame: CGRect())
-        searchIconTextField.textColor = ColorConstant.white
-        searchIconTextField.tintColor = ColorConstant.accent
-        searchIconTextField.iconColor = ColorConstant.white
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.icon = UIImage(named: "search")
-        searchIconTextField.clearButtonImage = UIImage(named: "clear")
-        searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
-        searchIconTextField.keyboardType = .alphabet
-        searchIconTextField.keyboardAppearance = .dark
-        searchIconTextField.autocorrectionType = .no
-        searchIconTextField.autocapitalizationType = .sentences
-        searchIconTextField.returnKeyType = .search
-        self.view.addSubview(searchIconTextField)
+    func initSearchTextField() {
+        searchTextField = SearchTextField()
+        searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
+        searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        self.view.addSubview(searchTextField)
         
-        searchIconTextField.snp.makeConstraints { (make) -> Void in
+        searchTextField.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
             make.left.equalTo(self.view).offset(SearchConstant.searchPadding.left)
             make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.cancelButtonPadding)
@@ -68,7 +57,15 @@ class SearchController: UIViewController {
     }
     
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        searchIconTextField.endEditing(true)
+        searchTextField.endEditing(true)
         self.dismiss(animated: true)
+    }
+    
+    @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
+        sender.animateImageColor(state: .end)
+    }
+    
+    @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
+        sender.animateImageColor(state: .start)
     }
 }
