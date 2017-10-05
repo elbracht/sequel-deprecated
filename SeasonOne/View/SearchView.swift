@@ -49,7 +49,7 @@ class SearchView: UIView {
     
     /* Animation */
     func swipeLeft() {
-        searchTextField.snp.makeConstraints { (make) -> Void in
+        searchTextField.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(cancelButton.snp.left).offset(-insetsInner)
         }
         
