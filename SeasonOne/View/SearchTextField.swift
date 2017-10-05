@@ -132,28 +132,31 @@ class SearchTextField: UITextField {
     }
     
     /* Animation */
-    enum AnimationHighlight {
-        case disabled, enabled
-    }
-    
-    func animateTextFieldHightlight(_ highlight: AnimationHighlight) {
+    func animateTextFieldHightlightDisabled() {
         UIView.animate(withDuration: 0.1) {
-            if (highlight == .disabled) {
-                self.updateBackgroundColor(self.defaultBackgroundColor)
-                self.updateImageColor(self.defaultImageColor)
-                self.updatePlaceholderColor(self.defaultPlaceholderColor)
-            } else if (highlight == .enabled) {
-                self.updateBackgroundColor(self.highlightBackgroundColor)
-                self.updateImageColor(self.highlightImageColor)
-                self.updatePlaceholderColor(self.highlightPlaceholderColor)
-            }
+            self.updateBackgroundColor(self.defaultBackgroundColor)
+            self.updateImageColor(self.defaultImageColor)
+            self.updatePlaceholderColor(self.defaultPlaceholderColor)
         }
     }
     
-    func animateImageHighlight(_ highlight: AnimationHighlight) {
+    func animateTextFieldHightlightEnabled() {
         UIView.animate(withDuration: 0.1) {
-            if (highlight == .disabled) { self.updateImageColor(self.defaultImageColor) }
-            else if (highlight == .enabled) { self.updateImageColor(self.highlightImageColor) }
+            self.updateBackgroundColor(self.highlightBackgroundColor)
+            self.updateImageColor(self.highlightImageColor)
+            self.updatePlaceholderColor(self.highlightPlaceholderColor)
+        }
+    }
+    
+    func animateImageHighlightDisabled() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor(self.defaultImageColor)
+        }
+    }
+    
+    func animateImageHighlightEnabled() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor(self.highlightImageColor)
         }
     }
 }

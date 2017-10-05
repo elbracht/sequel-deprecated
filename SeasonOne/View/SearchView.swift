@@ -72,14 +72,17 @@ class SearchView: UIView {
         self.layoutIfNeeded()
     }
     
-    enum AnimationDirection {
-        case left, right
+    func animateSwipeLeft(completion: @escaping (_ success: Bool) -> ()) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.swipeLeft()
+        }, completion: { (success) in
+            completion(success)
+        })
     }
     
-    func animateSwipe(_ direction: AnimationDirection, completion: @escaping (_ success: Bool) -> ()) {
+    func animateSwipeRight(completion: @escaping (_ success: Bool) -> ()) {
         UIView.animate(withDuration: 0.2, animations: {
-            if (direction == .left) { self.swipeLeft() }
-            else if (direction == .right) { self.swipeRight() }
+            self.swipeRight()
         }, completion: { (success) in
             completion(success)
         })

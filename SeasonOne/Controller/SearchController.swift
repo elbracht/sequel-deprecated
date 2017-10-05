@@ -39,10 +39,10 @@ class SearchController: UIViewController {
     }
 
     @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
-        sender.animateImageHighlight(.enabled)
+        sender.animateImageHighlightEnabled()
     }
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
-        sender.animateImageHighlight(.disabled)
+        sender.animateImageHighlightDisabled()
     }
 }

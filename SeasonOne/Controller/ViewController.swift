@@ -124,15 +124,15 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
 
         if (yTranslation > SearchConstant.searchTriggerPosition) {
-            searchView.searchTextField.animateTextFieldHightlight(.enabled)
+            searchView.searchTextField.animateTextFieldHightlightEnabled()
             scrollIndicatorImageViewActive()
         } else {
-            searchView.searchTextField.animateTextFieldHightlight(.disabled)
+            searchView.searchTextField.animateTextFieldHightlightDisabled()
             scrollIndicatorImageViewDefault()
         }
 
         if (sender.state == UIGestureRecognizerState.ended) {
-            searchView.searchTextField.animateTextFieldHightlight(.disabled)
+            searchView.searchTextField.animateTextFieldHightlightDisabled()
             scrollIndicatorImageViewDefault()
             scrollIndicatorImageViewFadeOut()
 

@@ -45,7 +45,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 toController.searchView.searchTextField.becomeFirstResponder()
                 toController.searchView.swipeLeft()
                 
-                fromController.searchView.animateSwipe(.left, completion: { (success) in
+                fromController.searchView.animateSwipeLeft(completion: { (success) in
                     transitionContext.completeTransition(success)
                     
                     toController.view.alpha = 1
@@ -59,7 +59,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
         if let fromController = transitionContext.viewController(forKey: .from) as? SearchController {
             fromController.searchView.searchTextField.endEditing(true)
             
-            fromController.searchView.animateSwipe(.right, completion: { (success) in
+            fromController.searchView.animateSwipeRight(completion: { (success) in
                 transitionContext.completeTransition(success)
                 
                 fromController.view.removeFromSuperview()
