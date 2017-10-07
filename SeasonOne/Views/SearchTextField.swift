@@ -47,7 +47,7 @@ class SearchTextField: UITextField {
         super.updateConstraints()
 
         self.constraints.forEach { (constraint) in
-            if (constraint.firstAttribute == .height) {
+            if constraint.firstAttribute == .height {
                 updateCornerRadius(constraint.constant / 2)
             }
         }
@@ -88,7 +88,7 @@ class SearchTextField: UITextField {
 
     /* Updates */
     func updateCornerRadius(_ radius: CGFloat) {
-        self.layer.cornerRadius = radius;
+        self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
 

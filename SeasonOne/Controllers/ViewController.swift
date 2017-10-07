@@ -68,7 +68,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset + (offset * 1.5))
         }
 
-        if (yTranslation > searchTriggerPosition) {
+        if yTranslation > searchTriggerPosition {
             searchView.searchTextField.animateTextFieldHightlightEnabled()
             scrollIndicatorImageView.animateHightlightEnabled()
         } else {
@@ -76,14 +76,14 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             scrollIndicatorImageView.animateHightlightDisabled()
         }
 
-        if (sender.state == UIGestureRecognizerState.ended) {
+        if sender.state == UIGestureRecognizerState.ended {
             searchView.searchTextField.animateTextFieldHightlightDisabled()
             scrollIndicatorImageView.animateHightlightDisabled()
 
-            animateRubberBand(completion: { (success) in
+            animateRubberBand(completion: { _ in
                 self.scrollIndicatorImageView.animateFadeOut()
 
-                if (yTranslation > self.searchTriggerPosition) {
+                if yTranslation > self.searchTriggerPosition {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
             })
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
 
     /* Animation */
-    func animateRubberBand(completion: @escaping (_ success: Bool) -> ()) {
+    func animateRubberBand(completion: @escaping (_ success: Bool) -> Void) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
             self.searchView.snp.updateConstraints { (make) -> Void in
                 make.top.equalTo(self.view)

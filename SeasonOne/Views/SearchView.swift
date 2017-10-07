@@ -72,7 +72,7 @@ class SearchView: UIView {
         self.layoutIfNeeded()
     }
 
-    func animateSwipeLeft(completion: @escaping (_ success: Bool) -> ()) {
+    func animateSwipeLeft(completion: @escaping (_ success: Bool) -> Void) {
         UIView.animate(withDuration: 0.2, animations: {
             self.swipeLeft()
         }, completion: { (success) in
@@ -80,7 +80,7 @@ class SearchView: UIView {
         })
     }
 
-    func animateSwipeRight(completion: @escaping (_ success: Bool) -> ()) {
+    func animateSwipeRight(completion: @escaping (_ success: Bool) -> Void) {
         UIView.animate(withDuration: 0.2, animations: {
             self.swipeRight()
         }, completion: { (success) in
