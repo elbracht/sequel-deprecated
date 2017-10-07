@@ -2,8 +2,8 @@ import UIKit
 
 class ScrollIndicatorImageView: UIImageView {
     
-    let defaultBackgroundColor = ColorConstant.white.withAlphaComponent(0.38)
-    let highlightBackgroundColor = ColorConstant.accent
+    let defaultBackgroundColor = Color.white.withAlphaComponent(0.38)
+    let highlightBackgroundColor = Color.accent
     
     override init(frame: CGRect) {
         super.init(frame: frame)

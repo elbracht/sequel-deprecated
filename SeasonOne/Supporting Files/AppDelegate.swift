@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = ViewController()
-        self.window?.backgroundColor = ColorConstant.primary
+        self.window?.backgroundColor = Color.primary
         self.window?.makeKeyAndVisible()
         
         application.statusBarStyle = .lightContent
