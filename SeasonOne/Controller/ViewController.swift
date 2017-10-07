@@ -61,24 +61,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         return false
     }
     
-    func searchRubberBand(becomeFirstResponder: Bool) {
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
-            self.searchView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.view)
-            }
-
-            self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.searchView.snp.bottom).offset(self.scrollIndicatorOffset)
-            }
-
-            self.view.layoutIfNeeded()
-        }, completion: { (success) in
-            if (becomeFirstResponder) {
-                self.searchView.searchTextField.becomeFirstResponder()
-            }
-        })
-    }
-
     @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
         let yTranslation = sender.translation(in: self.view).y
         let offset = yTranslation / 10
@@ -106,13 +88,29 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             scrollIndicatorImageView.animateHightlightDisabled()
             scrollIndicatorImageView.animateFadeOut()
 
-            if (yTranslation > SearchConstant.searchTriggerPosition) {
-                searchRubberBand(becomeFirstResponder: true)
-            } else {
-                searchRubberBand(becomeFirstResponder: false)
-            }
-
+            animateRubberBand(completion: { (success) in
+                if (yTranslation > SearchConstant.searchTriggerPosition) {
+                    self.searchView.searchTextField.becomeFirstResponder()
+                }
+            })
         }
+    }
+    
+    /* Animation */
+    func animateRubberBand(completion: @escaping (_ success: Bool) -> ()) {
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
+            self.searchView.snp.updateConstraints { (make) -> Void in
+                make.top.equalTo(self.view)
+            }
+            
+            self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
+                make.top.equalTo(self.searchView.snp.bottom).offset(self.scrollIndicatorOffset)
+            }
+            
+            self.view.layoutIfNeeded()
+        }, completion: { (success) in
+            completion(success)
+        })
     }
 }
 
