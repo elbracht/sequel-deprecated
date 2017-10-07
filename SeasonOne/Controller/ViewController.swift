@@ -12,6 +12,7 @@ import SnapKit
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
     let scrollIndicatorOffset: CGFloat = 8
+    let searchTriggerPosition: CGFloat = 250
     
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
@@ -75,7 +76,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
         }
 
-        if (yTranslation > SearchConstant.searchTriggerPosition) {
+        if (yTranslation > searchTriggerPosition) {
             searchView.searchTextField.animateTextFieldHightlightEnabled()
             scrollIndicatorImageView.animateHightlightEnabled()
         } else {
@@ -89,7 +90,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             scrollIndicatorImageView.animateFadeOut()
 
             animateRubberBand(completion: { (success) in
-                if (yTranslation > SearchConstant.searchTriggerPosition) {
+                if (yTranslation > self.searchTriggerPosition) {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
             })
