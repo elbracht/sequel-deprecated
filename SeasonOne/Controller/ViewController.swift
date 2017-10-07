@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
+            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset + (offset * 1.5))
         }
 
         if (yTranslation > searchTriggerPosition) {
