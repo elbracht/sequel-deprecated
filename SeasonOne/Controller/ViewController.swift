@@ -3,72 +3,40 @@ import SnapKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
-    var cancelButton: UIButton!
-    var searchIconTextField: IconTextField!
-    var scrollIndicatorImageView: UIImageView!
+    let scrollIndicatorOffset: CGFloat = 8
+    let searchTriggerPosition: CGFloat = 250
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    var searchView: SearchView!
+    var scrollIndicatorImageView: ScrollIndicatorImageView!
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        initCancelButton()
-        initSearchIconTextField()
-        initScrollIndicatorImageView()
+        searchView = SearchView()
+        searchView.searchTextField.delegate = self
+        self.view.addSubview(searchView)
+        
+        searchView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view)
+            make.top.equalTo(self.view)
+            make.right.equalTo(self.view)
+            make.height.equalTo(searchView.height + searchView.insets.top)
+        }
+        
+        scrollIndicatorImageView = ScrollIndicatorImageView(frame: CGRect())
+        self.view.addSubview(scrollIndicatorImageView)
+        
+        scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
+            make.centerX.equalTo(self.view)
+        }
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        // init(coder:) has not been implemented
-        return nil
-    }
-    
-    func initCancelButton() {
-        cancelButton = UIButton(type: .system)
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.titleLabel?.font = FontConstant.body
-        cancelButton.tintColor = ColorConstant.accent
-        self.view.addSubview(cancelButton)
-        
-        cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
-            make.right.equalTo(self.view).offset(cancelButton.intrinsicContentSize.width)
-            make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(SearchConstant.searchHeight)
-        }
-    }
-    
-    func initSearchIconTextField() {
-        searchIconTextField = IconTextField(frame: CGRect())
-        searchIconTextField.textColor = ColorConstant.white
-        searchIconTextField.tintColor = ColorConstant.accent
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.icon = UIImage(named: "search")
-        searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
-        searchIconTextField.delegate = self
-        self.view.addSubview(searchIconTextField)
-        
-        searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
-            make.left.equalTo(self.view).offset(SearchConstant.searchPadding.left)
-            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.searchPadding.right)
-            make.height.equalTo(SearchConstant.searchHeight)
-        }
-    }
-    
-    func initScrollIndicatorImageView() {
-        scrollIndicatorImageView = UIImageView()
-        scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
-        scrollIndicatorImageView.alpha = 0
-        self.view.addSubview(scrollIndicatorImageView)
-        
-        scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding
-            make.top.equalTo(self.view).offset(offset)
-            make.centerX.equalTo(self.view)
-        }
+        super.init(coder: aDecoder)
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -86,102 +54,57 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         return false
     }
     
-    func searchIconTextFieldDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = ColorConstant.white.withAlphaComponent(0.12)
-            self.searchIconTextField.iconColor = ColorConstant.white.withAlphaComponent(0.54)
-            self.searchIconTextField.placeholderColor = ColorConstant.white.withAlphaComponent(0.54)
+    @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
+        let yTranslation = sender.translation(in: self.view).y
+        let offset = yTranslation / 10
+        
+        scrollIndicatorImageView.animateFadeIn()
+
+        searchView.snp.updateConstraints { (make) -> Void in
+            make.top.equalTo(self.view).offset(offset)
+        }
+
+        scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
+            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset + (offset * 1.5))
+        }
+
+        if (yTranslation > searchTriggerPosition) {
+            searchView.searchTextField.animateTextFieldHightlightEnabled()
+            scrollIndicatorImageView.animateHightlightEnabled()
+        } else {
+            searchView.searchTextField.animateTextFieldHightlightDisabled()
+            scrollIndicatorImageView.animateHightlightDisabled()
+        }
+
+        if (sender.state == UIGestureRecognizerState.ended) {
+            searchView.searchTextField.animateTextFieldHightlightDisabled()
+            scrollIndicatorImageView.animateHightlightDisabled()
+
+            animateRubberBand(completion: { (success) in
+                self.scrollIndicatorImageView.animateFadeOut()
+                
+                if (yTranslation > self.searchTriggerPosition) {
+                    self.searchView.searchTextField.becomeFirstResponder()
+                }
+            })
         }
     }
     
-    func searchIconTextFieldActive() {
-        UIView.animate(withDuration: 0.1) {
-            self.searchIconTextField.backgroundColor = ColorConstant.accent
-            self.searchIconTextField.iconColor = ColorConstant.white
-            self.searchIconTextField.placeholderColor = ColorConstant.white
-        }
-    }
-    
-    func scrollIndicatorImageViewDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
-        }
-    }
-    
-    func scrollIndicatorImageViewActive() {
-        UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = ColorConstant.accent
-        }
-    }
-    
-    func scrollIndicatorImageViewFadeIn() {
-        UIView.animate(withDuration: 0.2) {
-            self.scrollIndicatorImageView.alpha = 1
-        }
-    }
-    
-    func scrollIndicatorImageViewFadeOut() {
-        UIView.animate(withDuration: 0.2) {
-            self.scrollIndicatorImageView.alpha = 0
-        }
-    }
-    
-    func searchRubberBand(becomeFirstResponder: Bool) {
+    /* Animation */
+    func animateRubberBand(completion: @escaping (_ success: Bool) -> ()) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
-            self.searchIconTextField.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
+            self.searchView.snp.updateConstraints { (make) -> Void in
+                make.top.equalTo(self.view)
             }
             
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding
-                make.top.equalTo(self.view).offset(offset)
+                make.top.equalTo(self.searchView.snp.bottom).offset(self.scrollIndicatorOffset)
             }
             
             self.view.layoutIfNeeded()
         }, completion: { (success) in
-            if (becomeFirstResponder) {
-                self.searchIconTextField.becomeFirstResponder()
-            }
+            completion(success)
         })
-    }
-    
-    @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
-        let scrollSpeedSlow: CGFloat = 10
-        let scrollSpeedFast: CGFloat = 6
-        let yTranslation = sender.translation(in: self.view).y
-        
-        scrollIndicatorImageViewFadeIn()
-        
-        searchIconTextField.snp.updateConstraints { (make) -> Void in
-            let offset = SearchConstant.searchPadding.top + (yTranslation / scrollSpeedSlow)
-            make.top.equalTo(self.view).offset(offset)
-        }
-        
-        scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding + (yTranslation / scrollSpeedFast)
-            make.top.equalTo(self.view).offset(offset)
-        }
-        
-        if (yTranslation > SearchConstant.searchTriggerPosition) {
-            searchIconTextFieldActive()
-            scrollIndicatorImageViewActive()
-        } else {
-            searchIconTextFieldDefault()
-            scrollIndicatorImageViewDefault()
-        }
-        
-        if (sender.state == UIGestureRecognizerState.ended) {
-            searchIconTextFieldDefault()
-            scrollIndicatorImageViewDefault()
-            scrollIndicatorImageViewFadeOut()
-            
-            if (yTranslation > SearchConstant.searchTriggerPosition) {
-                searchRubberBand(becomeFirstResponder: true)
-            } else {
-                searchRubberBand(becomeFirstResponder: false)
-            }
-            
-        }
     }
 }
 

@@ -3,64 +3,38 @@ import SnapKit
 
 class SearchController: UIViewController {
     
-    var cancelButton: UIButton!
-    var searchIconTextField: IconTextField!
+    var searchView: SearchView!
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        initCancelButton()
-        initSearchIconTextField()
+        searchView = SearchView()
+        searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        self.view.addSubview(searchView)
+        
+        searchView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view)
+            make.top.equalTo(self.view)
+            make.right.equalTo(self.view)
+            make.height.equalTo(searchView.height + searchView.insets.top)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
-        // init(coder:) has not been implemented
-        return nil
-    }
-    
-    func initCancelButton() {
-        cancelButton = UIButton(type: .system)
-        cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.titleLabel?.font = FontConstant.body
-        cancelButton.tintColor = ColorConstant.accent
-        cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
-        self.view.addSubview(cancelButton)
-        
-        cancelButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
-            make.right.equalTo(self.view).offset(-SearchConstant.searchPadding.right)
-            make.width.equalTo(cancelButton.intrinsicContentSize.width)
-            make.height.equalTo(SearchConstant.searchHeight)
-        }
-    }
-    
-    func initSearchIconTextField() {
-        searchIconTextField = IconTextField(frame: CGRect())
-        searchIconTextField.textColor = ColorConstant.white
-        searchIconTextField.tintColor = ColorConstant.accent
-        searchIconTextField.iconColor = ColorConstant.white
-        searchIconTextField.font = FontConstant.body
-        searchIconTextField.placeholder = "Search"
-        searchIconTextField.icon = UIImage(named: "search")
-        searchIconTextField.clearButtonImage = UIImage(named: "clear")
-        searchIconTextField.cornerRadius = SearchConstant.searchHeight / 2
-        searchIconTextField.keyboardType = .alphabet
-        searchIconTextField.keyboardAppearance = .dark
-        searchIconTextField.autocorrectionType = .no
-        searchIconTextField.autocapitalizationType = .sentences
-        searchIconTextField.returnKeyType = .search
-        self.view.addSubview(searchIconTextField)
-        
-        searchIconTextField.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(SearchConstant.searchPadding.top)
-            make.left.equalTo(self.view).offset(SearchConstant.searchPadding.left)
-            make.right.equalTo(cancelButton.snp.left).offset(-SearchConstant.cancelButtonPadding)
-            make.height.equalTo(SearchConstant.searchHeight)
-        }
+        super.init(coder: aDecoder)
     }
     
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        searchIconTextField.endEditing(true)
         self.dismiss(animated: true)
+    }
+
+    @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
+        sender.animateImageHighlightEnabled()
+    }
+
+    @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
+        sender.animateImageHighlightDisabled()
     }
 }

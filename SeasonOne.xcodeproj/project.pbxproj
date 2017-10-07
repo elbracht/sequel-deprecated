@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */; };
-		114039B11F814AD60098E947 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114039B01F814AD60098E947 /* ViewControllerTests.swift */; };
-		114039B31F814B110098E947 /* SearchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114039B21F814B110098E947 /* SearchControllerTests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		118C8BDC1F7E8DC80018015E /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* ColorConstant.swift */; };
-		11B2E1AE1F7E7E7200C1DA20 /* SearchConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */; };
+		11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B911F8663C0007AB6F3 /* SearchTextField.swift */; };
+		11955B941F86AB26007AB6F3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B931F86AB26007AB6F3 /* SearchView.swift */; };
+		11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */; };
+		11955B981F88EFDE007AB6F3 /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
 		11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */; };
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
@@ -20,7 +20,6 @@
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
-		11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA71F7D125E00169F6C /* IconTextField.swift */; };
 		11ED81721F811A6200E8379E /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* FontConstant.swift */; };
 		11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81741F81227200E8379E /* Montserrat-Bold.ttf */; };
 		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
@@ -47,12 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextFieldTests.swift; sourceTree = "<group>"; };
-		114039B01F814AD60098E947 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
-		114039B21F814B110098E947 /* SearchControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerTests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
-		11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConstant.swift; sourceTree = "<group>"; };
+		11955B911F8663C0007AB6F3 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		11955B931F86AB26007AB6F3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollIndicatorImageView.swift; path = SeasonOne/View/ScrollIndicatorImageView.swift; sourceTree = SOURCE_ROOT; };
+		11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneTests.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +65,6 @@
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		11E4BCA71F7D125E00169F6C /* IconTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		11ED81711F811A6200E8379E /* FontConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
 		11ED81741F81227200E8379E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -155,9 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
-				1102CFFA1F7FE11200F81CBF /* IconTextFieldTests.swift */,
-				114039B01F814AD60098E947 /* ViewControllerTests.swift */,
-				114039B21F814B110098E947 /* SearchControllerTests.swift */,
+				11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */,
 			);
 			path = SeasonOneTests;
 			sourceTree = "<group>";
@@ -183,7 +179,9 @@
 		11E4BCA31F7D11C400169F6C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				11E4BCA71F7D125E00169F6C /* IconTextField.swift */,
+				11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */,
+				11955B911F8663C0007AB6F3 /* SearchTextField.swift */,
+				11955B931F86AB26007AB6F3 /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,7 +207,6 @@
 		11ED81731F811DBC00E8379E /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				11B2E1AD1F7E7E7200C1DA20 /* SearchConstant.swift */,
 				118C8BDB1F7E8DC80018015E /* ColorConstant.swift */,
 				11ED81711F811A6200E8379E /* FontConstant.swift */,
 			);
@@ -428,11 +425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B2E1AE1F7E7E7200C1DA20 /* SearchConstant.swift in Sources */,
+				11955B941F86AB26007AB6F3 /* SearchView.swift in Sources */,
 				118C8BDC1F7E8DC80018015E /* ColorConstant.swift in Sources */,
 				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
-				11E4BCA81F7D125E00169F6C /* IconTextField.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,
+				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
+				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* FontConstant.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
@@ -444,9 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				114039B11F814AD60098E947 /* ViewControllerTests.swift in Sources */,
-				1102CFFB1F7FE11200F81CBF /* IconTextFieldTests.swift in Sources */,
-				114039B31F814B110098E947 /* SearchControllerTests.swift in Sources */,
+				11955B981F88EFDE007AB6F3 /* SeasonOneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
