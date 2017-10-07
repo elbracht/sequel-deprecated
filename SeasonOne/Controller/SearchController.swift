@@ -1,11 +1,3 @@
-//
-//  SearchController.swift
-//  SeasonOne
-//
-//  Created by Alexander Elbracht on 28.09.17.
-//  Copyright © 2017 Alexander Elbracht. All rights reserved.
-//
-
 import UIKit
 import SnapKit
 

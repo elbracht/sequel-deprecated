@@ -1,11 +1,3 @@
-//
-//  SearchControllerTests.swift
-//  SeasonOneTests
-//
-//  Created by Alexander Elbracht on 01.10.17.
-//  Copyright © 2017 Alexander Elbracht. All rights reserved.
-//
-
 import XCTest
 @testable import SeasonOne
 

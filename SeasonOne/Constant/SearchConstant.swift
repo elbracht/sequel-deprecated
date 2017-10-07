@@ -1,11 +1,3 @@
-//
-//  SearchDistance.swift
-//  SeasonOne
-//
-//  Created by Alexander Elbracht on 29.09.17.
-//  Copyright © 2017 Alexander Elbracht. All rights reserved.
-//
-
 import UIKit
 
 struct SearchConstant {
