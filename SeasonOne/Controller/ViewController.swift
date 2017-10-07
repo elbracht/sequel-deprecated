@@ -11,8 +11,10 @@ import SnapKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
     
+    let scrollIndicatorOffset: CGFloat = 8
+    
     var searchView: SearchView!
-    var scrollIndicatorImageView: UIImageView!
+    var scrollIndicatorImageView: ScrollIndicatorImageView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -28,15 +30,11 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
         
-        scrollIndicatorImageView = UIImageView()
-        scrollIndicatorImageView.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
-        scrollIndicatorImageView.alpha = 0
+        scrollIndicatorImageView = ScrollIndicatorImageView(frame: CGRect())
         self.view.addSubview(scrollIndicatorImageView)
         
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding
-            make.top.equalTo(self.view).offset(offset)
+            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
         
@@ -63,30 +61,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         return false
     }
     
-    func scrollIndicatorImageViewDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = ColorConstant.white.withAlphaComponent(0.12)
-        }
-    }
-    
-    func scrollIndicatorImageViewActive() {
-        UIView.animate(withDuration: 0.1) {
-            self.scrollIndicatorImageView.tintColor = ColorConstant.accent
-        }
-    }
-    
-    func scrollIndicatorImageViewFadeIn() {
-        UIView.animate(withDuration: 0.2) {
-            self.scrollIndicatorImageView.alpha = 1
-        }
-    }
-    
-    func scrollIndicatorImageViewFadeOut() {
-        UIView.animate(withDuration: 0.2) {
-            self.scrollIndicatorImageView.alpha = 0
-        }
-    }
-    
     func searchRubberBand(becomeFirstResponder: Bool) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
             self.searchView.snp.updateConstraints { (make) -> Void in
@@ -94,8 +68,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding
-                make.top.equalTo(self.view).offset(offset)
+                make.top.equalTo(self.searchView.snp.bottom).offset(self.scrollIndicatorOffset)
             }
 
             self.view.layoutIfNeeded()
@@ -107,34 +80,31 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
 
     @objc func detectPanGesture(sender: UIPanGestureRecognizer) {
-        let scrollSpeedSlow: CGFloat = 10
-        let scrollSpeedFast: CGFloat = 6
         let yTranslation = sender.translation(in: self.view).y
-
-        scrollIndicatorImageViewFadeIn()
+        let offset = yTranslation / 10
+        
+        scrollIndicatorImageView.animateFadeIn()
 
         searchView.snp.updateConstraints { (make) -> Void in
-            let offset = yTranslation / scrollSpeedSlow
             make.top.equalTo(self.view).offset(offset)
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            let offset = SearchConstant.searchPadding.top + SearchConstant.searchHeight + SearchConstant.scrollIndicatorPadding + (yTranslation / scrollSpeedFast)
-            make.top.equalTo(self.view).offset(offset)
+            make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
         }
 
         if (yTranslation > SearchConstant.searchTriggerPosition) {
             searchView.searchTextField.animateTextFieldHightlightEnabled()
-            scrollIndicatorImageViewActive()
+            scrollIndicatorImageView.animateHightlightEnabled()
         } else {
             searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageViewDefault()
+            scrollIndicatorImageView.animateHightlightDisabled()
         }
 
         if (sender.state == UIGestureRecognizerState.ended) {
             searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageViewDefault()
-            scrollIndicatorImageViewFadeOut()
+            scrollIndicatorImageView.animateHightlightDisabled()
+            scrollIndicatorImageView.animateFadeOut()
 
             if (yTranslation > SearchConstant.searchTriggerPosition) {
                 searchRubberBand(becomeFirstResponder: true)
