@@ -1,7 +1,11 @@
 import UIKit
 import SnapKit
+import Alamofire
+import SwiftyJSON
 
 class SearchController: UIViewController {
+
+    var series = [Series]()
 
     var searchView: SearchView!
 
@@ -36,5 +40,28 @@ class SearchController: UIViewController {
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
         sender.animateImageHighlightDisabled()
+    }
+
+    func fetchSeries(searchQuery: String, completion: @escaping () -> Void) {
+        let url = "https://api.themoviedb.org/3/search/tv"
+        let parameters: Parameters = [ "api_key": TMDb.apiKey, "query": searchQuery ]
+
+        Alamofire.request(url, parameters: parameters).responseJSON { (response) in
+            if let json = response.result.value {
+                self.parseSeries(json: JSON(json))
+                completion()
+            }
+        }
+    }
+
+    func parseSeries(json: JSON) {
+        json["results"].forEach({ (_, subJson) in
+            let name = subJson["name"].string
+            let posterPath = subJson["poster_path"].string
+
+            if name != nil && posterPath != nil {
+                series.append(Series(name: name!, posterPath: posterPath!))
+            }
+        })
     }
 }
