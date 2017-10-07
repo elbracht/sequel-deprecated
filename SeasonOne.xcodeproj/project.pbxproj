@@ -101,12 +101,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		118C8BDA1F7E80A60018015E /* Transition */ = {
+		118C8BDA1F7E80A60018015E /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
 				1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */,
 			);
-			path = Transition;
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		11955B991F88F34B007AB6F3 /* Supporting Files */ = {
@@ -145,11 +145,11 @@
 		11B6A6F01F7C5D2700AD3FCE /* SeasonOne */ = {
 			isa = PBXGroup;
 			children = (
-				11E4BCA41F7D11C900169F6C /* Model */,
-				11E4BCA31F7D11C400169F6C /* View */,
-				11E4BCA21F7D11B500169F6C /* Controller */,
-				11ED81731F811DBC00E8379E /* Constant */,
-				118C8BDA1F7E80A60018015E /* Transition */,
+				11E4BCA41F7D11C900169F6C /* Models */,
+				11E4BCA31F7D11C400169F6C /* Views */,
+				11E4BCA21F7D11B500169F6C /* Controllers */,
+				11ED81731F811DBC00E8379E /* Constants */,
+				118C8BDA1F7E80A60018015E /* Transitions */,
 				11955B991F88F34B007AB6F3 /* Supporting Files */,
 				11ED81601F81188F00E8379E /* Ressources */,
 			);
@@ -174,30 +174,30 @@
 			path = SeasonOneUITests;
 			sourceTree = "<group>";
 		};
-		11E4BCA21F7D11B500169F6C /* Controller */ = {
+		11E4BCA21F7D11B500169F6C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
 				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		11E4BCA31F7D11C400169F6C /* View */ = {
+		11E4BCA31F7D11C400169F6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */,
 				11955B911F8663C0007AB6F3 /* SearchTextField.swift */,
 				11955B931F86AB26007AB6F3 /* SearchView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		11E4BCA41F7D11C900169F6C /* Model */ = {
+		11E4BCA41F7D11C900169F6C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		11ED81601F81188F00E8379E /* Ressources */ = {
@@ -212,13 +212,13 @@
 			path = Ressources;
 			sourceTree = "<group>";
 		};
-		11ED81731F811DBC00E8379E /* Constant */ = {
+		11ED81731F811DBC00E8379E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				118C8BDB1F7E8DC80018015E /* ColorConstant.swift */,
 				11ED81711F811A6200E8379E /* FontConstant.swift */,
 			);
-			path = Constant;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		F2C710532032AB339822BD9A /* Pods */ = {
