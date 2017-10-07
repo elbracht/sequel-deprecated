@@ -29,7 +29,7 @@ class SearchTextField: UITextField {
         initImage()
         
         updateCornerRadius(self.frame.height / 2)
-        updateFont(Font.body!)
+        updateFont(Font.body)
         updateBackgroundColor(defaultBackgroundColor)
         updateTextColor(defaultTextColor)
         updateTintColor(defaultTintColor)
@@ -92,7 +92,7 @@ class SearchTextField: UITextField {
         self.layer.masksToBounds = true
     }
     
-    func updateFont(_ font: UIFont) {
+    func updateFont(_ font: UIFont?) {
         self.font = font
     }
     
