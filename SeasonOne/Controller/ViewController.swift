@@ -87,9 +87,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         if (sender.state == UIGestureRecognizerState.ended) {
             searchView.searchTextField.animateTextFieldHightlightDisabled()
             scrollIndicatorImageView.animateHightlightDisabled()
-            scrollIndicatorImageView.animateFadeOut()
 
             animateRubberBand(completion: { (success) in
+                self.scrollIndicatorImageView.animateFadeOut()
+                
                 if (yTranslation > self.searchTriggerPosition) {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
