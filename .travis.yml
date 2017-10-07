@@ -1,5 +1,6 @@
 language: swift
 osx_image: xcode9
+cache: cocoapods
 
 before_install:
   - brew update
