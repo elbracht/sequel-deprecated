@@ -123,7 +123,6 @@
 		11B6A6E51F7C5D2700AD3FCE = {
 			isa = PBXGroup;
 			children = (
-				11ED81601F81188F00E8379E /* Ressources */,
 				11B6A6F01F7C5D2700AD3FCE /* SeasonOne */,
 				11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */,
 				11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */,
@@ -152,7 +151,7 @@
 				11ED81731F811DBC00E8379E /* Constant */,
 				118C8BDA1F7E80A60018015E /* Transition */,
 				11955B991F88F34B007AB6F3 /* Supporting Files */,
-				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
+				11ED81601F81188F00E8379E /* Ressources */,
 			);
 			path = SeasonOne;
 			sourceTree = "<group>";
@@ -204,6 +203,7 @@
 		11ED81601F81188F00E8379E /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
 				11ED81741F81227200E8379E /* Montserrat-Bold.ttf */,
 				11ED81751F81227200E8379E /* Montserrat-Light.ttf */,
 				11ED81761F81227200E8379E /* Montserrat-Medium.ttf */,
