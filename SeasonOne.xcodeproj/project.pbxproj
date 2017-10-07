@@ -109,6 +109,17 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		11955B991F88F34B007AB6F3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
+				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
+				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
+				11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		11B6A6E51F7C5D2700AD3FCE = {
 			isa = PBXGroup;
 			children = (
@@ -140,11 +151,8 @@
 				11E4BCA21F7D11B500169F6C /* Controller */,
 				11ED81731F811DBC00E8379E /* Constant */,
 				118C8BDA1F7E80A60018015E /* Transition */,
-				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
+				11955B991F88F34B007AB6F3 /* Supporting Files */,
 				11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */,
-				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
-				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
-				11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */,
 			);
 			path = SeasonOne;
 			sourceTree = "<group>";
