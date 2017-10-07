@@ -11,10 +11,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = ViewController()
         self.window?.backgroundColor = Color.primary
         self.window?.makeKeyAndVisible()
-        
+
         application.statusBarStyle = .lightContent
-        
+
         return true
     }
 }
-
