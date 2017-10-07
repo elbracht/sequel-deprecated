@@ -35,8 +35,8 @@ class SearchView: UIView {
     func initCancelButton() {
         cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.titleLabel?.font = FontConstant.body
-        cancelButton.tintColor = ColorConstant.accent
+        cancelButton.titleLabel?.font = Font.body
+        cancelButton.tintColor = Color.accent
         self.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { (make) -> Void in

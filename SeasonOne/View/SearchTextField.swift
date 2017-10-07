@@ -12,16 +12,16 @@ class SearchTextField: UITextField {
     
     let placeholderText = "Search"
     
-    let defaultBackgroundColor = ColorConstant.black.withAlphaComponent(0.38)
-    let defaultTextColor = ColorConstant.white
-    let defaultTintColor = ColorConstant.accent
-    let defaultImageColor = ColorConstant.white.withAlphaComponent(0.54)
-    let defaultClearButtonColor = ColorConstant.white.withAlphaComponent(0.54)
-    let defaultPlaceholderColor = ColorConstant.white.withAlphaComponent(0.54)
+    let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
+    let defaultTextColor = Color.white
+    let defaultTintColor = Color.accent
+    let defaultImageColor = Color.white.withAlphaComponent(0.54)
+    let defaultClearButtonColor = Color.white.withAlphaComponent(0.54)
+    let defaultPlaceholderColor = Color.white.withAlphaComponent(0.54)
     
-    let highlightBackgroundColor = ColorConstant.accent
-    let highlightImageColor = ColorConstant.white
-    let highlightPlaceholderColor = ColorConstant.white
+    let highlightBackgroundColor = Color.accent
+    let highlightImageColor = Color.white
+    let highlightPlaceholderColor = Color.white
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +29,7 @@ class SearchTextField: UITextField {
         initImage()
         
         updateCornerRadius(self.frame.height / 2)
-        updateFont(FontConstant.body!)
+        updateFont(Font.body!)
         updateBackgroundColor(defaultBackgroundColor)
         updateTextColor(defaultTextColor)
         updateTintColor(defaultTintColor)
