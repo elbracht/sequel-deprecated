@@ -113,9 +113,11 @@ class SearchTextField: UITextField {
     }
 
     func updateClearImageColor(_ color: UIColor) {
-        let clearButton = self.value(forKey: "_clearButton") as! UIButton
-        clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
-        clearButton.imageView?.tintColor = color
+        if let clearButton = self.value(forKey: "_clearButton") as? UIButton {
+            clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
+            clearButton.imageView?.tintColor = color
+        }
+
         self.clearButtonMode = .always
     }
 
