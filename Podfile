@@ -6,10 +6,4 @@ target 'SeasonOne' do
   pod 'Alamofire'
   pod 'SnapKit'
   pod 'SwiftyJSON'
-
-  target 'SeasonOneTests' do
-    inherit! :search_paths
-
-    pod 'Mockingjay'
-  end
 end

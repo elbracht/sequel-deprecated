@@ -26,7 +26,6 @@
 		11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81761F81227200E8379E /* Montserrat-Medium.ttf */; };
 		11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81771F81227200E8379E /* Montserrat-Regular.ttf */; };
 		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
-		B07E83ADC897F6F05A8E68B5 /* Pods_SeasonOneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D969AE1DC636EAD544B8FF8C /* Pods_SeasonOneTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,10 +72,8 @@
 		11ED81771F81227200E8379E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.release.xcconfig"; sourceTree = "<group>"; };
-		B314356210B3DD1073C62EEE /* Pods-SeasonOneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOneTests/Pods-SeasonOneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.debug.xcconfig"; sourceTree = "<group>"; };
 		D969AE1DC636EAD544B8FF8C /* Pods_SeasonOneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEE49E02204156A1B0BA4543 /* Pods-SeasonOneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOneTests/Pods-SeasonOneTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B07E83ADC897F6F05A8E68B5 /* Pods_SeasonOneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +227,6 @@
 			children = (
 				B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */,
 				A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */,
-				B314356210B3DD1073C62EEE /* Pods-SeasonOneTests.debug.xcconfig */,
-				EEE49E02204156A1B0BA4543 /* Pods-SeasonOneTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -274,12 +268,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11B6A71C1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOneTests" */;
 			buildPhases = (
-				CFACCA7A66BF7715BEE6A8CE /* [CP] Check Pods Manifest.lock */,
 				11B6A7011F7C5D2700AD3FCE /* Sources */,
 				11B6A7021F7C5D2700AD3FCE /* Frameworks */,
 				11B6A7031F7C5D2700AD3FCE /* Resources */,
-				7F567C66908DFD3C86F56168 /* [CP] Embed Pods Frameworks */,
-				68079A5B369200004D505E55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,41 +410,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		68079A5B369200004D505E55 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOneTests/Pods-SeasonOneTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F567C66908DFD3C86F56168 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOneTests/Pods-SeasonOneTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
-				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOneTests/Pods-SeasonOneTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8A50DD478574CF24550C6215 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,24 +430,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFACCA7A66BF7715BEE6A8CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SeasonOneTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */ = {
@@ -713,7 +651,6 @@
 		};
 		11B6A71D1F7C5D2700AD3FCE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B314356210B3DD1073C62EEE /* Pods-SeasonOneTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -732,7 +669,6 @@
 		};
 		11B6A71E1F7C5D2700AD3FCE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEE49E02204156A1B0BA4543 /* Pods-SeasonOneTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
