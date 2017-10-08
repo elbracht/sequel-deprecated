@@ -3,7 +3,7 @@ import Alamofire
 import AlamofireImage
 
 protocol SeriesDelegate: class {
-    func seriesDataAvailable()
+    func seriesDataAvailable(_ object: Series)
 }
 
 class Series {
@@ -24,7 +24,7 @@ extension Series {
         Alamofire.request(url).responseImage { response in
             if let image = response.result.value {
                 self.image = image
-                self.delegate?.seriesDataAvailable()
+                self.delegate?.seriesDataAvailable(self)
             }
         }
     }

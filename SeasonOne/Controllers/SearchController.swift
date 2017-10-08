@@ -108,7 +108,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
             cell.updateNameText(currentSeries.name)
             cell.updateCaptionText("New")
-            cell.updateImage(UIImage())
 
             if let image = currentSeries.image {
                 cell.updateImage(image)
@@ -140,9 +139,12 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     /* Data */
-    func seriesDataAvailable() {
-        DispatchQueue.main.async {
-            self.searchCollectionView.reloadData()
+    func seriesDataAvailable(_ object: Series) {
+        if let index = series.index(where: { $0 === object }) {
+            let indexPath = IndexPath(row: index, section: 0)
+            DispatchQueue.main.async {
+                self.searchCollectionView.reloadItems(at: [indexPath])
+            }
         }
     }
 
