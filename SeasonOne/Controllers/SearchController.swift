@@ -108,6 +108,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
             cell.updateNameText(currentSeries.name)
             cell.updateCaptionText("New")
+            cell.updateImage(UIImage())
 
             if let image = currentSeries.image {
                 cell.updateImage(image)

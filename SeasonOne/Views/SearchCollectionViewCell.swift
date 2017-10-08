@@ -128,22 +128,25 @@ class SearchCollectionViewCell: UICollectionViewCell {
         captionLabel.text = text
     }
 
-    func updateProgress(value: CGFloat, max: CGFloat) {
-        progressView.snp.updateConstraints { (make) -> Void in
-            let offsetRight = (max != 0) ? (self.contentView.frame.size.width / max) * (max - value) : 0
-
-            make.left.equalTo(titleView)
-            make.bottom.equalTo(titleView)
-            make.right.equalTo(titleView).offset(-offsetRight)
-            make.height.equalTo(4)
+    /* Animation */
+    func animateFadeIn() {
+        if self.imageView.alpha == 0 && self.blurEffectView.alpha == 0 {
+            UIView.animate(withDuration: 0.2) {
+                self.imageView.alpha = 1
+                self.blurEffectView.alpha = 1
+            }
         }
     }
 
-    /* Animation */
-    func animateFadeIn() {
-        UIView.animate(withDuration: 0.1) {
-            self.imageView.alpha = 1
-            self.blurEffectView.alpha = 1
+    func animateProgress(value: CGFloat, max: CGFloat) {
+        let offset = (max != 0) ? (contentView.frame.size.width / max) * (max - value) : contentView.frame.size.width
+
+        UIView.animate(withDuration: 0.2) {
+            self.progressView.snp.updateConstraints { (make) -> Void in
+                make.right.equalTo(self.titleView).offset(-offset)
+            }
+
+            self.titleView.layoutIfNeeded()
         }
     }
 }
