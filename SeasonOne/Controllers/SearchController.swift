@@ -3,7 +3,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 
-class SearchController: UIViewController {
+class SearchController: UIViewController, UITextFieldDelegate {
 
     var series = [Series]()
 
@@ -16,6 +16,8 @@ class SearchController: UIViewController {
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
+        searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
 
         searchView.snp.makeConstraints { (make) in
@@ -39,7 +41,31 @@ class SearchController: UIViewController {
     }
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
-        sender.animateImageHighlightDisabled()
+        if let text = sender.text {
+            if text.isEmpty {
+                sender.animateImageHighlightDisabled()
+            }
+        }
+    }
+
+    @objc func searchTextFieldEditingDidEndOnExit(sender: SearchTextField!) {
+        if let text = sender.text {
+            if !text.isEmpty {
+                fetchSeries(searchQuery: text, completion: {
+                    // Reload collection view
+                })
+            }
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text {
+            if !text.isEmpty {
+                return true
+            }
+        }
+
+        return false
     }
 
     func fetchSeries(searchQuery: String, completion: @escaping () -> Void) {
