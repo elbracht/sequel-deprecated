@@ -3,11 +3,20 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 
-class SearchController: UIViewController, UITextFieldDelegate {
+class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    let reuseIdentifier = "SearchCollectionViewCell"
+
+    let margin = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+    let itemMargin: CGFloat = 10
+    let itemPerRow: CGFloat = 2
+    let itemRatioWidth: CGFloat = 2
+    let itemRatioHeight: CGFloat = 3
 
     var series = [Series]()
 
     var searchView: SearchView!
+    var searchCollectionView: UICollectionView!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -26,16 +35,32 @@ class SearchController: UIViewController, UITextFieldDelegate {
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+
+        searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
+        searchCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        searchCollectionView.backgroundColor = Color.primary
+        searchCollectionView.delegate = self
+        searchCollectionView.dataSource = self
+        self.view.addSubview(searchCollectionView)
+
+        searchCollectionView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(searchView.snp.bottom).offset(16)
+            make.left.equalTo(self.view.snp.left)
+            make.bottom.equalTo(self.view.snp.bottom)
+            make.right.equalTo(self.view.snp.right)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
+    /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
         self.dismiss(animated: true)
     }
 
+    /* UITextField */
     @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
         sender.animateImageHighlightEnabled()
     }
@@ -52,7 +77,7 @@ class SearchController: UIViewController, UITextFieldDelegate {
         if let text = sender.text {
             if !text.isEmpty {
                 fetchSeries(searchQuery: text, completion: {
-                    // Reload collection view
+                    self.searchCollectionView.reloadData()
                 })
             }
         }
@@ -68,6 +93,40 @@ class SearchController: UIViewController, UITextFieldDelegate {
         return false
     }
 
+    /* UICollectionView */
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return series.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = Color.black.withAlphaComponent(0.38)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columnSpaceInside = (itemPerRow - 1) * itemMargin
+        let columnSpace = columnSpaceInside + margin.left + margin.right
+        let availableWidth = searchCollectionView.frame.width - columnSpace
+        let widthPerItem = (availableWidth / itemPerRow)
+        let heightPerItem = widthPerItem / itemRatioWidth * itemRatioHeight
+
+        return CGSize(width: widthPerItem, height: heightPerItem)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return margin
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return itemMargin
+    }
+
+    /* Helper */
     func fetchSeries(searchQuery: String, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [ "api_key": TMDb.apiKey, "query": searchQuery ]
