@@ -3,7 +3,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 
-class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SeriesDelegate {
 
     let reuseIdentifier = "SearchCollectionViewCell"
 
@@ -76,9 +76,9 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     @objc func searchTextFieldEditingDidEndOnExit(sender: SearchTextField!) {
         if let text = sender.text {
             if !text.isEmpty {
-                fetchSeries(searchQuery: text, completion: {
+                fetchSeries(searchQuery: text) {
                     self.searchCollectionView.reloadData()
-                })
+                }
             }
         }
     }
@@ -104,8 +104,16 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell {
-            cell.updateNameText(series[indexPath.row].name, color: Color.white)
-            cell.updateCaptionText("New", color: Color.white)
+            let currentSeries = series[indexPath.row]
+
+            cell.updateNameText(currentSeries.name)
+            cell.updateCaptionText("New")
+            cell.updateImage(UIImage())
+
+            if let image = currentSeries.image {
+                cell.updateImage(image)
+                cell.animateFadeIn()
+            }
 
             return cell
         }
@@ -131,6 +139,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         return itemMargin
     }
 
+    /* Data */
+    func seriesDataAvailable() {
+        DispatchQueue.main.async {
+            self.searchCollectionView.reloadData()
+        }
+    }
+
     /* Helper */
     func fetchSeries(searchQuery: String, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
@@ -152,7 +167,11 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             let posterPath = subJson["poster_path"].string
 
             if name != nil && posterPath != nil {
-                series.append(Series(name: name!, posterPath: posterPath!))
+                let seriesObject = Series(name: name!, posterPath: posterPath!)
+                seriesObject.delegate = self
+                seriesObject.load()
+                series.append(seriesObject)
+
             }
         })
     }

@@ -16,6 +16,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        self.backgroundColor = defaultBackgroundColor
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
 
@@ -34,7 +35,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     /* Init */
     func initImageView() {
         imageView = UIImageView()
-        imageView.backgroundColor = defaultBackgroundColor
+        imageView.alpha = 0
+
         self.contentView.addSubview(imageView)
 
         imageView.snp.makeConstraints { (make) -> Void in
@@ -118,23 +120,15 @@ class SearchCollectionViewCell: UICollectionViewCell {
         imageView.image = image
     }
 
-    func updateBlurAlpha(_ alpha: CGFloat) {
-        blurEffectView.alpha = alpha
-    }
-
-    func updateNameText(_ text: String, color: UIColor?) {
+    func updateNameText(_ text: String) {
         nameLabel.text = text
-        nameLabel.textColor = color
     }
 
-    func updateCaptionText(_ text: String, color: UIColor?) {
+    func updateCaptionText(_ text: String) {
         captionLabel.text = text
-        captionLabel.textColor = color
     }
 
-    func updateProgress(value: CGFloat, max: CGFloat, color: UIColor?) {
-        progressView.backgroundColor = color
-
+    func updateProgress(value: CGFloat, max: CGFloat) {
         progressView.snp.updateConstraints { (make) -> Void in
             let offsetRight = (max != 0) ? (self.contentView.frame.size.width / max) * (max - value) : 0
 
@@ -142,6 +136,14 @@ class SearchCollectionViewCell: UICollectionViewCell {
             make.bottom.equalTo(titleView)
             make.right.equalTo(titleView).offset(-offsetRight)
             make.height.equalTo(4)
+        }
+    }
+
+    /* Animation */
+    func animateFadeIn() {
+        UIView.animate(withDuration: 0.1) {
+            self.imageView.alpha = 1
+            self.blurEffectView.alpha = 1
         }
     }
 }
