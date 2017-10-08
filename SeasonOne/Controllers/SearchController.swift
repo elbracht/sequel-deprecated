@@ -37,7 +37,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         }
 
         searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        searchCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         searchCollectionView.backgroundColor = Color.primary
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
@@ -103,9 +103,14 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = Color.black.withAlphaComponent(0.38)
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell {
+            cell.updateNameText(series[indexPath.row].name, color: Color.white)
+            cell.updateCaptionText("New", color: Color.white)
+
+            return cell
+        }
+
+        return UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -140,6 +145,8 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     func parseSeries(json: JSON) {
+        series.removeAll()
+
         json["results"].forEach({ (_, subJson) in
             let name = subJson["name"].string
             let posterPath = subJson["poster_path"].string
