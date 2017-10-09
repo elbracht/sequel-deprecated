@@ -15,6 +15,10 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     var series = [Series]()
 
+    var searchText = ""
+    var searchPage = 1
+    var searchTotalPage = 1
+
     var searchView: SearchView!
     var searchCollectionView: UICollectionView!
 
@@ -76,7 +80,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     @objc func searchTextFieldEditingDidEndOnExit(sender: SearchTextField!) {
         if let text = sender.text {
             if !text.isEmpty {
-                fetchSeries(searchQuery: text) {
+                series.removeAll()
+
+                searchText = text
+                searchPage = 1
+
+                fetchSeries(searchQuery: searchText, page: searchPage) {
+                    self.searchPage += 1
                     self.searchCollectionView.reloadData()
                 }
             }
@@ -121,6 +131,18 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         return UICollectionViewCell()
     }
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElement = series.count - 1
+        if indexPath.row == lastElement {
+            if searchPage <= searchTotalPage {
+                fetchSeries(searchQuery: searchText, page: searchPage) {
+                    self.searchPage += 1
+                    self.searchCollectionView.reloadData()
+                }
+            }
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columnSpaceInside = (itemPerRow - 1) * itemMargin
         let columnSpace = columnSpaceInside + margin.left + margin.right
@@ -150,9 +172,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     /* Helper */
-    func fetchSeries(searchQuery: String, completion: @escaping () -> Void) {
+    func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
-        let parameters: Parameters = [ "api_key": TMDb.apiKey, "query": searchQuery ]
+        let parameters: Parameters = [
+            "api_key": TMDb.apiKey,
+            "query": searchQuery,
+            "page": page
+        ]
 
         Alamofire.request(url, parameters: parameters).responseJSON { (response) in
             if let json = response.result.value {
@@ -163,7 +189,9 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     func parseSeries(json: JSON) {
-        series.removeAll()
+        if let totalPage = json["total_pages"].int {
+            searchTotalPage = totalPage
+        }
 
         json["results"].forEach({ (_, subJson) in
             let name = subJson["name"].string
@@ -174,7 +202,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
                 seriesObject.delegate = self
                 seriesObject.load()
                 series.append(seriesObject)
-
             }
         })
     }
