@@ -43,6 +43,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         searchCollectionView.backgroundColor = Color.primary
+        searchCollectionView.keyboardDismissMode = .onDrag
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         self.view.addSubview(searchCollectionView)
