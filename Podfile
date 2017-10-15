@@ -4,7 +4,7 @@ target 'SeasonOne' do
   use_frameworks!
 
   pod 'Alamofire'
-  pod 'AlamofireImage'
+  pod 'Kingfisher'
   pod 'SnapKit'
   pod 'SwiftyJSON'
 end
