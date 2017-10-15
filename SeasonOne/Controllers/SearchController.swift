@@ -3,7 +3,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 
-class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SeriesDelegate {
+class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let reuseIdentifier = "SearchCollectionViewCell"
 
@@ -119,12 +119,9 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
             cell.updateNameText(currentSeries.name)
             cell.updateCaptionText("New")
-            cell.updateImage(UIImage())
 
-            if let image = currentSeries.image {
-                cell.updateImage(image)
-                cell.animateFadeIn()
-            }
+            let url = "https://image.tmdb.org/t/p/w342\(currentSeries.posterPath)"
+            cell.updateImage(url: url)
 
             return cell
         }
@@ -162,16 +159,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         return itemMargin
     }
 
-    /* Data */
-    func seriesDataAvailable(_ object: Series) {
-        if let index = series.index(where: { $0 === object }) {
-            let indexPath = IndexPath(row: index, section: 0)
-            DispatchQueue.main.async {
-                self.searchCollectionView.reloadItems(at: [indexPath])
-            }
-        }
-    }
-
     /* Helper */
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
@@ -200,8 +187,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
             if name != nil && posterPath != nil {
                 let seriesObject = Series(name: name!, posterPath: posterPath!)
-                seriesObject.delegate = self
-                seriesObject.load()
                 series.append(seriesObject)
             }
         })

@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import Kingfisher
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
@@ -116,8 +117,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     /* Update */
-    func updateImage(_ image: UIImage) {
-        imageView.image = image
+    func updateImage(url: String) {
+        if let url = URL(string: url) {
+            imageView.kf.setImage(with: url, completionHandler: { (_, _, _, _) in
+                self.animateFadeIn()
+            })
+        }
     }
 
     func updateNameText(_ text: String) {
