@@ -82,6 +82,8 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         if let text = sender.text {
             if !text.isEmpty {
                 series.removeAll()
+                searchCollectionView.reloadData()
+                searchCollectionView.contentOffset = .zero
 
                 searchText = text
                 searchPage = 1
