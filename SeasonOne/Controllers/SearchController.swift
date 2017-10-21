@@ -1,9 +1,26 @@
 import UIKit
 import SnapKit
+import Alamofire
+import SwiftyJSON
 
-class SearchController: UIViewController {
+class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    let reuseIdentifier = "SearchCollectionViewCell"
+
+    let margin = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+    let itemMargin: CGFloat = 10
+    let itemPerRow: CGFloat = 2
+    let itemRatioWidth: CGFloat = 2
+    let itemRatioHeight: CGFloat = 3
+
+    var series = [Series]()
+
+    var searchText = ""
+    var searchPage = 1
+    var searchTotalPage = 1
 
     var searchView: SearchView!
+    var searchCollectionView: UICollectionView!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -12,6 +29,8 @@ class SearchController: UIViewController {
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
+        searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
 
         searchView.snp.makeConstraints { (make) in
@@ -20,21 +39,158 @@ class SearchController: UIViewController {
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+
+        searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
+        searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        searchCollectionView.backgroundColor = Color.primary
+        searchCollectionView.keyboardDismissMode = .onDrag
+        searchCollectionView.delegate = self
+        searchCollectionView.dataSource = self
+        self.view.addSubview(searchCollectionView)
+
+        searchCollectionView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(searchView.snp.bottom).offset(16)
+            make.left.equalTo(self.view.snp.left)
+            make.bottom.equalTo(self.view.snp.bottom)
+            make.right.equalTo(self.view.snp.right)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
+    /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
         self.dismiss(animated: true)
     }
 
+    /* UITextField */
     @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
         sender.animateImageHighlightEnabled()
     }
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
-        sender.animateImageHighlightDisabled()
+        if let text = sender.text {
+            if text.isEmpty {
+                sender.animateImageHighlightDisabled()
+            }
+        }
+    }
+
+    @objc func searchTextFieldEditingDidEndOnExit(sender: SearchTextField!) {
+        if let text = sender.text {
+            if !text.isEmpty {
+                series.removeAll()
+                searchCollectionView.reloadData()
+                searchCollectionView.contentOffset = .zero
+
+                searchText = text
+                searchPage = 1
+
+                fetchSeries(searchQuery: searchText, page: searchPage) {
+                    self.searchPage += 1
+                    self.searchCollectionView.reloadData()
+                }
+            }
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text {
+            if !text.isEmpty {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    /* UICollectionView */
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return series.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell {
+            let currentSeries = series[indexPath.row]
+
+            cell.updateNameText(currentSeries.name)
+            cell.updateCaptionText("New")
+
+            let url = "https://image.tmdb.org/t/p/w342\(currentSeries.posterPath)"
+            cell.updateImage(url: url)
+
+            return cell
+        }
+
+        return UICollectionViewCell()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElement = series.count - 1
+        if indexPath.row == lastElement {
+            if searchPage <= searchTotalPage {
+                fetchSeries(searchQuery: searchText, page: searchPage) {
+                    self.searchPage += 1
+                    self.searchCollectionView.reloadData()
+                }
+            }
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columnSpaceInside = (itemPerRow - 1) * itemMargin
+        let columnSpace = columnSpaceInside + margin.left + margin.right
+        let availableWidth = searchCollectionView.frame.width - columnSpace
+        let widthPerItem = (availableWidth / itemPerRow)
+        let heightPerItem = widthPerItem / itemRatioWidth * itemRatioHeight
+
+        return CGSize(width: widthPerItem, height: heightPerItem)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return margin
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return itemMargin
+    }
+
+    /* Helper */
+    func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
+        let url = "https://api.themoviedb.org/3/search/tv"
+        let parameters: Parameters = [
+            "api_key": TMDb.apiKey,
+            "query": searchQuery,
+            "page": page
+        ]
+
+        Alamofire.request(url, parameters: parameters).responseJSON { (response) in
+            if let json = response.result.value {
+                self.parseSeries(json: JSON(json))
+                completion()
+            }
+        }
+    }
+
+    func parseSeries(json: JSON) {
+        if let totalPage = json["total_pages"].int {
+            searchTotalPage = totalPage
+        }
+
+        json["results"].forEach({ (_, subJson) in
+            let name = subJson["name"].string
+            let posterPath = subJson["poster_path"].string
+
+            if name != nil && posterPath != nil {
+                let seriesObject = Series(name: name!, posterPath: posterPath!)
+                series.append(seriesObject)
+            }
+        })
     }
 }
