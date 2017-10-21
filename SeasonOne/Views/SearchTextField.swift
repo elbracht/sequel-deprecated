@@ -1,6 +1,31 @@
 import UIKit
 
 class SearchTextField: UITextField {
+
+    let style = Style.light
+
+    struct Style {
+        let backgroundColor: UIColor
+        let textColor: UIColor
+        let imageColor: UIColor
+        let tintColor: UIColor
+        let clearButtonColor: UIColor
+        let placeholderColor: UIColor
+        let highlightBackgroundColor: UIColor
+        let highlightColor: UIColor
+
+        static let light = Style(
+            backgroundColor: Color.light.blackDivider,
+            textColor: Color.light.blackPrimary,
+            imageColor: Color.light.blackPrimary,
+            tintColor: Color.light.accent,
+            clearButtonColor: Color.light.blackDisabled,
+            placeholderColor: Color.light.blackDisabled,
+            highlightBackgroundColor: Color.light.accent,
+            highlightColor: Color.light.whitePrimary
+        )
+    }
+
     let insetLeft: CGFloat = 16
     let insetLeftInner: CGFloat = 8
     let insetRight: CGFloat = 16
@@ -12,16 +37,6 @@ class SearchTextField: UITextField {
 
     let placeholderText = "Search"
 
-    let defaultBackgroundColor = Color.black.withAlphaComponent(0.12)
-    let defaultTextColor = Color.black.withAlphaComponent(0.87)
-    let defaultImageColor = Color.black.withAlphaComponent(0.87)
-    let defaultTintColor = Color.accent
-    let defaultClearButtonColor = Color.black.withAlphaComponent(0.38)
-    let defaultPlaceholderColor = Color.black.withAlphaComponent(0.38)
-
-    let highlightBackgroundColor = Color.accent
-    let highlightColor = Color.white
-
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -29,12 +44,12 @@ class SearchTextField: UITextField {
 
         updateCornerRadius(self.frame.height / 2)
         updateFont(Font.body)
-        updateBackgroundColor(defaultBackgroundColor)
-        updateTextColor(defaultTextColor)
-        updateTintColor(defaultTintColor)
-        updateImageColor(defaultPlaceholderColor)
-        updateClearImageColor(defaultClearButtonColor)
-        updatePlaceholderColor(defaultPlaceholderColor)
+        updateBackgroundColor(style.backgroundColor)
+        updateTextColor(style.textColor)
+        updateTintColor(style.tintColor)
+        updateImageColor(style.placeholderColor)
+        updateClearImageColor(style.clearButtonColor)
+        updatePlaceholderColor(style.placeholderColor)
         updateKeyboard()
     }
 
@@ -135,35 +150,35 @@ class SearchTextField: UITextField {
     /* Animation */
     func animateTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.updateBackgroundColor(self.defaultBackgroundColor)
-            self.updateImageColor(self.defaultPlaceholderColor)
-            self.updatePlaceholderColor(self.defaultPlaceholderColor)
+            self.updateBackgroundColor(self.style.backgroundColor)
+            self.updateImageColor(self.style.placeholderColor)
+            self.updatePlaceholderColor(self.style.placeholderColor)
         }
     }
 
     func animateTextFieldHightlight() {
         UIView.animate(withDuration: 0.1) {
-            self.updateBackgroundColor(self.highlightBackgroundColor)
-            self.updateImageColor(self.highlightColor)
-            self.updatePlaceholderColor(self.highlightColor)
+            self.updateBackgroundColor(self.style.highlightBackgroundColor)
+            self.updateImageColor(self.style.highlightColor)
+            self.updatePlaceholderColor(self.style.highlightColor)
         }
     }
 
     func animateImageDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.defaultImageColor)
+            self.updateImageColor(self.style.imageColor)
         }
     }
 
     func animateImageHighlight() {
         UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.highlightColor)
+            self.updateImageColor(self.style.highlightColor)
         }
     }
 
     func animateImagePlaceholder() {
         UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.defaultPlaceholderColor)
+            self.updateImageColor(self.style.placeholderColor)
         }
     }
 }

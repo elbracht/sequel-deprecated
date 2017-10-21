@@ -4,8 +4,17 @@ import Kingfisher
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
-    let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
-    let defaultColor = Color.white
+    let style = Style.light
+
+    struct Style {
+        let backgroundColor: UIColor
+        let textColor: UIColor
+
+        static let light = Style(
+            backgroundColor: Color.light.blackDivider,
+            textColor: Color.light.whitePrimary
+        )
+    }
 
     var imageView: UIImageView!
     var titleView: UIView!
@@ -17,7 +26,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = defaultBackgroundColor
+        self.backgroundColor = style.backgroundColor
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
 
@@ -72,7 +81,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initNameLabel() {
         nameLabel = UILabel()
-        nameLabel.textColor = defaultColor
+        nameLabel.textColor = style.textColor
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
 
@@ -88,7 +97,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initCaptionLabel() {
         captionLabel = UILabel()
-        captionLabel.textColor = defaultColor
+        captionLabel.textColor = style.textColor
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
 
@@ -104,7 +113,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initProgressView() {
         progressView = UIView()
-        progressView.backgroundColor = defaultColor
+        progressView.backgroundColor = style.textColor
 
         titleView.addSubview(progressView)
 

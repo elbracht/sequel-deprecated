@@ -1,12 +1,23 @@
 import UIKit
 
 class SearchView: UIView {
-    var cancelButton: UIButton!
-    var searchTextField: SearchTextField!
+
+    let style = Style.light
+
+    struct Style {
+        let buttonColor: UIColor
+
+        static let light = Style(
+            buttonColor: Color.light.accent
+        )
+    }
 
     let height: CGFloat = 36
     let insets = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 16)
     let insetsInner: CGFloat = 8
+
+    var cancelButton: UIButton!
+    var searchTextField: SearchTextField!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +47,7 @@ class SearchView: UIView {
         cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = Font.body
-        cancelButton.tintColor = Color.accent
+        cancelButton.tintColor = style.buttonColor
         self.addSubview(cancelButton)
 
         cancelButton.snp.makeConstraints { (make) -> Void in
