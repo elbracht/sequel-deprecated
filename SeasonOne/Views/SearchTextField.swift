@@ -2,7 +2,7 @@ import UIKit
 
 class SearchTextField: UITextField {
 
-    let style = Style.light
+    var style: Style!
 
     struct Style {
         let backgroundColor: UIColor
@@ -42,14 +42,9 @@ class SearchTextField: UITextField {
 
         initImage()
 
+        updateStyle(.light)
         updateCornerRadius(self.frame.height / 2)
         updateFont(Font.body)
-        updateBackgroundColor(style.backgroundColor)
-        updateTextColor(style.textColor)
-        updateTintColor(style.tintColor)
-        updateImageColor(style.placeholderColor)
-        updateClearImageColor(style.clearButtonColor)
-        updatePlaceholderColor(style.placeholderColor)
         updateKeyboard()
     }
 
@@ -101,6 +96,17 @@ class SearchTextField: UITextField {
     }
 
     /* Updates */
+    func updateStyle(_ style: Style) {
+        self.style = style
+
+        updateBackgroundColor(style.backgroundColor)
+        updateTextColor(style.textColor)
+        updateTintColor(style.tintColor)
+        updateImageColor(style.placeholderColor)
+        updateClearImageColor(style.clearButtonColor)
+        updatePlaceholderColor(style.placeholderColor)
+    }
+
     func updateCornerRadius(_ radius: CGFloat) {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true

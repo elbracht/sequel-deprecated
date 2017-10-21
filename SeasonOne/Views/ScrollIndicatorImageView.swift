@@ -2,7 +2,7 @@ import UIKit
 
 class ScrollIndicatorImageView: UIImageView {
 
-    let style = Style.light
+    var style: Style!
 
     struct Style {
         let color: UIColor
@@ -18,12 +18,24 @@ class ScrollIndicatorImageView: UIImageView {
         super.init(frame: frame)
 
         self.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        self.tintColor = style.color
         self.alpha = 0
+
+        updateStyle(.light)
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    /* Updates */
+    func updateStyle(_ style: Style) {
+        self.style = style
+
+        updateColor(style.color)
+    }
+
+    func updateColor(_ color: UIColor) {
+        self.tintColor = style.color
     }
 
     /* Animation */

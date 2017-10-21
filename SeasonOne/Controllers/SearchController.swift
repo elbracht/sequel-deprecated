@@ -5,6 +5,18 @@ import SwiftyJSON
 
 class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    var style: Style!
+
+    struct Style {
+        let backgroundColor: UIColor
+        let statusBarStyle: UIStatusBarStyle
+
+        static let light = Style(
+            backgroundColor: Color.light.background,
+            statusBarStyle: .default
+        )
+    }
+
     let reuseIdentifier = "SearchCollectionViewCell"
 
     let margin = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
@@ -25,6 +37,18 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initSearchView()
+        initSearchCollectionView()
+
+        updateStyle(.light)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    /* Init */
+    func initSearchView() {
         searchView = SearchView()
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
@@ -39,7 +63,9 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+    }
 
+    func initSearchCollectionView() {
         searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         searchCollectionView.backgroundColor = UIColor.clear
@@ -56,8 +82,16 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    /* Updates */
+    func updateStyle(_ style: Style) {
+        self.style = style
+
+        updateBackgroundColor(style.backgroundColor, statusBarStyle: style.statusBarStyle)
+    }
+
+    func updateBackgroundColor(_ color: UIColor, statusBarStyle: UIStatusBarStyle) {
+        self.view.backgroundColor = color
+        UIApplication.shared.statusBarStyle = statusBarStyle
     }
 
     /* UIButton */

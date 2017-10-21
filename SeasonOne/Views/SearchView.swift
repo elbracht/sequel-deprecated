@@ -2,7 +2,7 @@ import UIKit
 
 class SearchView: UIView {
 
-    let style = Style.light
+    var style: Style!
 
     struct Style {
         let buttonColor: UIColor
@@ -24,6 +24,8 @@ class SearchView: UIView {
 
         initCancelButton()
         initSearchTextField()
+
+        updateStyle(.light)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +49,6 @@ class SearchView: UIView {
         cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.titleLabel?.font = Font.body
-        cancelButton.tintColor = style.buttonColor
         self.addSubview(cancelButton)
 
         cancelButton.snp.makeConstraints { (make) -> Void in
@@ -56,6 +57,17 @@ class SearchView: UIView {
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
             make.height.equalTo(height)
         }
+    }
+
+    /* Updates */
+    func updateStyle(_ style: Style) {
+        self.style = style
+
+        updateCancelButtonColor(style.buttonColor)
+    }
+
+    func updateCancelButtonColor(_ color: UIColor) {
+        cancelButton.tintColor = color
     }
 
     /* Animation */

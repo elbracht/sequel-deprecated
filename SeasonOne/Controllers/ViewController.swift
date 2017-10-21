@@ -3,6 +3,18 @@ import SnapKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
+    var style: Style!
+
+    struct Style {
+        let backgroundColor: UIColor
+        let statusBarStyle: UIStatusBarStyle
+
+        static let light = Style(
+            backgroundColor: Color.light.background,
+            statusBarStyle: .default
+        )
+    }
+
     let scrollIndicatorOffset: CGFloat = 8
     let searchTriggerPosition: CGFloat = 250
 
@@ -12,6 +24,21 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initSearchView()
+        initScrollIndicator()
+
+        updateStyle(style: .light)
+
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
+        self.view.addGestureRecognizer(panGestureRecognizer)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    /* Init */
+    func initSearchView() {
         searchView = SearchView()
         searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
@@ -22,7 +49,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+    }
 
+    func initScrollIndicator() {
         scrollIndicatorImageView = ScrollIndicatorImageView(frame: CGRect())
         self.view.addSubview(scrollIndicatorImageView)
 
@@ -30,13 +59,18 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
-
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
-        self.view.addGestureRecognizer(panGestureRecognizer)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    /* Updates */
+    func updateStyle(style: Style) {
+        self.style = style
+
+        updateBackgroundColor(style.backgroundColor, statusBarStyle: style.statusBarStyle)
+    }
+
+    func updateBackgroundColor(_ color: UIColor, statusBarStyle: UIStatusBarStyle) {
+        self.view.backgroundColor = color
+        UIApplication.shared.statusBarStyle = statusBarStyle
     }
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
