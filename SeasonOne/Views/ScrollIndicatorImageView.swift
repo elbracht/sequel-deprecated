@@ -2,7 +2,7 @@ import UIKit
 
 class ScrollIndicatorImageView: UIImageView {
 
-    let defaultBackgroundColor = Color.white.withAlphaComponent(0.38)
+    let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
     let highlightBackgroundColor = Color.accent
 
     override init(frame: CGRect) {
@@ -30,13 +30,13 @@ class ScrollIndicatorImageView: UIImageView {
         }
     }
 
-    func animateHightlightDisabled() {
+    func animateDefault() {
         UIView.animate(withDuration: 0.1) {
             self.tintColor = self.defaultBackgroundColor
         }
     }
 
-    func animateHightlightEnabled() {
+    func animateHightlight() {
         UIView.animate(withDuration: 0.1) {
             self.tintColor = self.highlightBackgroundColor
         }

@@ -42,7 +42,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
         searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        searchCollectionView.backgroundColor = Color.primary
+        searchCollectionView.backgroundColor = Color.background
         searchCollectionView.keyboardDismissMode = .onDrag
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
@@ -67,13 +67,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     /* UITextField */
     @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
-        sender.animateImageHighlightEnabled()
+        sender.animateImageDefault()
     }
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
         if let text = sender.text {
             if text.isEmpty {
-                sender.animateImageHighlightDisabled()
+                sender.animateImagePlaceholder()
             }
         }
     }

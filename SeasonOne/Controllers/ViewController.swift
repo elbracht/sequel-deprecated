@@ -69,16 +69,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
 
         if yTranslation > searchTriggerPosition {
-            searchView.searchTextField.animateTextFieldHightlightEnabled()
-            scrollIndicatorImageView.animateHightlightEnabled()
+            searchView.searchTextField.animateTextFieldHightlight()
+            scrollIndicatorImageView.animateHightlight()
         } else {
-            searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageView.animateHightlightDisabled()
+            searchView.searchTextField.animateTextFieldDefault()
+            scrollIndicatorImageView.animateDefault()
         }
 
         if sender.state == UIGestureRecognizerState.ended {
-            searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageView.animateHightlightDisabled()
+            searchView.searchTextField.animateTextFieldDefault()
+            scrollIndicatorImageView.animateDefault()
 
             animateRubberBand(completion: { _ in
                 self.scrollIndicatorImageView.animateFadeOut()

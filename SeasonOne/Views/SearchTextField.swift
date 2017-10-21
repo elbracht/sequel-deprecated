@@ -12,16 +12,15 @@ class SearchTextField: UITextField {
 
     let placeholderText = "Search"
 
-    let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
-    let defaultTextColor = Color.white
+    let defaultBackgroundColor = Color.black.withAlphaComponent(0.12)
+    let defaultTextColor = Color.black.withAlphaComponent(0.87)
+    let defaultImageColor = Color.black.withAlphaComponent(0.87)
     let defaultTintColor = Color.accent
-    let defaultImageColor = Color.white.withAlphaComponent(0.54)
-    let defaultClearButtonColor = Color.white.withAlphaComponent(0.54)
-    let defaultPlaceholderColor = Color.white.withAlphaComponent(0.54)
+    let defaultClearButtonColor = Color.black.withAlphaComponent(0.38)
+    let defaultPlaceholderColor = Color.black.withAlphaComponent(0.38)
 
     let highlightBackgroundColor = Color.accent
-    let highlightImageColor = Color.white
-    let highlightPlaceholderColor = Color.white
+    let highlightColor = Color.white
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +32,7 @@ class SearchTextField: UITextField {
         updateBackgroundColor(defaultBackgroundColor)
         updateTextColor(defaultTextColor)
         updateTintColor(defaultTintColor)
-        updateImageColor(defaultImageColor)
+        updateImageColor(defaultPlaceholderColor)
         updateClearImageColor(defaultClearButtonColor)
         updatePlaceholderColor(defaultPlaceholderColor)
         updateKeyboard()
@@ -134,31 +133,37 @@ class SearchTextField: UITextField {
     }
 
     /* Animation */
-    func animateTextFieldHightlightDisabled() {
+    func animateTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
             self.updateBackgroundColor(self.defaultBackgroundColor)
-            self.updateImageColor(self.defaultImageColor)
+            self.updateImageColor(self.defaultPlaceholderColor)
             self.updatePlaceholderColor(self.defaultPlaceholderColor)
         }
     }
 
-    func animateTextFieldHightlightEnabled() {
+    func animateTextFieldHightlight() {
         UIView.animate(withDuration: 0.1) {
             self.updateBackgroundColor(self.highlightBackgroundColor)
-            self.updateImageColor(self.highlightImageColor)
-            self.updatePlaceholderColor(self.highlightPlaceholderColor)
+            self.updateImageColor(self.highlightColor)
+            self.updatePlaceholderColor(self.highlightColor)
         }
     }
 
-    func animateImageHighlightDisabled() {
+    func animateImageDefault() {
         UIView.animate(withDuration: 0.1) {
             self.updateImageColor(self.defaultImageColor)
         }
     }
 
-    func animateImageHighlightEnabled() {
+    func animateImageHighlight() {
         UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.highlightImageColor)
+            self.updateImageColor(self.highlightColor)
+        }
+    }
+
+    func animateImagePlaceholder() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor(self.defaultPlaceholderColor)
         }
     }
 }
