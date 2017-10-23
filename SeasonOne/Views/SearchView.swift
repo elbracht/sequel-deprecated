@@ -1,14 +1,13 @@
+import SwiftTheme
 import UIKit
 
 class SearchView: UIView {
 
-    var style: Style!
-
     struct Style {
-        let buttonColor: UIColor
+        let cancelButtonColor: String
 
         static let light = Style(
-            buttonColor: Color.light.accent
+            cancelButtonColor: Color.light.accent
         )
     }
 
@@ -24,8 +23,6 @@ class SearchView: UIView {
 
         initCancelButton()
         initSearchTextField()
-
-        updateStyle(.light)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +45,7 @@ class SearchView: UIView {
     func initCancelButton() {
         cancelButton = UIButton(type: .system)
         cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.theme_tintColor = [Style.light.cancelButtonColor]
         cancelButton.titleLabel?.font = Font.body
         self.addSubview(cancelButton)
 
@@ -57,17 +55,6 @@ class SearchView: UIView {
             make.width.equalTo(cancelButton.intrinsicContentSize.width)
             make.height.equalTo(height)
         }
-    }
-
-    /* Updates */
-    func updateStyle(_ style: Style) {
-        self.style = style
-
-        updateCancelButtonColor(style.buttonColor)
-    }
-
-    func updateCancelButtonColor(_ color: UIColor) {
-        cancelButton.tintColor = color
     }
 
     /* Animation */

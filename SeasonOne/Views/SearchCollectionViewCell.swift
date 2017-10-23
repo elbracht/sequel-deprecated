@@ -1,14 +1,13 @@
-import UIKit
-import SnapKit
 import Kingfisher
+import SnapKit
+import SwiftTheme
+import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
-    var style: Style!
-
     struct Style {
-        let backgroundColor: UIColor
-        let textColor: UIColor
+        let backgroundColor: String
+        let textColor: String
 
         static let light = Style(
             backgroundColor: Color.light.blackDivider,
@@ -29,14 +28,13 @@ class SearchCollectionViewCell: UICollectionViewCell {
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
 
+        initView()
         initImageView()
         initTitleView()
         initBlurEffectView()
         initNameLabel()
         initCaptionLabel()
         initProgressView()
-
-        updateStyle(.light)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +43,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     /* Init */
     func initView() {
-
+        self.theme_backgroundColor = [Style.light.backgroundColor]
     }
 
     func initImageView() {
@@ -86,6 +84,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initNameLabel() {
         nameLabel = UILabel()
+        nameLabel.theme_textColor = [Style.light.textColor]
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
 
@@ -101,6 +100,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initCaptionLabel() {
         captionLabel = UILabel()
+        captionLabel.theme_textColor = [Style.light.textColor]
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
 
@@ -116,6 +116,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initProgressView() {
         progressView = UIView()
+        progressView.theme_backgroundColor = [Style.light.textColor]
 
         titleView.addSubview(progressView)
 
@@ -127,16 +128,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    /* Updates */
-    func updateStyle(_ style: Style) {
-        self.style = style
-
-        updateBackgroundColor(style.backgroundColor)
-        updateNameColor(style.textColor)
-        updateCaptionColor(style.textColor)
-        updateProgressViewColor(style.textColor)
-    }
-
     func updateImage(url: String) {
         if let url = URL(string: url) {
             imageView.kf.setImage(with: url, completionHandler: { (_, _, _, _) in
@@ -145,28 +136,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func updateBackgroundColor(_ color: UIColor) {
-        self.backgroundColor = color
-    }
-
     func updateNameText(_ text: String) {
         nameLabel.text = text
     }
 
-    func updateNameColor(_ color: UIColor) {
-        nameLabel.textColor = color
-    }
-
     func updateCaptionText(_ text: String) {
         captionLabel.text = text
-    }
-
-    func updateCaptionColor(_ color: UIColor) {
-        captionLabel.textColor = color
-    }
-
-    func updateProgressViewColor(_ color: UIColor) {
-        progressView.backgroundColor = color
     }
 
     /* Animation */

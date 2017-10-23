@@ -1,18 +1,17 @@
+import SwiftTheme
 import UIKit
 
 class SearchTextField: UITextField {
 
-    var style: Style!
-
     struct Style {
-        let backgroundColor: UIColor
-        let textColor: UIColor
-        let imageColor: UIColor
-        let tintColor: UIColor
-        let clearButtonColor: UIColor
-        let placeholderColor: UIColor
-        let highlightBackgroundColor: UIColor
-        let highlightColor: UIColor
+        let backgroundColor: String
+        let textColor: String
+        let imageColor: String
+        let tintColor: String
+        let clearButtonColor: String
+        let placeholderColor: String
+        let highlightBackgroundColor: String
+        let highlightColor: String
 
         static let light = Style(
             backgroundColor: Color.light.blackDivider,
@@ -42,9 +41,14 @@ class SearchTextField: UITextField {
 
         initImage()
 
-        updateStyle(.light)
         updateCornerRadius(self.frame.height / 2)
         updateFont(Font.body)
+        updateBackgroundColor([Style.light.backgroundColor])
+        updateTextColor([Style.light.textColor])
+        updateTintColor([Style.light.tintColor])
+        updateImageColor([Style.light.placeholderColor])
+        updateClearImageColor([Style.light.clearButtonColor])
+        updatePlaceholderColor([Style.light.placeholderColor])
         updateKeyboard()
     }
 
@@ -52,6 +56,99 @@ class SearchTextField: UITextField {
         super.init(coder: aDecoder)
     }
 
+    /* Init */
+    func initImage() {
+        searchImageView.frame = CGRect(x: 0, y: 0, width: searchImage.size.width, height: searchImage.size.height)
+        searchImageView.image = searchImage.withRenderingMode(.alwaysTemplate)
+        self.leftView = searchImageView
+        self.leftViewMode = .always
+    }
+
+    /* Updates */
+    func updateCornerRadius(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+
+    func updateFont(_ font: UIFont?) {
+        self.font = font
+    }
+
+    func updateBackgroundColor(_ colors: ThemeColorPicker) {
+        self.theme_backgroundColor = colors
+    }
+
+    func updateTextColor(_ colors: ThemeColorPicker) {
+        self.theme_textColor = colors
+    }
+
+    func updateTintColor(_ colors: ThemeColorPicker) {
+        self.theme_tintColor = colors
+    }
+
+    func updateImageColor(_ colors: ThemeColorPicker) {
+        searchImageView.theme_tintColor = colors
+    }
+
+    func updateClearImageColor(_ colors: ThemeColorPicker) {
+        if let clearButton = self.value(forKey: "_clearButton") as? UIButton {
+            clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
+            clearButton.imageView?.theme_tintColor = colors
+        }
+
+        self.clearButtonMode = .always
+    }
+
+    func updatePlaceholderColor(_ colors: ThemeColorPicker) {
+        if let color = colors.value() as? UIColor {
+            self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: color])
+        }
+    }
+
+    func updateKeyboard() {
+        self.keyboardType = .alphabet
+        self.keyboardAppearance = .dark
+        self.autocorrectionType = .no
+        self.autocapitalizationType = .sentences
+        self.returnKeyType = .search
+    }
+
+    /* Animation */
+    func animateTextFieldDefault() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateBackgroundColor([Style.light.backgroundColor])
+            self.updateImageColor([Style.light.placeholderColor])
+            self.updatePlaceholderColor([Style.light.placeholderColor])
+        }
+    }
+
+    func animateTextFieldHightlight() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateBackgroundColor([Style.light.highlightBackgroundColor])
+            self.updateImageColor([Style.light.highlightColor])
+            self.updatePlaceholderColor([Style.light.highlightColor])
+        }
+    }
+
+    func animateImageDefault() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor([Style.light.imageColor])
+        }
+    }
+
+    func animateImageHighlight() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor([Style.light.highlightColor])
+        }
+    }
+
+    func animateImagePlaceholder() {
+        UIView.animate(withDuration: 0.1) {
+            self.updateImageColor([Style.light.placeholderColor])
+        }
+    }
+
+    /* Overrides */
     override func updateConstraints() {
         super.updateConstraints()
 
@@ -85,106 +182,5 @@ class SearchTextField: UITextField {
         let textFieldEndPosition = (bounds.width / 2) - (clearImage.size.width / 2)
         let inset = textFieldEndPosition - insetRight
         return bounds.offsetBy(dx: inset, dy: 0)
-    }
-
-    /* Init */
-    func initImage() {
-        searchImageView.frame = CGRect(x: 0, y: 0, width: searchImage.size.width, height: searchImage.size.height)
-        searchImageView.image = searchImage.withRenderingMode(.alwaysTemplate)
-        self.leftView = searchImageView
-        self.leftViewMode = .always
-    }
-
-    /* Updates */
-    func updateStyle(_ style: Style) {
-        self.style = style
-
-        updateBackgroundColor(style.backgroundColor)
-        updateTextColor(style.textColor)
-        updateTintColor(style.tintColor)
-        updateImageColor(style.placeholderColor)
-        updateClearImageColor(style.clearButtonColor)
-        updatePlaceholderColor(style.placeholderColor)
-    }
-
-    func updateCornerRadius(_ radius: CGFloat) {
-        self.layer.cornerRadius = radius
-        self.layer.masksToBounds = true
-    }
-
-    func updateFont(_ font: UIFont?) {
-        self.font = font
-    }
-
-    func updateBackgroundColor(_ color: UIColor) {
-        self.backgroundColor = color
-    }
-
-    func updateTextColor(_ color: UIColor) {
-        self.textColor = color
-    }
-
-    func updateTintColor(_ color: UIColor) {
-        self.tintColor = color
-    }
-
-    func updateImageColor(_ color: UIColor) {
-        searchImageView.tintColor = color
-    }
-
-    func updateClearImageColor(_ color: UIColor) {
-        if let clearButton = self.value(forKey: "_clearButton") as? UIButton {
-            clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
-            clearButton.imageView?.tintColor = color
-        }
-
-        self.clearButtonMode = .always
-    }
-
-    func updatePlaceholderColor(_ color: UIColor) {
-        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: color])
-    }
-
-    func updateKeyboard() {
-        self.keyboardType = .alphabet
-        self.keyboardAppearance = .dark
-        self.autocorrectionType = .no
-        self.autocapitalizationType = .sentences
-        self.returnKeyType = .search
-    }
-
-    /* Animation */
-    func animateTextFieldDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.updateBackgroundColor(self.style.backgroundColor)
-            self.updateImageColor(self.style.placeholderColor)
-            self.updatePlaceholderColor(self.style.placeholderColor)
-        }
-    }
-
-    func animateTextFieldHightlight() {
-        UIView.animate(withDuration: 0.1) {
-            self.updateBackgroundColor(self.style.highlightBackgroundColor)
-            self.updateImageColor(self.style.highlightColor)
-            self.updatePlaceholderColor(self.style.highlightColor)
-        }
-    }
-
-    func animateImageDefault() {
-        UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.style.imageColor)
-        }
-    }
-
-    func animateImageHighlight() {
-        UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.style.highlightColor)
-        }
-    }
-
-    func animateImagePlaceholder() {
-        UIView.animate(withDuration: 0.1) {
-            self.updateImageColor(self.style.placeholderColor)
-        }
     }
 }

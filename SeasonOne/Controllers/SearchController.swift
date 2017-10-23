@@ -1,14 +1,13 @@
-import UIKit
-import SnapKit
 import Alamofire
+import SnapKit
+import SwiftTheme
 import SwiftyJSON
+import UIKit
 
 class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    var style: Style!
-
     struct Style {
-        let backgroundColor: UIColor
+        let backgroundColor: String
         let statusBarStyle: UIStatusBarStyle
 
         static let light = Style(
@@ -37,10 +36,9 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initView()
         initSearchView()
         initSearchCollectionView()
-
-        updateStyle(.light)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +46,12 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     /* Init */
+    func initView() {
+        self.view.theme_backgroundColor = [Style.light.backgroundColor]
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+    }
+
     func initSearchView() {
         searchView = SearchView()
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
@@ -80,18 +84,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             make.bottom.equalTo(self.view.snp.bottom)
             make.right.equalTo(self.view.snp.right)
         }
-    }
-
-    /* Updates */
-    func updateStyle(_ style: Style) {
-        self.style = style
-
-        updateBackgroundColor(style.backgroundColor, statusBarStyle: style.statusBarStyle)
-    }
-
-    func updateBackgroundColor(_ color: UIColor, statusBarStyle: UIStatusBarStyle) {
-        self.view.backgroundColor = color
-        UIApplication.shared.statusBarStyle = statusBarStyle
     }
 
     /* UIButton */

@@ -1,12 +1,11 @@
-import UIKit
 import SnapKit
+import SwiftTheme
+import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
-    var style: Style!
-
     struct Style {
-        let backgroundColor: UIColor
+        let backgroundColor: String
         let statusBarStyle: UIStatusBarStyle
 
         static let light = Style(
@@ -24,10 +23,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initView()
         initSearchView()
         initScrollIndicator()
-
-        updateStyle(style: .light)
 
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
@@ -38,6 +36,12 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
 
     /* Init */
+    func initView() {
+        self.view.theme_backgroundColor = [Style.light.backgroundColor]
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+    }
+
     func initSearchView() {
         searchView = SearchView()
         searchView.searchTextField.delegate = self
@@ -59,18 +63,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
-    }
-
-    /* Updates */
-    func updateStyle(style: Style) {
-        self.style = style
-
-        updateBackgroundColor(style.backgroundColor, statusBarStyle: style.statusBarStyle)
-    }
-
-    func updateBackgroundColor(_ color: UIColor, statusBarStyle: UIStatusBarStyle) {
-        self.view.backgroundColor = color
-        UIApplication.shared.statusBarStyle = statusBarStyle
     }
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
