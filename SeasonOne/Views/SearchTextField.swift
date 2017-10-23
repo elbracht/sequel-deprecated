@@ -37,7 +37,7 @@ class SearchTextField: UITextField {
     let searchImage = UIImage(named: "search")!
     let clearImage = UIImage(named: "clear")!
 
-    let placeholderText = "Search"
+    let placeholderText = "Search series by name"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
