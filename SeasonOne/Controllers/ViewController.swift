@@ -1,7 +1,18 @@
-import UIKit
 import SnapKit
+import SwiftTheme
+import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
+
+    struct Style {
+        let backgroundColor: String
+        let statusBarStyle: UIStatusBarStyle
+
+        static let light = Style(
+            backgroundColor: Color.light.background,
+            statusBarStyle: .default
+        )
+    }
 
     let scrollIndicatorOffset: CGFloat = 8
     let searchTriggerPosition: CGFloat = 250
@@ -12,6 +23,26 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initView()
+        initSearchView()
+        initScrollIndicator()
+
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
+        self.view.addGestureRecognizer(panGestureRecognizer)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    /* Init */
+    func initView() {
+        self.view.theme_backgroundColor = [Style.light.backgroundColor]
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+    }
+
+    func initSearchView() {
         searchView = SearchView()
         searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
@@ -22,7 +53,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+    }
 
+    func initScrollIndicator() {
         scrollIndicatorImageView = ScrollIndicatorImageView(frame: CGRect())
         self.view.addSubview(scrollIndicatorImageView)
 
@@ -30,13 +63,6 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
-
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
-        self.view.addGestureRecognizer(panGestureRecognizer)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -69,16 +95,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
 
         if yTranslation > searchTriggerPosition {
-            searchView.searchTextField.animateTextFieldHightlightEnabled()
-            scrollIndicatorImageView.animateHightlightEnabled()
+            searchView.searchTextField.animateTextFieldHightlight()
+            scrollIndicatorImageView.animateHightlight()
         } else {
-            searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageView.animateHightlightDisabled()
+            searchView.searchTextField.animateTextFieldDefault()
+            scrollIndicatorImageView.animateDefault()
         }
 
         if sender.state == UIGestureRecognizerState.ended {
-            searchView.searchTextField.animateTextFieldHightlightDisabled()
-            scrollIndicatorImageView.animateHightlightDisabled()
+            searchView.searchTextField.animateTextFieldDefault()
+            scrollIndicatorImageView.animateDefault()
 
             animateRubberBand(completion: { _ in
                 self.scrollIndicatorImageView.animateFadeOut()

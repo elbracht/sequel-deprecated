@@ -1,9 +1,20 @@
-import UIKit
-import SnapKit
 import Alamofire
+import SnapKit
+import SwiftTheme
 import SwiftyJSON
+import UIKit
 
 class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    struct Style {
+        let backgroundColor: String
+        let statusBarStyle: UIStatusBarStyle
+
+        static let light = Style(
+            backgroundColor: Color.light.background,
+            statusBarStyle: .default
+        )
+    }
 
     let reuseIdentifier = "SearchCollectionViewCell"
 
@@ -25,6 +36,23 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        initView()
+        initSearchView()
+        initSearchCollectionView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    /* Init */
+    func initView() {
+        self.view.theme_backgroundColor = [Style.light.backgroundColor]
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+    }
+
+    func initSearchView() {
         searchView = SearchView()
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
@@ -39,10 +67,12 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             make.right.equalTo(self.view)
             make.height.equalTo(searchView.height + searchView.insets.top)
         }
+    }
 
+    func initSearchCollectionView() {
         searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        searchCollectionView.backgroundColor = Color.primary
+        searchCollectionView.backgroundColor = UIColor.clear
         searchCollectionView.keyboardDismissMode = .onDrag
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
@@ -56,10 +86,6 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
     /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
         self.dismiss(animated: true)
@@ -67,13 +93,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     /* UITextField */
     @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
-        sender.animateImageHighlightEnabled()
+        sender.animateImageDefault()
     }
 
     @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
         if let text = sender.text {
             if text.isEmpty {
-                sender.animateImageHighlightDisabled()
+                sender.animateImagePlaceholder()
             }
         }
     }

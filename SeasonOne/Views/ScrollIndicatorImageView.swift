@@ -1,15 +1,23 @@
+import SwiftTheme
 import UIKit
 
 class ScrollIndicatorImageView: UIImageView {
 
-    let defaultBackgroundColor = Color.white.withAlphaComponent(0.38)
-    let highlightBackgroundColor = Color.accent
+    struct Style {
+        let color: String
+        let highlightColor: String
+
+        static let light = Style(
+            color: Color.light.blackDisabled,
+            highlightColor: Color.light.accent
+        )
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         self.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
-        self.tintColor = defaultBackgroundColor
+        self.theme_tintColor = [Style.light.color]
         self.alpha = 0
     }
 
@@ -30,15 +38,15 @@ class ScrollIndicatorImageView: UIImageView {
         }
     }
 
-    func animateHightlightDisabled() {
+    func animateDefault() {
         UIView.animate(withDuration: 0.1) {
-            self.tintColor = self.defaultBackgroundColor
+            self.theme_tintColor = [Style.light.color]
         }
     }
 
-    func animateHightlightEnabled() {
+    func animateHightlight() {
         UIView.animate(withDuration: 0.1) {
-            self.tintColor = self.highlightBackgroundColor
+            self.theme_tintColor = [Style.light.highlightColor]
         }
     }
 }

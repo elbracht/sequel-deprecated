@@ -1,11 +1,19 @@
-import UIKit
-import SnapKit
 import Kingfisher
+import SnapKit
+import SwiftTheme
+import UIKit
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
-    let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
-    let defaultColor = Color.white
+    struct Style {
+        let backgroundColor: String
+        let textColor: String
+
+        static let light = Style(
+            backgroundColor: Color.light.blackDivider,
+            textColor: Color.light.whitePrimary
+        )
+    }
 
     var imageView: UIImageView!
     var titleView: UIView!
@@ -17,10 +25,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = defaultBackgroundColor
-        self.layer.cornerRadius = 4
-        self.layer.masksToBounds = true
-
+        initView()
         initImageView()
         initTitleView()
         initBlurEffectView()
@@ -34,6 +39,21 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     /* Init */
+    func initView() {
+        self.theme_backgroundColor = [Style.light.backgroundColor]
+
+        self.contentView.layer.cornerRadius = 4
+        self.contentView.layer.masksToBounds = true
+
+        self.layer.shadowColor = Shadow.small.color
+        self.layer.shadowOpacity = Shadow.small.opacity
+        self.layer.shadowOffset = Shadow.small.offset
+        self.layer.shadowRadius = Shadow.small.radius
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
+        self.layer.cornerRadius = 4
+        self.layer.masksToBounds = false
+    }
+
     func initImageView() {
         imageView = UIImageView()
         imageView.alpha = 0
@@ -72,7 +92,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initNameLabel() {
         nameLabel = UILabel()
-        nameLabel.textColor = defaultColor
+        nameLabel.theme_textColor = [Style.light.textColor]
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
 
@@ -88,7 +108,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initCaptionLabel() {
         captionLabel = UILabel()
-        captionLabel.textColor = defaultColor
+        captionLabel.theme_textColor = [Style.light.textColor]
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
 
@@ -104,7 +124,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     func initProgressView() {
         progressView = UIView()
-        progressView.backgroundColor = defaultColor
+        progressView.theme_backgroundColor = [Style.light.textColor]
 
         titleView.addSubview(progressView)
 
@@ -116,7 +136,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    /* Update */
     func updateImage(url: String) {
         if let url = URL(string: url) {
             imageView.kf.setImage(with: url, completionHandler: { (_, _, _, _) in
