@@ -27,10 +27,11 @@ class SearchTextField: UITextField {
         )
     }
 
-    let insetLeft: CGFloat = 16
-    let insetLeftInner: CGFloat = 8
-    let insetRight: CGFloat = 16
-    let insetRightInner: CGFloat = 0
+    struct Measure {
+        static let offset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        static let imageOffset = 8 as CGFloat
+        static let clearButtonOffset = 0 as CGFloat
+    }
 
     let searchImageView = UIImageView()
     let searchImage = UIImage(named: "search")!
@@ -162,27 +163,27 @@ class SearchTextField: UITextField {
     }
 
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let left = insetLeft + insetLeftInner + searchImage.size.width
-        let right = insetRight + insetRightInner + clearImage.size.width
-        let insets = UIEdgeInsets(top: 1, left: left, bottom: 0, right: right)
-        return UIEdgeInsetsInsetRect(bounds, insets)
+        let leftOffset = Measure.offset.left + Measure.imageOffset + searchImage.size.width
+        let rightOffset = Measure.offset.right + Measure.clearButtonOffset + clearImage.size.width
+        let offset = UIEdgeInsets(top: 1, left: leftOffset, bottom: 0, right: rightOffset)
+        return UIEdgeInsetsInsetRect(bounds, offset)
     }
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let left = insetLeft + insetLeftInner + searchImage.size.width
-        let right = insetRight + insetRightInner + clearImage.size.width
-        let insets = UIEdgeInsets(top: 1, left: left, bottom: 0, right: right)
-        return UIEdgeInsetsInsetRect(bounds, insets)
+        let leftOffset = Measure.offset.left + Measure.imageOffset + searchImage.size.width
+        let rightOffset = Measure.offset.right + Measure.clearButtonOffset + clearImage.size.width
+        let offset = UIEdgeInsets(top: 1, left: leftOffset, bottom: 0, right: rightOffset)
+        return UIEdgeInsetsInsetRect(bounds, offset)
     }
 
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         let superLeftViewRect = super.leftViewRect(forBounds: bounds)
-        return superLeftViewRect.offsetBy(dx: insetLeft, dy: 0)
+        return superLeftViewRect.offsetBy(dx: Measure.offset.left, dy: 0)
     }
 
     override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
         let textFieldEndPosition = (bounds.width / 2) - (clearImage.size.width / 2)
-        let inset = textFieldEndPosition - insetRight
-        return bounds.offsetBy(dx: inset, dy: 0)
+        let offset = textFieldEndPosition - Measure.offset.right
+        return bounds.offsetBy(dx: offset, dy: 0)
     }
 }

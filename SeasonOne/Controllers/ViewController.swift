@@ -14,8 +14,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         )
     }
 
-    let scrollIndicatorOffset: CGFloat = 8
-    let searchTriggerPosition: CGFloat = 250
+    struct Measure {
+        static let scrollIndicatorOffset = 8 as CGFloat
+        static let searchTriggerPosition = 250 as CGFloat
+    }
 
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
@@ -51,7 +53,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             make.left.equalTo(self.view)
             make.top.equalTo(self.view)
             make.right.equalTo(self.view)
-            make.height.equalTo(searchView.height + searchView.insets.top)
+            make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
         }
     }
 
@@ -60,7 +62,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         self.view.addSubview(scrollIndicatorImageView)
 
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset)
+            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
     }
@@ -91,10 +93,10 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(scrollIndicatorOffset + (offset * 1.5))
+            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset + (offset * 1.5))
         }
 
-        if yTranslation > searchTriggerPosition {
+        if yTranslation > Measure.searchTriggerPosition {
             searchView.searchTextField.animateTextFieldHightlight()
             scrollIndicatorImageView.animateHightlight()
         } else {
@@ -109,7 +111,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             animateRubberBand(completion: { _ in
                 self.scrollIndicatorImageView.animateFadeOut()
 
-                if yTranslation > self.searchTriggerPosition {
+                if yTranslation > Measure.searchTriggerPosition {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
             })
@@ -124,7 +126,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.searchView.snp.bottom).offset(self.scrollIndicatorOffset)
+                make.top.equalTo(self.searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
             }
 
             self.view.layoutIfNeeded()

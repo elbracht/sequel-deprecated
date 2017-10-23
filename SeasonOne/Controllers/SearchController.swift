@@ -16,13 +16,15 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
         )
     }
 
-    let reuseIdentifier = "SearchCollectionViewCell"
+    struct Measure {
+        static let searchCollectionViewOffset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+        static let searchItemOffset = 12 as CGFloat
+        static let searchItemPerRow = 2 as CGFloat
+        static let searchItemRatioWidth = 2 as CGFloat
+        static let searchItemRatioHeight = 3 as CGFloat
+    }
 
-    let margin = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
-    let itemMargin: CGFloat = 10
-    let itemPerRow: CGFloat = 2
-    let itemRatioWidth: CGFloat = 2
-    let itemRatioHeight: CGFloat = 3
+    let reuseIdentifier = "SearchCollectionViewCell"
 
     var series = [Series]()
 
@@ -65,7 +67,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             make.left.equalTo(self.view)
             make.top.equalTo(self.view)
             make.right.equalTo(self.view)
-            make.height.equalTo(searchView.height + searchView.insets.top)
+            make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
         }
     }
 
@@ -170,21 +172,21 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columnSpaceInside = (itemPerRow - 1) * itemMargin
-        let columnSpace = columnSpaceInside + margin.left + margin.right
+        let columnSpaceInside = (Measure.searchItemPerRow - 1) * Measure.searchItemOffset
+        let columnSpace = columnSpaceInside + Measure.searchCollectionViewOffset.left + Measure.searchCollectionViewOffset.right
         let availableWidth = searchCollectionView.frame.width - columnSpace
-        let widthPerItem = (availableWidth / itemPerRow)
-        let heightPerItem = widthPerItem / itemRatioWidth * itemRatioHeight
+        let widthPerItem = (availableWidth / Measure.searchItemPerRow)
+        let heightPerItem = widthPerItem / Measure.searchItemRatioWidth * Measure.searchItemRatioHeight
 
         return CGSize(width: widthPerItem, height: heightPerItem)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return margin
+        return Measure.searchCollectionViewOffset
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return itemMargin
+        return Measure.searchItemOffset
     }
 
     /* Helper */
