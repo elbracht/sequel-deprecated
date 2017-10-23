@@ -25,9 +25,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.layer.cornerRadius = 4
-        self.layer.masksToBounds = true
-
         initView()
         initImageView()
         initTitleView()
@@ -44,6 +41,17 @@ class SearchCollectionViewCell: UICollectionViewCell {
     /* Init */
     func initView() {
         self.theme_backgroundColor = [Style.light.backgroundColor]
+
+        self.contentView.layer.cornerRadius = 4
+        self.contentView.layer.masksToBounds = true
+
+        self.layer.shadowColor = Shadow.small.color
+        self.layer.shadowOpacity = Shadow.small.opacity
+        self.layer.shadowOffset = Shadow.small.offset
+        self.layer.shadowRadius = Shadow.small.radius
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
+        self.layer.cornerRadius = 4
+        self.layer.masksToBounds = false
     }
 
     func initImageView() {
