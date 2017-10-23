@@ -23,7 +23,7 @@
 		11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA91F8965FB00811C40 /* TMDb.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
-		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
+		11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchViewController.swift */; };
 		11ED81721F811A6200E8379E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* Font.swift */; };
 		11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81741F81227200E8379E /* Montserrat-Bold.ttf */; };
 		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
@@ -72,7 +72,7 @@
 		11BF4CA91F8965FB00811C40 /* TMDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDb.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
-		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		11E4BCA51F7D122F00169F6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		11ED81711F811A6200E8379E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		11ED81741F81227200E8379E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
-				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
+				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -483,7 +483,7 @@
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
-				11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */,
+				11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

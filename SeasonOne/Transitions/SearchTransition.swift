@@ -29,7 +29,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func present(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
 
-        if let toController = transitionContext.viewController(forKey: .to) as? SearchController {
+        if let toController = transitionContext.viewController(forKey: .to) as? SearchViewController {
             if let fromController = transitionContext.viewController(forKey: .from) as? ViewController {
                 containerView.addSubview(toController.view)
 
@@ -48,7 +48,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
 
     func dismiss(transitionContext: UIViewControllerContextTransitioning) {
-        if let fromController = transitionContext.viewController(forKey: .from) as? SearchController {
+        if let fromController = transitionContext.viewController(forKey: .from) as? SearchViewController {
             fromController.searchView.searchTextField.endEditing(true)
 
             fromController.searchView.animateSwipeRight(completion: { (success) in
