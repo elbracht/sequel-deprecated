@@ -12,6 +12,7 @@ class SearchTextField: UITextField {
         let placeholderColor: String
         let highlightBackgroundColor: String
         let highlightColor: String
+        let keyboardAppearance: UIKeyboardAppearance
 
         static let light = Style(
             backgroundColor: Color.light.blackDivider,
@@ -21,7 +22,8 @@ class SearchTextField: UITextField {
             clearButtonColor: Color.light.blackDisabled,
             placeholderColor: Color.light.blackDisabled,
             highlightBackgroundColor: Color.light.accent,
-            highlightColor: Color.light.whitePrimary
+            highlightColor: Color.light.whitePrimary,
+            keyboardAppearance: .light
         )
     }
 
@@ -40,6 +42,7 @@ class SearchTextField: UITextField {
         super.init(frame: frame)
 
         initImage()
+        initKeyboard()
 
         updateCornerRadius(self.frame.height / 2)
         updateFont(Font.body)
@@ -49,7 +52,6 @@ class SearchTextField: UITextField {
         updateImageColor([Style.light.placeholderColor])
         updateClearImageColor([Style.light.clearButtonColor])
         updatePlaceholderColor([Style.light.placeholderColor])
-        updateKeyboard()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -62,6 +64,14 @@ class SearchTextField: UITextField {
         searchImageView.image = searchImage.withRenderingMode(.alwaysTemplate)
         self.leftView = searchImageView
         self.leftViewMode = .always
+    }
+
+    func initKeyboard() {
+        self.theme_keyboardAppearance = [Style.light.keyboardAppearance]
+        self.keyboardType = .alphabet
+        self.autocorrectionType = .no
+        self.autocapitalizationType = .sentences
+        self.returnKeyType = .search
     }
 
     /* Updates */
@@ -103,14 +113,6 @@ class SearchTextField: UITextField {
         if let color = colors.value() as? UIColor {
             self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: color])
         }
-    }
-
-    func updateKeyboard() {
-        self.keyboardType = .alphabet
-        self.keyboardAppearance = .dark
-        self.autocorrectionType = .no
-        self.autocapitalizationType = .sentences
-        self.returnKeyType = .search
     }
 
     /* Animation */
