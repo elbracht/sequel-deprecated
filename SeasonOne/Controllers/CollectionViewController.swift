@@ -2,7 +2,7 @@ import SnapKit
 import SwiftTheme
 import UIKit
 
-class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
+class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
     struct Style {
         let backgroundColor: String

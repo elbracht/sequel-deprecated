@@ -30,7 +30,7 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
 
         if let toController = transitionContext.viewController(forKey: .to) as? SearchViewController {
-            if let fromController = transitionContext.viewController(forKey: .from) as? ViewController {
+            if let fromController = transitionContext.viewController(forKey: .from) as? CollectionViewController {
                 containerView.addSubview(toController.view)
 
                 toController.view.alpha = 0
