@@ -43,6 +43,7 @@ class SearchTextField: UITextField {
         super.init(frame: frame)
 
         initImage()
+        initClearButton()
         initKeyboard()
 
         updateCornerRadius(self.frame.height / 2)
@@ -65,6 +66,10 @@ class SearchTextField: UITextField {
         searchImageView.image = searchImage.withRenderingMode(.alwaysTemplate)
         self.leftView = searchImageView
         self.leftViewMode = .always
+    }
+
+    func initClearButton() {
+        self.clearButtonMode = .whileEditing
     }
 
     func initKeyboard() {
@@ -106,8 +111,6 @@ class SearchTextField: UITextField {
             clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
             clearButton.imageView?.theme_tintColor = colors
         }
-
-        self.clearButtonMode = .always
     }
 
     func updatePlaceholderColor(_ colors: ThemeColorPicker) {
