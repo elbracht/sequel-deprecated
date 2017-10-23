@@ -4,6 +4,15 @@ import Kingfisher
 
 class SearchCollectionViewCell: UICollectionViewCell {
 
+    struct Measure {
+        static let cornerRadius = 8 as CGFloat
+        static let titleViewHeight = 54
+        static let nameLabelHeight = 16
+        static let nameLabelOffset = UIEdgeInsets(top: 12, left: 8, bottom: 0, right: 8)
+        static let captionLabelHeight = 14
+        static let captionLabelOffset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    }
+
     let defaultBackgroundColor = Color.black.withAlphaComponent(0.38)
     let defaultColor = Color.white
 
@@ -17,16 +26,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = defaultBackgroundColor
-        self.layer.cornerRadius = 4
-        self.layer.masksToBounds = true
-
+        initView()
         initImageView()
         initTitleView()
         initBlurEffectView()
         initNameLabel()
         initCaptionLabel()
-        initProgressView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +39,13 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     /* Init */
+    func initView() {
+        self.backgroundColor = defaultBackgroundColor
+
+        self.layer.cornerRadius = Measure.cornerRadius
+        self.layer.masksToBounds = true
+    }
+
     func initImageView() {
         imageView = UIImageView()
         imageView.alpha = 0
@@ -54,7 +66,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
             make.left.equalTo(self.contentView)
             make.bottom.equalTo(self.contentView)
             make.right.equalTo(self.contentView)
-            make.height.equalTo(48)
+            make.height.equalTo(Measure.titleViewHeight)
         }
     }
 
@@ -79,10 +91,10 @@ class SearchCollectionViewCell: UICollectionViewCell {
         titleView.addSubview(nameLabel)
 
         nameLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(titleView).offset(8)
-            make.left.equalTo(titleView).offset(4)
-            make.right.equalTo(titleView).offset(-4)
-            make.height.equalTo(16)
+            make.top.equalTo(titleView).offset(Measure.nameLabelOffset.top)
+            make.left.equalTo(titleView).offset(Measure.nameLabelOffset.left)
+            make.right.equalTo(titleView).offset(-Measure.nameLabelOffset.right)
+            make.height.equalTo(Measure.nameLabelHeight)
         }
     }
 
@@ -96,23 +108,9 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
         captionLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(nameLabel.snp.bottom)
-            make.left.equalTo(titleView).offset(4)
-            make.right.equalTo(titleView).offset(-4)
-            make.height.equalTo(14)
-        }
-    }
-
-    func initProgressView() {
-        progressView = UIView()
-        progressView.backgroundColor = defaultColor
-
-        titleView.addSubview(progressView)
-
-        progressView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(titleView)
-            make.bottom.equalTo(titleView)
-            make.right.equalTo(titleView).offset(-contentView.frame.size.width)
-            make.height.equalTo(4)
+            make.left.equalTo(titleView).offset(Measure.captionLabelOffset.left)
+            make.right.equalTo(titleView).offset(-Measure.captionLabelOffset.right)
+            make.height.equalTo(Measure.captionLabelHeight)
         }
     }
 
@@ -140,18 +138,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
                 self.imageView.alpha = 1
                 self.blurEffectView.alpha = 1
             }
-        }
-    }
-
-    func animateProgress(value: CGFloat, max: CGFloat) {
-        let offset = (max != 0) ? (contentView.frame.size.width / max) * (max - value) : contentView.frame.size.width
-
-        UIView.animate(withDuration: 0.2) {
-            self.progressView.snp.updateConstraints { (make) -> Void in
-                make.right.equalTo(self.titleView).offset(-offset)
-            }
-
-            self.titleView.layoutIfNeeded()
         }
     }
 }
