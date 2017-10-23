@@ -119,7 +119,17 @@ class SearchTextField: UITextField {
         }
     }
 
-    /* Animation */
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        self.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                updateCornerRadius(constraint.constant / 2)
+            }
+        }
+    }
+
+    /* Animations */
     func animateTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
             self.updateBackgroundColor([Style.light.backgroundColor])
@@ -154,17 +164,7 @@ class SearchTextField: UITextField {
         }
     }
 
-    /* Overrides */
-    override func updateConstraints() {
-        super.updateConstraints()
-
-        self.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                updateCornerRadius(constraint.constant / 2)
-            }
-        }
-    }
-
+    /* Offsets */
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let leftOffset = Measure.offset.left + Measure.imageOffset + searchImage.size.width
         let rightOffset = Measure.offset.right + Measure.clearButtonOffset + clearImage.size.width
