@@ -89,7 +89,12 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        self.dismiss(animated: true)
+        searchView.searchTextField.text = ""
+        searchView.searchTextField.animatePlaceholderFadeIn()
+        searchView.searchTextField.animateImagePlaceholder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.dismiss(animated: true)
+        }
     }
 
     /* UITextField */
