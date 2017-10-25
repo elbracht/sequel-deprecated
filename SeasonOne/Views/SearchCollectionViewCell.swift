@@ -54,7 +54,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.masksToBounds = true
 
         self.layer.shadowColor = Shadow.small.color
-        self.layer.shadowOpacity = Shadow.small.opacity
+        self.layer.shadowOpacity = 0
         self.layer.shadowOffset = Shadow.small.offset
         self.layer.shadowRadius = Shadow.small.radius
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
@@ -150,6 +150,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     func animateFadeIn() {
         if self.imageView.alpha == 0 && self.blurEffectView.alpha == 0 {
             UIView.animate(withDuration: 0.2) {
+                self.layer.shadowOpacity = Shadow.small.opacity
                 self.imageView.alpha = 1
                 self.blurEffectView.alpha = 1
             }
