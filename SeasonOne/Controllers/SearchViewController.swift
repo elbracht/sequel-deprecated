@@ -4,7 +4,7 @@ import SwiftTheme
 import SwiftyJSON
 import UIKit
 
-class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     struct Style {
         let backgroundColor: String

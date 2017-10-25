@@ -2,7 +2,7 @@ import SnapKit
 import SwiftTheme
 import UIKit
 
-class ViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
+class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
 
     struct Style {
         let backgroundColor: String
@@ -76,9 +76,9 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate, U
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let searchController = SearchController()
-        searchController.transitioningDelegate = self
-        present(searchController, animated: true)
+        let searchViewController = SearchViewController()
+        searchViewController.transitioningDelegate = self
+        present(searchViewController, animated: true)
         return false
     }
 

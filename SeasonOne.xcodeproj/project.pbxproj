@@ -15,7 +15,7 @@
 		11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */; };
 		11955B981F88EFDE007AB6F3 /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
-		11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */; };
+		11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */; };
 		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA91F8965FB00811C40 /* TMDb.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
-		11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchController.swift */; };
+		11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchViewController.swift */; };
 		11ED81721F811A6200E8379E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* Font.swift */; };
 		11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81741F81227200E8379E /* Montserrat-Bold.ttf */; };
 		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
@@ -59,7 +59,7 @@
 		11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneTests.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		11B6A6F91F7C5D2700AD3FCE /* SeasonOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SeasonOne.xcdatamodel; sourceTree = "<group>"; };
 		11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11B6A6FE1F7C5D2700AD3FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		11BF4CA91F8965FB00811C40 /* TMDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDb.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
-		11E4BCA51F7D122F00169F6C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		11E4BCA51F7D122F00169F6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		11ED81711F811A6200E8379E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		11ED81741F81227200E8379E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 		11E4BCA21F7D11B500169F6C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A6F31F7C5D2700AD3FCE /* ViewController.swift */,
-				11E4BCA51F7D122F00169F6C /* SearchController.swift */,
+				11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */,
+				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -478,12 +478,12 @@
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
 				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
-				11B6A6F41F7C5D2700AD3FCE /* ViewController.swift in Sources */,
+				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
-				11E4BCA61F7D122F00169F6C /* SearchController.swift in Sources */,
+				11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
