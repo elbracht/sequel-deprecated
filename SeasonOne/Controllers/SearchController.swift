@@ -57,8 +57,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     func initSearchView() {
         searchView = SearchView()
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingChanged), for: .editingChanged)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
         searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
@@ -94,15 +93,13 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
     }
 
     /* UITextField */
-    @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
-        sender.animateImageDefault()
-    }
-
-    @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
-        if let text = sender.text {
-            if text.isEmpty {
-                sender.animateImagePlaceholder()
-            }
+    @objc func searchTextFieldEditingChanged(sender: SearchTextField!) {
+        if sender.hasText {
+            sender.animatePlaceholderFadeOut()
+            sender.animateImageDefault()
+        } else {
+            sender.animatePlaceholderFadeIn()
+            sender.animateImagePlaceholder()
         }
     }
 

@@ -184,6 +184,18 @@ class SearchTextField: UITextField {
         }
     }
 
+    func animatePlaceholderFadeIn() {
+        UIView.animate(withDuration: 0.1) {
+            self.placeholderLabel.alpha = 1
+        }
+    }
+
+    func animatePlaceholderFadeOut() {
+        UIView.animate(withDuration: 0.1) {
+            self.placeholderLabel.alpha = 0
+        }
+    }
+
     /* Offsets */
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let leftOffset = Measure.offset.left + Measure.imageOffset + searchImage.size.width
