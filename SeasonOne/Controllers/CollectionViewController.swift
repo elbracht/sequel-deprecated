@@ -15,7 +15,6 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     struct Measure {
-        static let scrollIndicatorOffset = 0 as CGFloat
         static let settingsButtonHeight = 40 as CGFloat
         static let searchTriggerPosition = 250 as CGFloat
     }
@@ -69,7 +68,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         self.view.addSubview(scrollIndicatorImageView)
 
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
+            make.top.equalTo(searchView.snp.bottom)
             make.centerX.equalTo(self.view)
         }
     }
@@ -131,7 +130,11 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset + (offset * 1.5))
+            make.top.equalTo(searchView.snp.bottom).offset(offset)
+        }
+
+        settingsButton.snp.updateConstraints { (make) in
+            make.top.equalTo(searchView.snp.bottom).offset(offset * 2)
         }
 
         if yTranslation > Measure.searchTriggerPosition {
@@ -145,10 +148,9 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         if sender.state == UIGestureRecognizerState.ended {
             searchView.searchTextField.animateTextFieldDefault()
             scrollIndicatorImageView.animateDefault()
+            scrollIndicatorImageView.animateFadeOut()
 
             animateRubberBand(completion: { _ in
-                self.scrollIndicatorImageView.animateFadeOut()
-
                 if yTranslation > Measure.searchTriggerPosition {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
@@ -168,7 +170,11 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
+                make.top.equalTo(self.searchView.snp.bottom)
+            }
+
+            self.settingsButton.snp.updateConstraints { (make) in
+                make.top.equalTo(self.searchView.snp.bottom)
             }
 
             self.view.layoutIfNeeded()
