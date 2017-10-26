@@ -139,6 +139,28 @@ class SearchTextField: UITextField {
         placeholderLabel.theme_textColor = colors
     }
 
+    func updatePlaceholderAlignmentLeft() {
+        searchImageView.snp.updateConstraints { (make) in
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(Measure.offset.left)
+            make.bottom.equalTo(self)
+        }
+    }
+
+    func updatePlaceholderAlignmentCenter(textFieldWidth: CGFloat) {
+        searchImageView.snp.updateConstraints { (make) in
+            let textFieldWidth = textFieldWidth / 2
+            let searchImageViewWidth = self.searchImageView.frame.width
+            let placeholderLabelWidth = self.placeholderLabel.intrinsicContentSize.width
+            let contentWidth = (searchImageViewWidth + Measure.offset.left + placeholderLabelWidth) / 2
+            let offset = textFieldWidth - contentWidth
+
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(offset)
+            make.bottom.equalTo(self)
+        }
+    }
+
     override func updateConstraints() {
         super.updateConstraints()
 

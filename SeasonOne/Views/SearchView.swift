@@ -41,6 +41,7 @@ class SearchView: UIView {
 
     func initSearchTextField() {
         searchTextField = SearchTextField()
+        searchTextField.updatePlaceholderAlignmentCenter(textFieldWidth: UIScreen.main.bounds.width - Measure.offset.left - Measure.offset.right)
         self.addSubview(searchTextField)
 
         searchTextField.snp.makeConstraints { (make) -> Void in
@@ -76,6 +77,8 @@ class SearchView: UIView {
             make.right.equalTo(self).offset(-Measure.offset.right)
         }
 
+        searchTextField.updatePlaceholderAlignmentLeft()
+
         self.layoutIfNeeded()
     }
 
@@ -87,6 +90,8 @@ class SearchView: UIView {
         cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(self).offset(cancelButton.intrinsicContentSize.width)
         }
+
+        searchTextField.updatePlaceholderAlignmentCenter(textFieldWidth: UIScreen.main.bounds.width - Measure.offset.left - Measure.offset.right)
 
         self.layoutIfNeeded()
     }
