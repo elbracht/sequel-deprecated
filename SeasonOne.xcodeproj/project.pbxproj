@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
+		1168E1311FA242C800211DDC /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168E1301FA242C800211DDC /* Legacy.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B911F8663C0007AB6F3 /* SearchTextField.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		1168E1301FA242C800211DDC /* Legacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B911F8663C0007AB6F3 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				118C8BDB1F7E8DC80018015E /* Color.swift */,
 				11ED81711F811A6200E8379E /* Font.swift */,
 				115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */,
+				1168E1301FA242C800211DDC /* Legacy.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
 				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
+				1168E1311FA242C800211DDC /* Legacy.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
@@ -645,6 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = "$(SRCROOT)/SeasonOne/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,6 +666,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = "$(SRCROOT)/SeasonOne/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
