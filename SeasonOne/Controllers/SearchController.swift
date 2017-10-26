@@ -98,7 +98,7 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
             searchView.searchTextField.text = ""
             searchView.searchTextField.animatePlaceholderFadeIn()
             searchView.searchTextField.animateImagePlaceholder()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.dismiss(animated: true)
             }
         } else {
