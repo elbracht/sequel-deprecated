@@ -64,9 +64,14 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
         searchView.snp.makeConstraints { (make) in
             make.left.equalTo(self.view)
-            make.top.equalTo(self.view)
             make.right.equalTo(self.view)
             make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
+
+            if #available(iOS 11, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            } else {
+                make.top.equalTo(self.view)
+            }
         }
     }
 
@@ -89,10 +94,14 @@ class SearchController: UIViewController, UITextFieldDelegate, UICollectionViewD
 
     /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        searchView.searchTextField.text = ""
-        searchView.searchTextField.animatePlaceholderFadeIn()
-        searchView.searchTextField.animateImagePlaceholder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        if searchView.searchTextField.hasText {
+            searchView.searchTextField.text = ""
+            searchView.searchTextField.animatePlaceholderFadeIn()
+            searchView.searchTextField.animateImagePlaceholder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.dismiss(animated: true)
+            }
+        } else {
             self.dismiss(animated: true)
         }
     }

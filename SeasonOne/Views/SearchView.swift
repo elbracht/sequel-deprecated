@@ -13,7 +13,7 @@ class SearchView: UIView {
 
     struct Measure {
         static let height = 36 as CGFloat
-        static let offset = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 16)
+        static let offset = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         static let cancelButtonOffset = 8 as CGFloat
     }
 
@@ -23,6 +23,7 @@ class SearchView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        initView()
         initCancelButton()
         initSearchTextField()
     }
@@ -32,6 +33,12 @@ class SearchView: UIView {
     }
 
     /* Init */
+    func initView() {
+        self.snp.makeConstraints { (make) in
+            make.height.equalTo(Measure.offset.top + Measure.height + Measure.offset.bottom)
+        }
+    }
+
     func initSearchTextField() {
         searchTextField = SearchTextField()
         self.addSubview(searchTextField)
