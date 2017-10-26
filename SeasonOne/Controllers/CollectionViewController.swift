@@ -15,7 +15,6 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     struct Measure {
-        static let scrollIndicatorOffset = 8 as CGFloat
         static let searchTriggerPosition = 250 as CGFloat
     }
 
@@ -50,10 +49,14 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         self.view.addSubview(searchView)
 
         searchView.snp.makeConstraints { (make) in
+            if #available(iOS 11, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            } else {
+                make.top.equalTo(self.view)
+            }
+
             make.left.equalTo(self.view)
-            make.top.equalTo(self.view)
             make.right.equalTo(self.view)
-            make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
         }
     }
 
@@ -62,7 +65,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         self.view.addSubview(scrollIndicatorImageView)
 
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
+            make.top.equalTo(searchView.snp.bottom)
             make.centerX.equalTo(self.view)
         }
     }
@@ -89,11 +92,15 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         scrollIndicatorImageView.animateFadeIn()
 
         searchView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(offset)
+            if #available(iOS 11, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(offset)
+            } else {
+                make.top.equalTo(self.view).offset(offset)
+            }
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset + (offset * 1.5))
+            make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
         }
 
         if yTranslation > Measure.searchTriggerPosition {
@@ -122,11 +129,15 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     func animateRubberBand(completion: @escaping (_ success: Bool) -> Void) {
         UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
             self.searchView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.view)
+                if #available(iOS 11, *) {
+                    make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+                } else {
+                    make.top.equalTo(self.view)
+                }
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
+                make.top.equalTo(self.searchView.snp.bottom)
             }
 
             self.view.layoutIfNeeded()

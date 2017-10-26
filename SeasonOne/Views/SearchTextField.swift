@@ -1,3 +1,4 @@
+import SnapKit
 import SwiftTheme
 import UIKit
 
@@ -33,16 +34,17 @@ class SearchTextField: UITextField {
         static let clearButtonOffset = 0 as CGFloat
     }
 
+    let placeholderLabel = UILabel()
     let searchImageView = UIImageView()
     let searchImage = UIImage(named: "search")!
     let clearImage = UIImage(named: "clear")!
-
-    let placeholderText = "Search"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         initImage()
+        initPlaceholder()
+        initClearButton()
         initKeyboard()
 
         updateCornerRadius(self.frame.height / 2)
@@ -59,12 +61,37 @@ class SearchTextField: UITextField {
         super.init(coder: aDecoder)
     }
 
+    override func drawPlaceholder(in rect: CGRect) {
+        // Don't draw any placeholders
+    }
+
     /* Init */
     func initImage() {
-        searchImageView.frame = CGRect(x: 0, y: 0, width: searchImage.size.width, height: searchImage.size.height)
         searchImageView.image = searchImage.withRenderingMode(.alwaysTemplate)
-        self.leftView = searchImageView
-        self.leftViewMode = .always
+        searchImageView.contentMode = .scaleAspectFit
+        self.addSubview(searchImageView)
+
+        searchImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(Measure.offset.left)
+            make.bottom.equalTo(self)
+        }
+    }
+
+    func initPlaceholder() {
+        placeholderLabel.text = "Search series by name"
+        placeholderLabel.font = Font.body
+        self.addSubview(placeholderLabel)
+
+        placeholderLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self)
+            make.left.equalTo(searchImageView.snp.right).offset(Measure.imageOffset)
+            make.bottom.equalTo(self)
+        }
+    }
+
+    func initClearButton() {
+        self.clearButtonMode = .whileEditing
     }
 
     func initKeyboard() {
@@ -106,17 +133,45 @@ class SearchTextField: UITextField {
             clearButton.setImage(clearImage.withRenderingMode(.alwaysTemplate), for: .normal)
             clearButton.imageView?.theme_tintColor = colors
         }
-
-        self.clearButtonMode = .always
     }
 
     func updatePlaceholderColor(_ colors: ThemeColorPicker) {
-        if let color = colors.value() as? UIColor {
-            self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedStringKey.foregroundColor: color])
+        placeholderLabel.theme_textColor = colors
+    }
+
+    func updatePlaceholderAlignmentLeft() {
+        searchImageView.snp.updateConstraints { (make) in
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(Measure.offset.left)
+            make.bottom.equalTo(self)
         }
     }
 
-    /* Animation */
+    func updatePlaceholderAlignmentCenter(textFieldWidth: CGFloat) {
+        searchImageView.snp.updateConstraints { (make) in
+            let textFieldWidth = textFieldWidth / 2
+            let searchImageViewWidth = self.searchImageView.frame.width
+            let placeholderLabelWidth = self.placeholderLabel.intrinsicContentSize.width
+            let contentWidth = (searchImageViewWidth + Measure.offset.left + placeholderLabelWidth) / 2
+            let offset = textFieldWidth - contentWidth
+
+            make.top.equalTo(self)
+            make.left.equalTo(self).offset(offset)
+            make.bottom.equalTo(self)
+        }
+    }
+
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        self.constraints.forEach { (constraint) in
+            if constraint.firstAttribute == .height {
+                updateCornerRadius(constraint.constant / 2)
+            }
+        }
+    }
+
+    /* Animations */
     func animateTextFieldDefault() {
         UIView.animate(withDuration: 0.1) {
             self.updateBackgroundColor([Style.light.backgroundColor])
@@ -151,17 +206,19 @@ class SearchTextField: UITextField {
         }
     }
 
-    /* Overrides */
-    override func updateConstraints() {
-        super.updateConstraints()
-
-        self.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                updateCornerRadius(constraint.constant / 2)
-            }
+    func animatePlaceholderFadeIn() {
+        UIView.animate(withDuration: 0.1) {
+            self.placeholderLabel.alpha = 1
         }
     }
 
+    func animatePlaceholderFadeOut() {
+        UIView.animate(withDuration: 0.1) {
+            self.placeholderLabel.alpha = 0
+        }
+    }
+
+    /* Offsets */
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let leftOffset = Measure.offset.left + Measure.imageOffset + searchImage.size.width
         let rightOffset = Measure.offset.right + Measure.clearButtonOffset + clearImage.size.width
@@ -174,11 +231,6 @@ class SearchTextField: UITextField {
         let rightOffset = Measure.offset.right + Measure.clearButtonOffset + clearImage.size.width
         let offset = UIEdgeInsets(top: 1, left: leftOffset, bottom: 0, right: rightOffset)
         return UIEdgeInsetsInsetRect(bounds, offset)
-    }
-
-    override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-        let superLeftViewRect = super.leftViewRect(forBounds: bounds)
-        return superLeftViewRect.offsetBy(dx: Measure.offset.left, dy: 0)
     }
 
     override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {

@@ -57,17 +57,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     func initSearchView() {
         searchView = SearchView()
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidBegin), for: .editingDidBegin)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEnd), for: .editingDidEnd)
+        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingChanged), for: .editingChanged)
         searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
         searchView.searchTextField.delegate = self
         self.view.addSubview(searchView)
 
         searchView.snp.makeConstraints { (make) in
             make.left.equalTo(self.view)
-            make.top.equalTo(self.view)
             make.right.equalTo(self.view)
             make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
+
+            if #available(iOS 11, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            } else {
+                make.top.equalTo(self.view)
+            }
         }
     }
 
@@ -90,19 +94,26 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 
     /* UIButton */
     @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        self.dismiss(animated: true)
+        if searchView.searchTextField.hasText {
+            searchView.searchTextField.text = ""
+            searchView.searchTextField.animatePlaceholderFadeIn()
+            searchView.searchTextField.animateImagePlaceholder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.dismiss(animated: true)
+            }
+        } else {
+            self.dismiss(animated: true)
+        }
     }
 
     /* UITextField */
-    @objc func searchTextFieldEditingDidBegin(sender: SearchTextField!) {
-        sender.animateImageDefault()
-    }
-
-    @objc func searchTextFieldEditingDidEnd(sender: SearchTextField!) {
-        if let text = sender.text {
-            if text.isEmpty {
-                sender.animateImagePlaceholder()
-            }
+    @objc func searchTextFieldEditingChanged(sender: SearchTextField!) {
+        if sender.hasText {
+            sender.animatePlaceholderFadeOut()
+            sender.animateImageDefault()
+        } else {
+            sender.animatePlaceholderFadeIn()
+            sender.animateImagePlaceholder()
         }
     }
 

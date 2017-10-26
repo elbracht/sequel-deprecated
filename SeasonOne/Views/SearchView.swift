@@ -13,7 +13,7 @@ class SearchView: UIView {
 
     struct Measure {
         static let height = 36 as CGFloat
-        static let offset = UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 16)
+        static let offset = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         static let cancelButtonOffset = 8 as CGFloat
     }
 
@@ -23,6 +23,7 @@ class SearchView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        initView()
         initCancelButton()
         initSearchTextField()
     }
@@ -32,8 +33,16 @@ class SearchView: UIView {
     }
 
     /* Init */
+    func initView() {
+        self.snp.makeConstraints { (make) in
+            make.height.equalTo(Measure.offset.top + Measure.height + Measure.offset.bottom)
+        }
+    }
+
     func initSearchTextField() {
         searchTextField = SearchTextField()
+        searchTextField.accessibilityIdentifier = "searchTextField"
+        searchTextField.updatePlaceholderAlignmentCenter(textFieldWidth: UIScreen.main.bounds.width - Measure.offset.left - Measure.offset.right)
         self.addSubview(searchTextField)
 
         searchTextField.snp.makeConstraints { (make) -> Void in
@@ -46,6 +55,7 @@ class SearchView: UIView {
 
     func initCancelButton() {
         cancelButton = UIButton(type: .system)
+        cancelButton.accessibilityIdentifier = "searchCancelButton"
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.theme_tintColor = [Style.light.cancelButtonColor]
         cancelButton.titleLabel?.font = Font.body
@@ -69,6 +79,8 @@ class SearchView: UIView {
             make.right.equalTo(self).offset(-Measure.offset.right)
         }
 
+        searchTextField.updatePlaceholderAlignmentLeft()
+
         self.layoutIfNeeded()
     }
 
@@ -80,6 +92,8 @@ class SearchView: UIView {
         cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(self).offset(cancelButton.intrinsicContentSize.width)
         }
+
+        searchTextField.updatePlaceholderAlignmentCenter(textFieldWidth: UIScreen.main.bounds.width - Measure.offset.left - Measure.offset.right)
 
         self.layoutIfNeeded()
     }
