@@ -15,11 +15,14 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     struct Measure {
+        static let scrollIndicatorOffset = 0 as CGFloat
+        static let settingsButtonHeight = 40 as CGFloat
         static let searchTriggerPosition = 250 as CGFloat
     }
 
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
+    var settingsButton: SettingsButton!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -27,6 +30,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         initView()
         initSearchView()
         initScrollIndicator()
+        initSettingsButton()
 
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
@@ -65,9 +69,36 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         self.view.addSubview(scrollIndicatorImageView)
 
         scrollIndicatorImageView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom)
+            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
             make.centerX.equalTo(self.view)
         }
+    }
+
+    func initSettingsButton() {
+        settingsButton = SettingsButton()
+        settingsButton.addTarget(self, action: #selector(settingsButtonTouchDown), for: .touchDown)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTouchUp), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTouchCancel), for: .touchCancel)
+        self.view.addSubview(settingsButton)
+
+        settingsButton.snp.makeConstraints { (make) in
+            make.top.equalTo(searchView.snp.bottom)
+            make.centerX.equalTo(self.view)
+            make.height.equalTo(Measure.settingsButtonHeight)
+        }
+    }
+
+    /* SettingsButton */
+    @objc func settingsButtonTouchDown(sender: SettingsButton!) {
+        settingsButton.animateHighlight()
+    }
+
+    @objc func settingsButtonTouchUp(sender: SettingsButton!) {
+        settingsButton.animateDefault()
+    }
+
+    @objc func settingsButtonTouchCancel(sender: SettingsButton!) {
+        settingsButton.animateDefault()
     }
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -100,7 +131,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
+            make.top.equalTo(searchView.snp.bottom).offset(Measure.scrollIndicatorOffset + (offset * 1.5))
         }
 
         if yTranslation > Measure.searchTriggerPosition {
@@ -137,7 +168,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-                make.top.equalTo(self.searchView.snp.bottom)
+                make.top.equalTo(self.searchView.snp.bottom).offset(Measure.scrollIndicatorOffset)
             }
 
             self.view.layoutIfNeeded()

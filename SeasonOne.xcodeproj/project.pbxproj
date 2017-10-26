@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
+		115F6E0A1FA274B400CBA6B0 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E091FA274B400CBA6B0 /* SettingsButton.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B911F8663C0007AB6F3 /* SearchTextField.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		115F6E091FA274B400CBA6B0 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B911F8663C0007AB6F3 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				11955B911F8663C0007AB6F3 /* SearchTextField.swift */,
 				11955B931F86AB26007AB6F3 /* SearchView.swift */,
 				11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */,
+				115F6E091FA274B400CBA6B0 /* SettingsButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */,
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
+				115F6E0A1FA274B400CBA6B0 /* SettingsButton.swift in Sources */,
 				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
