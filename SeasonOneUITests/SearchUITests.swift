@@ -15,12 +15,12 @@ class SearchUITests: XCTestCase {
     }
 
     func testOpenAndClose() {
-        app.textFields["Search"].tap()
-        app.buttons["Cancel"].tap()
+        app.textFields["searchTextField"].tap()
+        app.buttons["searchCancelButton"].tap()
     }
 
     func testInputTextAndClear() {
-        let searchTextField = app.textFields["Search"]
+        let searchTextField = app.textFields["searchTextField"]
         searchTextField.tap()
         searchTextField.typeText("Test")
         app/*@START_MENU_TOKEN@*/.buttons["Clear text"]/*[[".textFields[\"Search\"].buttons[\"Clear text\"]",".buttons[\"Clear text\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()

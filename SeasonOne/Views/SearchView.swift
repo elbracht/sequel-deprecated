@@ -41,6 +41,7 @@ class SearchView: UIView {
 
     func initSearchTextField() {
         searchTextField = SearchTextField()
+        searchTextField.accessibilityIdentifier = "searchTextField"
         searchTextField.updatePlaceholderAlignmentCenter(textFieldWidth: UIScreen.main.bounds.width - Measure.offset.left - Measure.offset.right)
         self.addSubview(searchTextField)
 
@@ -54,6 +55,7 @@ class SearchView: UIView {
 
     func initCancelButton() {
         cancelButton = UIButton(type: .system)
+        cancelButton.accessibilityIdentifier = "searchCancelButton"
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.theme_tintColor = [Style.light.cancelButtonColor]
         cancelButton.titleLabel?.font = Font.body
