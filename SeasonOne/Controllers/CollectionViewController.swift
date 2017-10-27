@@ -1,8 +1,9 @@
+import DeckTransition
 import SnapKit
 import SwiftTheme
 import UIKit
 
-class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
+class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsViewControllerDelegate {
 
     struct Style {
         let backgroundColor: String
@@ -76,7 +77,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     func initSettingsButton() {
         settingsButton = SettingsButton()
         settingsButton.addTarget(self, action: #selector(settingsButtonTouchDown), for: .touchDown)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTouchUp), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTouchUpInside), for: .touchUpInside)
         settingsButton.addTarget(self, action: #selector(settingsButtonTouchCancel), for: .touchCancel)
         self.view.addSubview(settingsButton)
 
@@ -92,12 +93,25 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         settingsButton.animateHighlight()
     }
 
-    @objc func settingsButtonTouchUp(sender: SettingsButton!) {
+    @objc func settingsButtonTouchUpInside(sender: SettingsButton!) {
         settingsButton.animateDefault()
+
+        let settingsViewController = SettingsViewController()
+        let deckTransitionDelegate = DeckTransitioningDelegate()
+        settingsViewController.delegate = self
+        settingsViewController.transitioningDelegate = deckTransitionDelegate
+        settingsViewController.modalPresentationStyle = .custom
+        present(settingsViewController, animated: true, completion: nil)
     }
 
     @objc func settingsButtonTouchCancel(sender: SettingsButton!) {
         settingsButton.animateDefault()
+    }
+
+    /* SettingsViewController */
+    func settingsViewControllerDismiss() {
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
 
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
