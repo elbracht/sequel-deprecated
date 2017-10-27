@@ -24,7 +24,7 @@ class SettingsNavigationController: UINavigationController {
 
         initView()
 
-        let settingsTableViewController = SettingsTableViewController()
+        let settingsTableViewController = SettingsTableViewController(style: .grouped)
         self.viewControllers = [settingsTableViewController]
     }
 

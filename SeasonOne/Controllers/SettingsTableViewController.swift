@@ -2,6 +2,21 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    struct Style {
+        let backgroundColor: String
+        let dividerColor: String
+
+        static let light = Style(
+            backgroundColor: Color.light.background,
+            dividerColor: Color.light.blackDivider
+        )
+    }
+
+    struct Measure {
+        static let headerViewHeight = 16 as CGFloat
+        static let sectionHeight = 32 as CGFloat
+    }
+
     let reuseIdentifier = "SettingsTableViewCell"
 
     var data = [[Settings]]()
@@ -15,6 +30,14 @@ class SettingsTableViewController: UITableViewController {
         loadSettings()
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+
+        self.tableView.theme_backgroundColor = [Style.light.backgroundColor]
+
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: Measure.headerViewHeight))
+        self.tableView.tableHeaderView = headerView
+
+        self.tableView.sectionHeaderHeight = Measure.sectionHeight / 2
+        self.tableView.sectionFooterHeight = Measure.sectionHeight / 2
     }
 
     /* Init */
@@ -67,6 +90,7 @@ class SettingsTableViewController: UITableViewController {
         data.append(settings)
 
         var informations = [Settings]()
+        informations.append(Settings(text: "About", image: UIImage(named: "settings")!))
         informations.append(Settings(text: "Imprint", image: UIImage(named: "settings")!))
         data.append(informations)
     }
