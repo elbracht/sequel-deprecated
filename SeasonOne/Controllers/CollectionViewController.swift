@@ -144,11 +144,11 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(offset)
+            make.top.equalTo(searchView.snp.bottom).offset(offset / 2)
         }
 
         settingsButton.snp.updateConstraints { (make) in
-            make.top.equalTo(searchView.snp.bottom).offset(offset * 2)
+            make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
         }
 
         if yTranslation > Measure.searchTriggerPosition {
