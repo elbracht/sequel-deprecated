@@ -21,23 +21,23 @@ class SettingsTableViewController: UITableViewController {
 
     var data = [[Settings]]()
 
+    var lastScrollOffset: CGFloat = 0
+    var initialModalOffset: CGFloat = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initTitle()
         initDoneButton()
+        initTableView()
 
         loadSettings()
+    }
 
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-
-        self.tableView.theme_backgroundColor = [Style.light.backgroundColor]
-
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: Measure.headerViewHeight))
-        self.tableView.tableHeaderView = headerView
-
-        self.tableView.sectionHeaderHeight = Measure.sectionHeight / 2
-        self.tableView.sectionFooterHeight = Measure.sectionHeight / 2
+    override func viewWillAppear(_ animated: Bool) {
+        if let navigationController = self.navigationController {
+            initialModalOffset = navigationController.view.frame.origin.y
+        }
     }
 
     /* Init */
@@ -57,11 +57,24 @@ class SettingsTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = doneButton
     }
 
+    func initTableView() {
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+
+        self.tableView.theme_backgroundColor = [Style.light.backgroundColor]
+
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: Measure.headerViewHeight))
+        self.tableView.tableHeaderView = headerView
+
+        self.tableView.sectionHeaderHeight = Measure.sectionHeight / 2
+        self.tableView.sectionFooterHeight = Measure.sectionHeight / 2
+    }
+
     /* DoneButton */
     @objc func doneButtonTouchUpInside(sender: UIBarButtonItem) {
         self.navigationController?.dismiss(animated: true)
     }
 
+    /* TableView */
     override func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
@@ -77,6 +90,29 @@ class SettingsTableViewController: UITableViewController {
         cell.textLabel?.text = data[indexPath.section][indexPath.row].text
 
         return cell
+    }
+
+    /* Scroll */
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let navigationController = self.navigationController {
+            let navigationBarHeight = navigationController.navigationBar.frame.size.height
+            let currentModalOffset = navigationController.view.frame.origin.y
+            let currentModalScope = 4 as CGFloat
+
+            if lastScrollOffset > scrollView.contentOffset.y {
+                // Scroll down
+                if scrollView.contentOffset.y <= -navigationBarHeight {
+                    scrollView.contentOffset = CGPoint(x: 0, y: -navigationBarHeight)
+                }
+            } else {
+                // Scroll up
+                if initialModalOffset < currentModalOffset - currentModalScope {
+                    scrollView.contentOffset = CGPoint(x: 0, y: -navigationBarHeight)
+                }
+            }
+        }
+
+        self.lastScrollOffset = scrollView.contentOffset.y
     }
 
     /* Helper */
