@@ -8,6 +8,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         initTitle()
+        initDoneButton()
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
@@ -19,6 +20,19 @@ class SettingsTableViewController: UITableViewController {
         titleLabel.theme_textColor = [Color.light.blackSecondary]
         titleLabel.font = Font.title
         self.navigationItem.titleView = titleLabel
+    }
+
+    func initDoneButton() {
+        let doneButton = UIBarButtonItem()
+        doneButton.title = "Done"
+        doneButton.target = self
+        doneButton.action = #selector(doneButtonTouchUpInside)
+        self.navigationItem.rightBarButtonItem = doneButton
+    }
+
+    /* DoneButton */
+    @objc func doneButtonTouchUpInside(sender: UIBarButtonItem) {
+        self.navigationController?.dismiss(animated: true)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
