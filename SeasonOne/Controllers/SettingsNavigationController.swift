@@ -1,11 +1,11 @@
 import SwiftTheme
 import UIKit
 
-protocol SettingsViewControllerDelegate: class {
-    func settingsViewControllerDismiss()
+protocol SettingsNavigationControllerDelegate: class {
+    func settingsNavigationControllerDismiss()
 }
 
-class SettingsViewController: UIViewController {
+class SettingsNavigationController: UINavigationController {
 
     struct Style {
         let backgroundColor: String
@@ -17,16 +17,15 @@ class SettingsViewController: UIViewController {
         )
     }
 
-    weak var delegate: SettingsViewControllerDelegate?
+    weak var dismissDelegate: SettingsNavigationControllerDelegate?
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         initView()
-    }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        let settingsTableViewController = SettingsTableViewController()
+        self.viewControllers = [settingsTableViewController]
     }
 
     /* Init */
@@ -38,6 +37,6 @@ class SettingsViewController: UIViewController {
 
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
-        delegate?.settingsViewControllerDismiss()
+        dismissDelegate?.settingsNavigationControllerDismiss()
     }
 }

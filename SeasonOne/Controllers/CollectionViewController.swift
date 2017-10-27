@@ -3,7 +3,7 @@ import SnapKit
 import SwiftTheme
 import UIKit
 
-class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsViewControllerDelegate {
+class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsNavigationControllerDelegate {
 
     struct Style {
         let backgroundColor: String
@@ -96,20 +96,20 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     @objc func settingsButtonTouchUpInside(sender: SettingsButton!) {
         settingsButton.animateDefault()
 
-        let settingsViewController = SettingsViewController()
+        let settingsNavigationController = SettingsNavigationController()
         let deckTransitionDelegate = DeckTransitioningDelegate()
-        settingsViewController.delegate = self
-        settingsViewController.transitioningDelegate = deckTransitionDelegate
-        settingsViewController.modalPresentationStyle = .custom
-        present(settingsViewController, animated: true, completion: nil)
+        settingsNavigationController.dismissDelegate = self
+        settingsNavigationController.transitioningDelegate = deckTransitionDelegate
+        settingsNavigationController.modalPresentationStyle = .custom
+        present(settingsNavigationController, animated: true, completion: nil)
     }
 
     @objc func settingsButtonTouchCancel(sender: SettingsButton!) {
         settingsButton.animateDefault()
     }
 
-    /* SettingsViewController */
-    func settingsViewControllerDismiss() {
+    /* SettingsNavigationController */
+    func settingsNavigationControllerDismiss() {
         let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
         UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
