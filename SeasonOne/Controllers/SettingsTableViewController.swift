@@ -1,4 +1,5 @@
 import Kingfisher
+import StoreKit
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
@@ -210,7 +211,19 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func rateCellTouchUpInside() {
-
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+            if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+                if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                    if let appId = dictionary["App ID"] {
+                        if let url = URL(string: "itms-apps://itunes.apple.com/app/\(appId)") {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /* Scroll */

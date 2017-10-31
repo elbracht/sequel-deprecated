@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */; };
+		113B5FB31FA91F1F00D409D1 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 113B5FB21FA91F1F00D409D1 /* Config.plist */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
 		115F6E0A1FA274B400CBA6B0 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E091FA274B400CBA6B0 /* SettingsButton.swift */; };
 		115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeedbackViewController.swift; sourceTree = "<group>"; };
+		113B5FB21FA91F1F00D409D1 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		115F6E091FA274B400CBA6B0 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
@@ -134,8 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
-				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
+				113B5FB21FA91F1F00D409D1 /* Config.plist */,
+				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */,
 			);
 			path = "Supporting Files";
@@ -396,6 +399,7 @@
 				11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */,
 				11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */,
 				11ED81781F81227200E8379E /* Montserrat-Bold.ttf in Resources */,
+				113B5FB31FA91F1F00D409D1 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
