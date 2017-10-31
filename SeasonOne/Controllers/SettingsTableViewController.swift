@@ -41,6 +41,7 @@ class SettingsTableViewController: UITableViewController {
         initTableView()
 
         initStorageSection()
+        initOtherSection()
 
         updateCacheSize()
     }
@@ -95,6 +96,34 @@ class SettingsTableViewController: UITableViewController {
         sections.append(Section(name: "Storage", cells: storageCells))
     }
 
+    func initOtherSection() {
+        var otherCells = [UITableViewCell]()
+
+        let aboutCell = UITableViewCell()
+        aboutCell.textLabel?.text = "About"
+        aboutCell.textLabel?.theme_textColor = [Style.light.textColor]
+        aboutCell.textLabel?.font = Font.body
+        aboutCell.accessoryType = .disclosureIndicator
+        otherCells.append(aboutCell)
+
+        let feedbackCell = UITableViewCell()
+        feedbackCell.textLabel?.text = "Feedback"
+        feedbackCell.textLabel?.theme_textColor = [Style.light.textColor]
+        feedbackCell.textLabel?.font = Font.body
+        feedbackCell.accessoryType = .disclosureIndicator
+        otherCells.append(feedbackCell)
+
+        let rateCell = UITableViewCell()
+        rateCell.textLabel?.text = "Rate"
+        rateCell.textLabel?.theme_textColor = [Style.light.textColor]
+        rateCell.textLabel?.font = Font.body
+        rateCell.accessoryType = .disclosureIndicator
+        otherCells.append(rateCell)
+
+        sections.append(Section(name: "Other", cells: otherCells))
+
+    }
+
     /* Update */
     func updateCacheSize() {
         ImageCache.default.calculateDiskCacheSize { (size) in
@@ -134,17 +163,29 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.isSelected = false
+        }
+
         if indexPath.section == 0 && indexPath.row == 1 {
-            clearCacheButtonTouchUpInside(sender: tableView.cellForRow(at: indexPath))
+            clearCacheCellTouchUpInside()
+        }
+
+        if indexPath.section == 1 && indexPath.row == 0 {
+            aboutCellTouchUpInside()
+        }
+
+        if indexPath.section == 1 && indexPath.row == 1 {
+            feedbackCellTouchUpInside()
+        }
+
+        if indexPath.section == 1 && indexPath.row == 2 {
+            rateCellTouchUpInside()
         }
     }
 
     /* TableView Events */
-    func clearCacheButtonTouchUpInside(sender: UITableViewCell?) {
-        if let cell = sender {
-            cell.isSelected = false
-        }
-
+    func clearCacheCellTouchUpInside() {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete the cache?", preferredStyle: .actionSheet)
 
         let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive) { (_) in
@@ -157,6 +198,18 @@ class SettingsTableViewController: UITableViewController {
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    func aboutCellTouchUpInside() {
+
+    }
+
+    func feedbackCellTouchUpInside() {
+
+    }
+
+    func rateCellTouchUpInside() {
+
     }
 
     /* Scroll */
