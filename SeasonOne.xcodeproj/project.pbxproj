@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
 		115F6E0A1FA274B400CBA6B0 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E091FA274B400CBA6B0 /* SettingsButton.swift */; };
 		115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeedbackViewController.swift; sourceTree = "<group>"; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		115F6E091FA274B400CBA6B0 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
 				115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */,
 				115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */,
+				113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */,
 				115F6E0A1FA274B400CBA6B0 /* SettingsButton.swift in Sources */,
 				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
+				113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,

@@ -9,11 +9,9 @@ class SettingsNavigationController: UINavigationController {
 
     struct Style {
         let backgroundColor: String
-        let statusBarStyle: UIStatusBarStyle
 
         static let light = Style(
-            backgroundColor: Color.light.background,
-            statusBarStyle: .lightContent
+            backgroundColor: Color.light.background
         )
     }
 
@@ -31,8 +29,7 @@ class SettingsNavigationController: UINavigationController {
     /* Init */
     func initView() {
         self.view.theme_backgroundColor = [Style.light.backgroundColor]
-        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
-        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {

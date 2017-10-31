@@ -205,7 +205,8 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func feedbackCellTouchUpInside() {
-
+        let settingsFeedbackViewController = SettingsFeedbackViewController(nibName: nil, bundle: nil)
+        self.present(settingsFeedbackViewController, animated: true, completion: nil)
     }
 
     func rateCellTouchUpInside() {
