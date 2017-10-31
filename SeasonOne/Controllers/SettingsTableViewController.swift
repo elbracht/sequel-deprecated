@@ -1,28 +1,37 @@
+import Kingfisher
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    struct Section {
+        let name: String
+        let cells: [UITableViewCell]
+    }
+
     struct Style {
         let backgroundColor: String
         let dividerColor: String
+        let buttonColor: String
+        let textColor: String
+        let detailTextColor: String
+        let headerTextColor: String
 
         static let light = Style(
             backgroundColor: Color.light.background,
-            dividerColor: Color.light.blackDivider
+            dividerColor: Color.light.blackDivider,
+            buttonColor: Color.light.accent,
+            textColor: Color.light.blackPrimary,
+            detailTextColor: Color.light.blackSecondary,
+            headerTextColor: Color.light.blackSecondary
         )
     }
 
-    struct Measure {
-        static let headerViewHeight = 16 as CGFloat
-        static let sectionHeight = 32 as CGFloat
-    }
-
-    let reuseIdentifier = "SettingsTableViewCell"
-
-    var data = [[Settings]]()
+    var sections = [Section]()
 
     var lastScrollOffset: CGFloat = 0
     var initialModalOffset: CGFloat = 0
+
+    var cacheSizeCell: UITableViewCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +40,9 @@ class SettingsTableViewController: UITableViewController {
         initDoneButton()
         initTableView()
 
-        loadSettings()
+        initStorageSection()
+
+        updateCacheSize()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,21 +63,43 @@ class SettingsTableViewController: UITableViewController {
     func initDoneButton() {
         let doneButton = UIBarButtonItem()
         doneButton.title = "Done"
+        doneButton.theme_tintColor = [Style.light.buttonColor]
+        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: Font.body!], for: .normal)
         doneButton.target = self
         doneButton.action = #selector(doneButtonTouchUpInside)
         self.navigationItem.rightBarButtonItem = doneButton
     }
 
     func initTableView() {
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
-
         self.tableView.theme_backgroundColor = [Style.light.backgroundColor]
+    }
 
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: Measure.headerViewHeight))
-        self.tableView.tableHeaderView = headerView
+    func initStorageSection() {
+        var storageCells = [UITableViewCell]()
 
-        self.tableView.sectionHeaderHeight = Measure.sectionHeight / 2
-        self.tableView.sectionFooterHeight = Measure.sectionHeight / 2
+        cacheSizeCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cacheSizeCell.textLabel?.text = "Cache Size"
+        cacheSizeCell.textLabel?.theme_textColor = [Style.light.textColor]
+        cacheSizeCell.textLabel?.font = Font.body
+        cacheSizeCell.detailTextLabel?.theme_textColor = [Style.light.detailTextColor]
+        cacheSizeCell.detailTextLabel?.font = Font.body
+        cacheSizeCell.selectionStyle = .none
+        storageCells.append(cacheSizeCell)
+
+        let clearCacheCell = UITableViewCell()
+        clearCacheCell.textLabel?.text = "Clear Cache"
+        clearCacheCell.textLabel?.theme_textColor = [Style.light.buttonColor]
+        clearCacheCell.textLabel?.font = Font.body
+        storageCells.append(clearCacheCell)
+
+        sections.append(Section(name: "Storage", cells: storageCells))
+    }
+
+    /* Update */
+    func updateCacheSize() {
+        ImageCache.default.calculateDiskCacheSize { (size) in
+            self.cacheSizeCell.detailTextLabel?.text = Humanize.fileSize(bytes: Int(size))
+        }
     }
 
     /* DoneButton */
@@ -76,20 +109,54 @@ class SettingsTableViewController: UITableViewController {
 
     /* TableView */
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return sections.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].name
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.theme_textColor = [Style.light.headerTextColor]
+            header.textLabel?.font = Font.caption
+            header.textLabel?.text = sections[section].name
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return sections[section].cells.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-
-        cell.imageView?.image = data[indexPath.section][indexPath.row].image
-        cell.textLabel?.text = data[indexPath.section][indexPath.row].text
-
+        let cell = sections[indexPath.section].cells[indexPath.row]
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 1 {
+            clearCacheButtonTouchUpInside(sender: tableView.cellForRow(at: indexPath))
+        }
+    }
+
+    /* TableView Events */
+    func clearCacheButtonTouchUpInside(sender: UITableViewCell?) {
+        if let cell = sender {
+            cell.isSelected = false
+        }
+
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete the cache?", preferredStyle: .actionSheet)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive) { (_) in
+            ImageCache.default.clearDiskCache()
+            self.updateCacheSize()
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     /* Scroll */
@@ -113,21 +180,5 @@ class SettingsTableViewController: UITableViewController {
         }
 
         self.lastScrollOffset = scrollView.contentOffset.y
-    }
-
-    /* Helper */
-    func loadSettings() {
-        var settings = [Settings]()
-        settings.append(Settings(text: "Notifications", image: UIImage(named: "settings")!))
-        settings.append(Settings(text: "Badge", image: UIImage(named: "settings")!))
-        settings.append(Settings(text: "Storage", image: UIImage(named: "settings")!))
-        settings.append(Settings(text: "Appearance", image: UIImage(named: "settings")!))
-        settings.append(Settings(text: "Stats", image: UIImage(named: "settings")!))
-        data.append(settings)
-
-        var informations = [Settings]()
-        informations.append(Settings(text: "About", image: UIImage(named: "settings")!))
-        informations.append(Settings(text: "Imprint", image: UIImage(named: "settings")!))
-        data.append(informations)
     }
 }

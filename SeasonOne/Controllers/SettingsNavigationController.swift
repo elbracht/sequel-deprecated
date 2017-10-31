@@ -37,6 +37,9 @@ class SettingsNavigationController: UINavigationController {
 
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
-        dismissDelegate?.settingsNavigationControllerDismiss()
+
+        if self.isBeingDismissed {
+            dismissDelegate?.settingsNavigationControllerDismiss()
+        }
     }
 }
