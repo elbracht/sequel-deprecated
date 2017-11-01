@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111414701FAA592800905EFF /* Pods_Sequel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111414711FAA592800905EFF /* Pods_Sequel.framework */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
 		1168E1311FA242C800211DDC /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168E1301FA242C800211DDC /* Legacy.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
@@ -14,10 +15,10 @@
 		11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B911F8663C0007AB6F3 /* SearchTextField.swift */; };
 		11955B941F86AB26007AB6F3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B931F86AB26007AB6F3 /* SearchView.swift */; };
 		11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */; };
-		11955B981F88EFDE007AB6F3 /* SeasonOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */; };
+		11955B981F88EFDE007AB6F3 /* SequelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* SequelTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
 		11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */; };
-		11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */; };
+		11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
 		11BF4CA81F8965F000811C40 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA71F8965F000811C40 /* Series.swift */; };
@@ -30,7 +31,6 @@
 		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
 		11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81761F81227200E8379E /* Montserrat-Medium.ttf */; };
 		11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81771F81227200E8379E /* Montserrat-Regular.ttf */; };
-		434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,18 +39,19 @@
 			containerPortal = 11B6A6E61F7C5D2700AD3FCE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 11B6A6ED1F7C5D2700AD3FCE;
-			remoteInfo = SeasonOne;
+			remoteInfo = Sequel;
 		};
 		11B6A7111F7C5D2700AD3FCE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 11B6A6E61F7C5D2700AD3FCE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 11B6A6ED1F7C5D2700AD3FCE;
-			remoteInfo = SeasonOne;
+			remoteInfo = Sequel;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111414711FAA592800905EFF /* Pods_Sequel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Sequel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		1168E1301FA242C800211DDC /* Legacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
@@ -58,17 +59,17 @@
 		11955B911F8663C0007AB6F3 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		11955B931F86AB26007AB6F3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIndicatorImageView.swift; sourceTree = "<group>"; };
-		11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonOneTests.swift; sourceTree = "<group>"; };
-		11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeasonOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11955B971F88EFDE007AB6F3 /* SequelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequelTests.swift; sourceTree = "<group>"; };
+		11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sequel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		11B6A6F91F7C5D2700AD3FCE /* SeasonOne.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SeasonOne.xcdatamodel; sourceTree = "<group>"; };
+		11B6A6F91F7C5D2700AD3FCE /* Sequel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sequel.xcdatamodel; sourceTree = "<group>"; };
 		11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11B6A6FE1F7C5D2700AD3FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B6A7001F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11B6A7051F7C5D2700AD3FCE /* SeasonOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11B6A7051F7C5D2700AD3FCE /* SequelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SequelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A70B1F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeasonOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11B6A7101F7C5D2700AD3FCE /* SequelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SequelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11BF4CA71F8965F000811C40 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		11BF4CA91F8965FB00811C40 /* TMDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDb.swift; sourceTree = "<group>"; };
@@ -80,10 +81,8 @@
 		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		11ED81761F81227200E8379E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		11ED81771F81227200E8379E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.release.xcconfig"; sourceTree = "<group>"; };
-		B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeasonOne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne.debug.xcconfig"; sourceTree = "<group>"; };
-		D969AE1DC636EAD544B8FF8C /* Pods_SeasonOneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeasonOneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.debug.xcconfig"; sourceTree = "<group>"; };
+		A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				434D75350F39B78EB1F2CE62 /* Pods_SeasonOne.framework in Frameworks */,
+				111414701FAA592800905EFF /* Pods_Sequel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +125,7 @@
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
-				11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */,
+				11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -134,9 +133,9 @@
 		11B6A6E51F7C5D2700AD3FCE = {
 			isa = PBXGroup;
 			children = (
-				11B6A6F01F7C5D2700AD3FCE /* SeasonOne */,
-				11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */,
-				11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */,
+				11B6A6F01F7C5D2700AD3FCE /* Sequel */,
+				11B6A7081F7C5D2700AD3FCE /* SequelTests */,
+				11B6A7131F7C5D2700AD3FCE /* SequelUITests */,
 				11B6A6EF1F7C5D2700AD3FCE /* Products */,
 				F2C710532032AB339822BD9A /* Pods */,
 				FB113179A89C6E8FDB1E5A4B /* Frameworks */,
@@ -146,14 +145,14 @@
 		11B6A6EF1F7C5D2700AD3FCE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */,
-				11B6A7051F7C5D2700AD3FCE /* SeasonOneTests.xctest */,
-				11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */,
+				11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */,
+				11B6A7051F7C5D2700AD3FCE /* SequelTests.xctest */,
+				11B6A7101F7C5D2700AD3FCE /* SequelUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		11B6A6F01F7C5D2700AD3FCE /* SeasonOne */ = {
+		11B6A6F01F7C5D2700AD3FCE /* Sequel */ = {
 			isa = PBXGroup;
 			children = (
 				11E4BCA41F7D11C900169F6C /* Models */,
@@ -164,25 +163,25 @@
 				11955B991F88F34B007AB6F3 /* Supporting Files */,
 				11ED81601F81188F00E8379E /* Ressources */,
 			);
-			path = SeasonOne;
+			path = Sequel;
 			sourceTree = "<group>";
 		};
-		11B6A7081F7C5D2700AD3FCE /* SeasonOneTests */ = {
+		11B6A7081F7C5D2700AD3FCE /* SequelTests */ = {
 			isa = PBXGroup;
 			children = (
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
-				11955B971F88EFDE007AB6F3 /* SeasonOneTests.swift */,
+				11955B971F88EFDE007AB6F3 /* SequelTests.swift */,
 			);
-			path = SeasonOneTests;
+			path = SequelTests;
 			sourceTree = "<group>";
 		};
-		11B6A7131F7C5D2700AD3FCE /* SeasonOneUITests */ = {
+		11B6A7131F7C5D2700AD3FCE /* SequelUITests */ = {
 			isa = PBXGroup;
 			children = (
 				11B6A7161F7C5D2700AD3FCE /* Info.plist */,
 				11DEDA961F7EDA520048F9DC /* SearchUITests.swift */,
 			);
-			path = SeasonOneUITests;
+			path = SequelUITests;
 			sourceTree = "<group>";
 		};
 		11E4BCA21F7D11B500169F6C /* Controllers */ = {
@@ -240,8 +239,8 @@
 		F2C710532032AB339822BD9A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */,
-				A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */,
+				98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */,
+				A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -249,8 +248,7 @@
 		FB113179A89C6E8FDB1E5A4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49E79E4AD39BD23FC3CC00B7 /* Pods_SeasonOne.framework */,
-				D969AE1DC636EAD544B8FF8C /* Pods_SeasonOneTests.framework */,
+				111414711FAA592800905EFF /* Pods_Sequel.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,9 +256,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		11B6A6ED1F7C5D2700AD3FCE /* SeasonOne */ = {
+		11B6A6ED1F7C5D2700AD3FCE /* Sequel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOne" */;
+			buildConfigurationList = 11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "Sequel" */;
 			buildPhases = (
 				1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */,
 				11B6A6EA1F7C5D2700AD3FCE /* Sources */,
@@ -274,14 +272,14 @@
 			);
 			dependencies = (
 			);
-			name = SeasonOne;
-			productName = SeasonOne;
-			productReference = 11B6A6EE1F7C5D2700AD3FCE /* SeasonOne.app */;
+			name = Sequel;
+			productName = Sequel;
+			productReference = 11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */;
 			productType = "com.apple.product-type.application";
 		};
-		11B6A7041F7C5D2700AD3FCE /* SeasonOneTests */ = {
+		11B6A7041F7C5D2700AD3FCE /* SequelTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11B6A71C1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOneTests" */;
+			buildConfigurationList = 11B6A71C1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SequelTests" */;
 			buildPhases = (
 				11B6A7011F7C5D2700AD3FCE /* Sources */,
 				11B6A7021F7C5D2700AD3FCE /* Frameworks */,
@@ -292,14 +290,14 @@
 			dependencies = (
 				11B6A7071F7C5D2700AD3FCE /* PBXTargetDependency */,
 			);
-			name = SeasonOneTests;
-			productName = SeasonOneTests;
-			productReference = 11B6A7051F7C5D2700AD3FCE /* SeasonOneTests.xctest */;
+			name = SequelTests;
+			productName = SequelTests;
+			productReference = 11B6A7051F7C5D2700AD3FCE /* SequelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		11B6A70F1F7C5D2700AD3FCE /* SeasonOneUITests */ = {
+		11B6A70F1F7C5D2700AD3FCE /* SequelUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11B6A71F1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOneUITests" */;
+			buildConfigurationList = 11B6A71F1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SequelUITests" */;
 			buildPhases = (
 				11B6A70C1F7C5D2700AD3FCE /* Sources */,
 				11B6A70D1F7C5D2700AD3FCE /* Frameworks */,
@@ -310,9 +308,9 @@
 			dependencies = (
 				11B6A7121F7C5D2700AD3FCE /* PBXTargetDependency */,
 			);
-			name = SeasonOneUITests;
-			productName = SeasonOneUITests;
-			productReference = 11B6A7101F7C5D2700AD3FCE /* SeasonOneUITests.xctest */;
+			name = SequelUITests;
+			productName = SequelUITests;
+			productReference = 11B6A7101F7C5D2700AD3FCE /* SequelUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +340,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 11B6A6E91F7C5D2700AD3FCE /* Build configuration list for PBXProject "SeasonOne" */;
+			buildConfigurationList = 11B6A6E91F7C5D2700AD3FCE /* Build configuration list for PBXProject "Sequel" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -355,9 +353,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				11B6A6ED1F7C5D2700AD3FCE /* SeasonOne */,
-				11B6A7041F7C5D2700AD3FCE /* SeasonOneTests */,
-				11B6A70F1F7C5D2700AD3FCE /* SeasonOneUITests */,
+				11B6A6ED1F7C5D2700AD3FCE /* Sequel */,
+				11B6A7041F7C5D2700AD3FCE /* SequelTests */,
+				11B6A70F1F7C5D2700AD3FCE /* SequelUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -418,7 +416,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SeasonOne-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Sequel-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -431,7 +429,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sequel/Pods-Sequel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -448,7 +446,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sequel/Pods-Sequel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */ = {
@@ -463,7 +461,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeasonOne/Pods-SeasonOne-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sequel/Pods-Sequel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -476,7 +474,7 @@
 				11955B941F86AB26007AB6F3 /* SearchView.swift in Sources */,
 				118C8BDC1F7E8DC80018015E /* Color.swift in Sources */,
 				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
-				11B6A6FA1F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld in Sources */,
+				11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */,
 				11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */,
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
@@ -495,7 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11955B981F88EFDE007AB6F3 /* SeasonOneTests.swift in Sources */,
+				11955B981F88EFDE007AB6F3 /* SequelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,12 +510,12 @@
 /* Begin PBXTargetDependency section */
 		11B6A7071F7C5D2700AD3FCE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 11B6A6ED1F7C5D2700AD3FCE /* SeasonOne */;
+			target = 11B6A6ED1F7C5D2700AD3FCE /* Sequel */;
 			targetProxy = 11B6A7061F7C5D2700AD3FCE /* PBXContainerItemProxy */;
 		};
 		11B6A7121F7C5D2700AD3FCE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 11B6A6ED1F7C5D2700AD3FCE /* SeasonOne */;
+			target = 11B6A6ED1F7C5D2700AD3FCE /* Sequel */;
 			targetProxy = 11B6A7111F7C5D2700AD3FCE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -643,15 +641,15 @@
 		};
 		11B6A71A1F7C5D2700AD3FCE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7B39545EBCAF3F9F95D170D /* Pods-SeasonOne.debug.xcconfig */;
+			baseConfigurationReference = 98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = "$(SRCROOT)/SeasonOne/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sequel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOne;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.Sequel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -660,15 +658,15 @@
 		};
 		11B6A71B1F7C5D2700AD3FCE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6AEBBAC6AA64E853FED9642 /* Pods-SeasonOne.release.xcconfig */;
+			baseConfigurationReference = A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = "$(SRCROOT)/SeasonOne/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sequel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOne;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.Sequel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -682,14 +680,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = SeasonOneTests/Info.plist;
+				INFOPLIST_FILE = SequelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SequelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeasonOne.app/SeasonOne";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sequel.app/Sequel";
 			};
 			name = Debug;
 		};
@@ -700,13 +698,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = SeasonOneTests/Info.plist;
+				INFOPLIST_FILE = SequelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SequelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SeasonOne.app/SeasonOne";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sequel.app/Sequel";
 			};
 			name = Release;
 		};
@@ -715,13 +713,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = SeasonOneUITests/Info.plist;
+				INFOPLIST_FILE = SequelUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SequelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SeasonOne;
+				TEST_TARGET_NAME = Sequel;
 			};
 			name = Debug;
 		};
@@ -730,20 +728,20 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
-				INFOPLIST_FILE = SeasonOneUITests/Info.plist;
+				INFOPLIST_FILE = SequelUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SeasonOneUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.SequelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SeasonOne;
+				TEST_TARGET_NAME = Sequel;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11B6A6E91F7C5D2700AD3FCE /* Build configuration list for PBXProject "SeasonOne" */ = {
+		11B6A6E91F7C5D2700AD3FCE /* Build configuration list for PBXProject "Sequel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11B6A7171F7C5D2700AD3FCE /* Debug */,
@@ -752,7 +750,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOne" */ = {
+		11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "Sequel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11B6A71A1F7C5D2700AD3FCE /* Debug */,
@@ -761,7 +759,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		11B6A71C1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOneTests" */ = {
+		11B6A71C1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SequelTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11B6A71D1F7C5D2700AD3FCE /* Debug */,
@@ -770,7 +768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		11B6A71F1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SeasonOneUITests" */ = {
+		11B6A71F1F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "SequelUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11B6A7201F7C5D2700AD3FCE /* Debug */,
@@ -782,13 +780,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		11B6A6F81F7C5D2700AD3FCE /* SeasonOne.xcdatamodeld */ = {
+		11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				11B6A6F91F7C5D2700AD3FCE /* SeasonOne.xcdatamodel */,
+				11B6A6F91F7C5D2700AD3FCE /* Sequel.xcdatamodel */,
 			);
-			currentVersion = 11B6A6F91F7C5D2700AD3FCE /* SeasonOne.xcdatamodel */;
-			path = SeasonOne.xcdatamodeld;
+			currentVersion = 11B6A6F91F7C5D2700AD3FCE /* Sequel.xcdatamodel */;
+			path = Sequel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
