@@ -65,7 +65,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         searchView.snp.makeConstraints { (make) in
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
-            make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
 
             if #available(iOS 11, *) {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
