@@ -16,7 +16,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     struct Measure {
-        static let cornerRadius = 8 as CGFloat
+        static let cornerRadius = 4 as CGFloat
         static let titleViewHeight = 54
         static let nameLabelHeight = 16
         static let nameLabelOffset = UIEdgeInsets(top: 12, left: 8, bottom: 0, right: 8)
@@ -50,15 +50,15 @@ class SearchCollectionViewCell: UICollectionViewCell {
     func initView() {
         self.theme_backgroundColor = [Style.light.backgroundColor]
 
-        self.contentView.layer.cornerRadius = 4
+        self.contentView.layer.cornerRadius = Measure.cornerRadius
         self.contentView.layer.masksToBounds = true
 
         self.layer.shadowColor = Shadow.small.color
         self.layer.shadowOpacity = 0
         self.layer.shadowOffset = Shadow.small.offset
         self.layer.shadowRadius = Shadow.small.radius
-        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
-        self.layer.cornerRadius = 4
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: Measure.cornerRadius).cgPath
+        self.layer.cornerRadius = Measure.cornerRadius
         self.layer.masksToBounds = false
     }
 
