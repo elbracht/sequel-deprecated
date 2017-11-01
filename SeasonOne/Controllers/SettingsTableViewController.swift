@@ -89,7 +89,7 @@ class SettingsTableViewController: UITableViewController {
         storageCells.append(cacheSizeCell)
 
         let clearCacheCell = UITableViewCell()
-        clearCacheCell.textLabel?.text = "Clear Cache"
+        clearCacheCell.textLabel?.text = "Remove Cache"
         clearCacheCell.textLabel?.theme_textColor = [Style.light.buttonColor]
         clearCacheCell.textLabel?.font = Font.body
         storageCells.append(clearCacheCell)
@@ -187,14 +187,14 @@ class SettingsTableViewController: UITableViewController {
 
     /* TableView Events */
     func clearCacheCellTouchUpInside() {
-        let alertController = UIAlertController(title: nil, message: "Are you sure you want to delete the cache?", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to remove the cache?", preferredStyle: .actionSheet)
 
-        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive) { (_) in
+        let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { (_) in
             ImageCache.default.clearDiskCache()
             self.updateCacheSize()
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
 
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
