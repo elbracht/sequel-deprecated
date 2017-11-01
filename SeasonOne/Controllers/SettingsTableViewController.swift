@@ -1,4 +1,5 @@
 import Kingfisher
+import MessageUI
 import StoreKit
 import UIKit
 
@@ -206,8 +207,17 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func feedbackCellTouchUpInside() {
-        let settingsFeedbackViewController = SettingsFeedbackViewController(nibName: nil, bundle: nil)
-        self.present(settingsFeedbackViewController, animated: true, completion: nil)
+        if MFMailComposeViewController.canSendMail() {
+            let settingsFeedbackViewController = SettingsFeedbackViewController(nibName: nil, bundle: nil)
+            self.present(settingsFeedbackViewController, animated: true, completion: nil)
+        } else {
+            let alertController = UIAlertController(title: "Could not send feedback", message: "Your device could not send mails. Please check your mail configuration and try again.", preferredStyle: .alert)
+
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
     func rateCellTouchUpInside() {
