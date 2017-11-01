@@ -1,3 +1,3 @@
 # Sequel
 
-[![Build Status](https://travis-ci.org/elbracht/season-one.svg?branch=master)](https://travis-ci.org/elbracht/season-one)
+[![Build Status](https://travis-ci.org/elbracht/sequel.svg?branch=master)](https://travis-ci.org/elbracht/sequel)
