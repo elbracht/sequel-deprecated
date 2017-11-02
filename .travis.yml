@@ -10,4 +10,4 @@ before_script:
   - swiftlint
 
 script:
-  - xcodebuild clean build test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.0' -workspace SeasonOne.xcworkspace -scheme SeasonOne
+  - xcodebuild clean build test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.0' -workspace Sequel.xcworkspace -scheme Sequel

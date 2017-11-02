@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "11B6A6ED1F7C5D2700AD3FCE"
-               BuildableName = "SeasonOne.app"
-               BlueprintName = "SeasonOne"
-               ReferencedContainer = "container:SeasonOne.xcodeproj">
+               BuildableName = "Sequel.app"
+               BlueprintName = "Sequel"
+               ReferencedContainer = "container:Sequel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "11B6A7041F7C5D2700AD3FCE"
-               BuildableName = "SeasonOneTests.xctest"
-               BlueprintName = "SeasonOneTests"
-               ReferencedContainer = "container:SeasonOne.xcodeproj">
+               BuildableName = "SequelTests.xctest"
+               BlueprintName = "SequelTests"
+               ReferencedContainer = "container:Sequel.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,9 +45,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "11B6A70F1F7C5D2700AD3FCE"
-               BuildableName = "SeasonOneUITests.xctest"
-               BlueprintName = "SeasonOneUITests"
-               ReferencedContainer = "container:SeasonOne.xcodeproj">
+               BuildableName = "SequelUITests.xctest"
+               BlueprintName = "SequelUITests"
+               ReferencedContainer = "container:Sequel.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "11B6A6ED1F7C5D2700AD3FCE"
-            BuildableName = "SeasonOne.app"
-            BlueprintName = "SeasonOne"
-            ReferencedContainer = "container:SeasonOne.xcodeproj">
+            BuildableName = "Sequel.app"
+            BlueprintName = "Sequel"
+            ReferencedContainer = "container:Sequel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "11B6A6ED1F7C5D2700AD3FCE"
-            BuildableName = "SeasonOne.app"
-            BlueprintName = "SeasonOne"
-            ReferencedContainer = "container:SeasonOne.xcodeproj">
+            BuildableName = "Sequel.app"
+            BlueprintName = "Sequel"
+            ReferencedContainer = "container:Sequel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,9 +98,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "11B6A6ED1F7C5D2700AD3FCE"
-            BuildableName = "SeasonOne.app"
-            BlueprintName = "SeasonOne"
-            ReferencedContainer = "container:SeasonOne.xcodeproj">
+            BuildableName = "Sequel.app"
+            BlueprintName = "Sequel"
+            ReferencedContainer = "container:Sequel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

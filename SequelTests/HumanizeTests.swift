@@ -1,5 +1,5 @@
 import XCTest
-@testable import SeasonOne
+@testable import Sequel
 
 class HumanizeTests: XCTestCase {
 

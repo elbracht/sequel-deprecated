@@ -1,6 +1,6 @@
 platform :ios, '11.0'
 
-target 'SeasonOne' do
+target 'Sequel' do
   use_frameworks!
 
   pod 'Alamofire'
