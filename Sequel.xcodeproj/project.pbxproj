@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111414701FAA592800905EFF /* Pods_Sequel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111414711FAA592800905EFF /* Pods_Sequel.framework */; };
 		113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */; };
 		113B5FB31FA91F1F00D409D1 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 113B5FB21FA91F1F00D409D1 /* Config.plist */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
@@ -14,6 +15,7 @@
 		115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */; };
 		115F6E101FA33DB200CBA6B0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */; };
 		115F6E121FA344F900CBA6B0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E111FA344F900CBA6B0 /* Settings.swift */; };
+		1168E1311FA242C800211DDC /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168E1301FA242C800211DDC /* Legacy.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B911F8663C0007AB6F3 /* SearchTextField.swift */; };
@@ -36,7 +38,6 @@
 		11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81751F81227200E8379E /* Montserrat-Light.ttf */; };
 		11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81761F81227200E8379E /* Montserrat-Medium.ttf */; };
 		11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11ED81771F81227200E8379E /* Montserrat-Regular.ttf */; };
-		DE479B38C0A3CE3BF232F26F /* Pods_Sequel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EEBB03FCA234C2787D635B /* Pods_Sequel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111414711FAA592800905EFF /* Pods_Sequel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Sequel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeedbackViewController.swift; sourceTree = "<group>"; };
 		113B5FB21FA91F1F00D409D1 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		115F6E111FA344F900CBA6B0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		1168E1301FA242C800211DDC /* Legacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B911F8663C0007AB6F3 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -92,13 +95,8 @@
 		11ED81751F81227200E8379E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		11ED81761F81227200E8379E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		11ED81771F81227200E8379E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		40EEBB03FCA234C2787D635B /* Pods_Sequel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sequel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4766539F02160DB3C4EB2A4F /* Pods-Sequel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.debug.xcconfig"; sourceTree = "<group>"; };
-		49E79E4AD39BD23FC3CC00B7 /* Pods_Sequel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sequel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DF851B661AA2329B4515772 /* Pods-Sequel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.release.xcconfig"; sourceTree = "<group>"; };
-		A6AEBBAC6AA64E853FED9642 /* Pods-Sequel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.release.xcconfig"; sourceTree = "<group>"; };
-		B7B39545EBCAF3F9F95D170D /* Pods-Sequel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.debug.xcconfig"; sourceTree = "<group>"; };
-		D969AE1DC636EAD544B8FF8C /* Pods_SequelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SequelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.debug.xcconfig"; sourceTree = "<group>"; };
+		A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sequel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sequel/Pods-Sequel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE479B38C0A3CE3BF232F26F /* Pods_Sequel.framework in Frameworks */,
+				111414701FAA592800905EFF /* Pods_Sequel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +136,9 @@
 		11955B991F88F34B007AB6F3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
-				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
 				113B5FB21FA91F1F00D409D1 /* Config.plist */,
+				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
+				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */,
 			);
@@ -215,9 +213,9 @@
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */,
 				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
+				113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */,
 				115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */,
 				115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */,
-				113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,9 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */,
+				11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */,
 				11955B911F8663C0007AB6F3 /* SearchTextField.swift */,
 				11955B931F86AB26007AB6F3 /* SearchView.swift */,
-				11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */,
 				115F6E091FA274B400CBA6B0 /* SettingsButton.swift */,
 			);
 			path = Views;
@@ -258,10 +256,11 @@
 		11ED81731F811DBC00E8379E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				11BF4CA91F8965FB00811C40 /* TMDb.swift */,
 				118C8BDB1F7E8DC80018015E /* Color.swift */,
 				11ED81711F811A6200E8379E /* Font.swift */,
+				1168E1301FA242C800211DDC /* Legacy.swift */,
 				115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */,
+				11BF4CA91F8965FB00811C40 /* TMDb.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -269,10 +268,8 @@
 		F2C710532032AB339822BD9A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B7B39545EBCAF3F9F95D170D /* Pods-Sequel.debug.xcconfig */,
-				A6AEBBAC6AA64E853FED9642 /* Pods-Sequel.release.xcconfig */,
-				4766539F02160DB3C4EB2A4F /* Pods-Sequel.debug.xcconfig */,
-				7DF851B661AA2329B4515772 /* Pods-Sequel.release.xcconfig */,
+				98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */,
+				A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -280,9 +277,7 @@
 		FB113179A89C6E8FDB1E5A4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49E79E4AD39BD23FC3CC00B7 /* Pods_Sequel.framework */,
-				D969AE1DC636EAD544B8FF8C /* Pods_SequelTests.framework */,
-				40EEBB03FCA234C2787D635B /* Pods_Sequel.framework */,
+				111414711FAA592800905EFF /* Pods_Sequel.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -522,6 +517,7 @@
 				11955B961F88D569007AB6F3 /* ScrollIndicatorImageView.swift in Sources */,
 				113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
+				1168E1311FA242C800211DDC /* Legacy.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
@@ -683,12 +679,13 @@
 		};
 		11B6A71A1F7C5D2700AD3FCE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4766539F02160DB3C4EB2A4F /* Pods-Sequel.debug.xcconfig */;
+			baseConfigurationReference = 98623C8B2D7D3EC02AFDB370 /* Pods-Sequel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = "$(SRCROOT)/Sequel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.Sequel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -699,12 +696,13 @@
 		};
 		11B6A71B1F7C5D2700AD3FCE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DF851B661AA2329B4515772 /* Pods-Sequel.release.xcconfig */;
+			baseConfigurationReference = A5CF404858686DBBDBF3C411 /* Pods-Sequel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQAC5X3ZPF;
 				INFOPLIST_FILE = "$(SRCROOT)/Sequel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.elbracht.Sequel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
