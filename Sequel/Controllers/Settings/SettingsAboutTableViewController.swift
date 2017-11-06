@@ -2,8 +2,13 @@ import UIKit
 
 class SettingsAboutTableViewController: UITableViewController, UIGestureRecognizerDelegate {
 
+    struct Section {
+        let name: String
+        let cells: [UITableViewCell]
+    }
+
     struct Measure {
-        static let headerHeight = 244 as CGFloat
+        static let headerHeight = 224 as CGFloat
         static let headerImageSize = 100 as CGFloat
         static let headerImageOffset = 32 as CGFloat
         static let headerTitleHeight = 42 as CGFloat
@@ -11,6 +16,8 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         static let headerVersionHeight = 14 as CGFloat
         static let headerVersionOffset = 0 as CGFloat
     }
+
+    var sections = [Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +27,7 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         initBackButton()
         initDoneButton()
         initHeaderView()
+        initCells()
 
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
@@ -103,6 +111,27 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         self.tableView.tableHeaderView = headerView
     }
 
+    func initCells() {
+        var developerCells = [UITableViewCell]()
+
+        let websiteCell = UITableViewCell()
+        websiteCell.textLabel?.text = "Website"
+        websiteCell.imageView?.image = UIImage(named: "website")
+        developerCells.append(websiteCell)
+
+        let twitterCell = UITableViewCell()
+        twitterCell.textLabel?.text = "Twitter"
+        twitterCell.imageView?.image = UIImage(named: "twitter")
+        developerCells.append(twitterCell)
+
+        let githubCell = UITableViewCell()
+        githubCell.textLabel?.text = "GitHub"
+        githubCell.imageView?.image = UIImage(named: "github")
+        developerCells.append(githubCell)
+
+        sections.append(Section(name: "Developed by Alexander Elbracht", cells: developerCells))
+    }
+
     /* Buttons */
     @objc func backButtonTouchUpInside(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -114,14 +143,27 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
 
     /* TableView */
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].name
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.theme_textColor = [Color.light.blackSecondary]
+            header.textLabel?.font = Font.caption
+            header.textLabel?.text = sections[section].name
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return sections[section].cells.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = sections[indexPath.section].cells[indexPath.row]
+        return cell
     }
 }
