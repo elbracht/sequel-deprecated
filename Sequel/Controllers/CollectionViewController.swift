@@ -22,7 +22,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
 
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
-    var settingsButton: SettingsButton!
+    var settingsButton: ExtendedButton!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -75,10 +75,11 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     func initSettingsButton() {
-        settingsButton = SettingsButton()
-        settingsButton.addTarget(self, action: #selector(settingsButtonTouchDown), for: .touchDown)
+        settingsButton = ExtendedButton()
+        settingsButton.setTitle("Settigns", font: Font.body!)
+        settingsButton.setImage("settings")
+        settingsButton.setColors(colors: [Color.light.blackSecondary], highlightColors: [Color.light.blackPrimary])
         settingsButton.addTarget(self, action: #selector(settingsButtonTouchUpInside), for: .touchUpInside)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTouchCancel), for: .touchCancel)
         self.view.addSubview(settingsButton)
 
         settingsButton.snp.makeConstraints { (make) in
@@ -89,23 +90,13 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     /* SettingsButton */
-    @objc func settingsButtonTouchDown(sender: SettingsButton!) {
-        settingsButton.animateHighlight()
-    }
-
-    @objc func settingsButtonTouchUpInside(sender: SettingsButton!) {
-        settingsButton.animateDefault()
-
+    @objc func settingsButtonTouchUpInside(sender: ExtendedButton!) {
         let settingsNavigationController = SettingsNavigationController()
         let deckTransitionDelegate = DeckTransitioningDelegate()
         settingsNavigationController.dismissDelegate = self
         settingsNavigationController.transitioningDelegate = deckTransitionDelegate
         settingsNavigationController.modalPresentationStyle = .custom
         present(settingsNavigationController, animated: true, completion: nil)
-    }
-
-    @objc func settingsButtonTouchCancel(sender: SettingsButton!) {
-        settingsButton.animateDefault()
     }
 
     /* SettingsNavigationController */
