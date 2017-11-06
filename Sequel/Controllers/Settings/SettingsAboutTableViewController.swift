@@ -19,6 +19,9 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
 
     var sections = [Section]()
 
+    var lastScrollOffset: CGFloat = 0
+    var initialModalOffset: CGFloat = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +31,10 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         initDoneButton()
         initHeaderView()
         initCells()
+
+        if let navigationController = self.navigationController {
+            initialModalOffset = navigationController.view.frame.origin.y
+        }
 
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
@@ -234,5 +241,28 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
                 }
             }
         }
+    }
+
+    /* Scroll */
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let navigationController = self.navigationController {
+            let navigationBarHeight = navigationController.navigationBar.frame.size.height
+            let currentModalOffset = navigationController.view.frame.origin.y
+            let currentModalScope = 4 as CGFloat
+
+            if lastScrollOffset > scrollView.contentOffset.y {
+                // Scroll down
+                if scrollView.contentOffset.y <= -navigationBarHeight {
+                    scrollView.contentOffset = CGPoint(x: 0, y: -navigationBarHeight)
+                }
+            } else {
+                // Scroll up
+                if initialModalOffset < currentModalOffset - currentModalScope {
+                    scrollView.contentOffset = CGPoint(x: 0, y: -navigationBarHeight)
+                }
+            }
+        }
+
+        self.lastScrollOffset = scrollView.contentOffset.y
     }
 }
