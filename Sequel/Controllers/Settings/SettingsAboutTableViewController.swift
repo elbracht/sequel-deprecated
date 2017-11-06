@@ -1,3 +1,4 @@
+import DeckTransition
 import UIKit
 
 class SettingsAboutTableViewController: UITableViewController, UIGestureRecognizerDelegate {
@@ -16,6 +17,8 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         static let headerVersionHeight = 14 as CGFloat
         static let headerVersionOffset = 0 as CGFloat
     }
+
+    weak var deckTransitionDelegate: DeckTransitioningDelegate!
 
     var sections = [Section]()
 
@@ -36,7 +39,14 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
             initialModalOffset = navigationController.view.frame.origin.y
         }
 
+        if let navigationController = self.navigationController {
+            if let delegate = navigationController.transitioningDelegate as? DeckTransitioningDelegate {
+                deckTransitionDelegate = delegate
+            }
+        }
+
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.addTarget(self, action: #selector(handlePopGesture))
     }
 
     /* Init */
@@ -264,5 +274,13 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         }
 
         self.lastScrollOffset = scrollView.contentOffset.y
+    }
+
+    @objc func handlePopGesture(sender: UIGestureRecognizer) {
+        if sender.state == .began {
+            deckTransitionDelegate.isDismissEnabled = false
+        } else if sender.state == .ended {
+            deckTransitionDelegate.isDismissEnabled = true
+        }
     }
 }
