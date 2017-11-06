@@ -9,7 +9,7 @@ class ScrollIndicatorImageView: UIImageView {
 
         static let light = Style(
             color: Color.light.blackDisabled,
-            highlightColor: Color.light.accent
+            highlightColor: Color.light.accentNormal
         )
     }
 

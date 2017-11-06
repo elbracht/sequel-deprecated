@@ -19,10 +19,10 @@ class SearchTextField: UITextField {
             backgroundColor: Color.light.blackDivider,
             textColor: Color.light.blackPrimary,
             imageColor: Color.light.blackPrimary,
-            tintColor: Color.light.accent,
+            tintColor: Color.light.accentNormal,
             clearButtonColor: Color.light.blackDisabled,
             placeholderColor: Color.light.blackDisabled,
-            highlightBackgroundColor: Color.light.accent,
+            highlightBackgroundColor: Color.light.accentNormal,
             highlightColor: Color.light.whitePrimary,
             keyboardAppearance: .light
         )

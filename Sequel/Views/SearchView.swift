@@ -7,7 +7,7 @@ class SearchView: UIView {
         let cancelButtonColor: String
 
         static let light = Style(
-            cancelButtonColor: Color.light.accent
+            cancelButtonColor: Color.light.accentNormal
         )
     }
 

@@ -21,7 +21,7 @@ class SettingsTableViewController: UITableViewController {
         static let light = Style(
             backgroundColor: Color.light.background,
             dividerColor: Color.light.blackDivider,
-            buttonColor: Color.light.accent,
+            buttonColor: Color.light.accentNormal,
             textColor: Color.light.blackPrimary,
             detailTextColor: Color.light.blackSecondary,
             headerTextColor: Color.light.blackSecondary
@@ -64,13 +64,11 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func initDoneButton() {
-        let doneButton = UIBarButtonItem()
-        doneButton.title = "Done"
-        doneButton.theme_tintColor = [Style.light.buttonColor]
-        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: Font.body!], for: .normal)
-        doneButton.target = self
-        doneButton.action = #selector(doneButtonTouchUpInside)
-        self.navigationItem.rightBarButtonItem = doneButton
+        let doneButton = ExtendedButton()
+        doneButton.setTitle("Done", font: Font.body!)
+        doneButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        doneButton.addTarget(self, action: #selector(doneButtonTouchUpInside), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
 
     func initTableView() {
@@ -203,7 +201,8 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func aboutCellTouchUpInside() {
-
+        let settingsAboutTableViewController = SettingsAboutTableViewController(style: .grouped)
+        self.navigationController?.pushViewController(settingsAboutTableViewController, animated: true)
     }
 
     func feedbackCellTouchUpInside() {
