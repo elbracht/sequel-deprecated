@@ -4,5 +4,16 @@
 <dict>
 	<key>App ID</key>
 	<string></string>
+	<key>Developer</key>
+	<dict>
+		<key>Name</key>
+		<string>Alexander Elbracht</string>
+		<key>Website</key>
+		<string>https://elbracht.org</string>
+		<key>Twitter</key>
+		<string>https://twitter.com/a_elbracht</string>
+		<key>GitHub</key>
+		<string>https://github.com/elbracht</string>
+	</dict>
 </dict>
 </plist>

@@ -129,7 +129,15 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         githubCell.imageView?.image = UIImage(named: "github")
         developerCells.append(githubCell)
 
-        sections.append(Section(name: "Developed by Alexander Elbracht", cells: developerCells))
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let developer = dictionary["Developer"] as? [String: Any] {
+                    if let name = developer["Name"] as? String {
+                        sections.append(Section(name: "Developed by \(name)", cells: developerCells))
+                    }
+                }
+            }
+        }
     }
 
     /* Buttons */
@@ -165,5 +173,66 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = sections[indexPath.section].cells[indexPath.row]
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.isSelected = false
+        }
+
+        if indexPath.section == 0 && indexPath.row == 0 {
+            websiteCellTouchUpInside()
+        }
+
+        if indexPath.section == 0 && indexPath.row == 1 {
+            twitterCellTouchUpInside()
+        }
+
+        if indexPath.section == 0 && indexPath.row == 2 {
+            githubCellTouchUpInside()
+        }
+    }
+
+    /* TableView Events */
+    func websiteCellTouchUpInside() {
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let developer = dictionary["Developer"] as? [String: Any] {
+                    if let website = developer["Website"] as? String {
+                        if let url = URL(string: website) {
+                            UIApplication.shared.openURL(url)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    func twitterCellTouchUpInside() {
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let developer = dictionary["Developer"] as? [String: Any] {
+                    if let twitter = developer["Twitter"] as? String {
+                        if let url = URL(string: twitter) {
+                            UIApplication.shared.openURL(url)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    func githubCellTouchUpInside() {
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let developer = dictionary["Developer"] as? [String: Any] {
+                    if let github = developer["GitHub"] as? String {
+                        if let url = URL(string: github) {
+                            UIApplication.shared.openURL(url)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
