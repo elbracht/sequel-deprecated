@@ -123,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11702CC31FB0B938009B5F19 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */,
+				115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */,
+				113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		118C8BDA1F7E80A60018015E /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,9 +221,7 @@
 			children = (
 				11B6A6F31F7C5D2700AD3FCE /* CollectionViewController.swift */,
 				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
-				113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */,
-				115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */,
-				115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */,
+				11702CC31FB0B938009B5F19 /* Settings */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
