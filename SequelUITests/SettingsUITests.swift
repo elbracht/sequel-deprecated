@@ -77,7 +77,5 @@ class SettingsUITests: XCTestCase {
     func testRate() {
         app.buttons["Settigns"].tap()
         app.tables.staticTexts["Rate"].tap()
-        app.otherElements["Rating"].tap()
-        app.staticTexts["Cancel"].tap()
     }
 }
