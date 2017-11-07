@@ -72,8 +72,6 @@ class SettingsUITests: XCTestCase {
     func testFeedback() {
         app.buttons["Settigns"].tap()
         app.tables.staticTexts["Feedback"].tap()
-        app.navigationBars["Sequel Feedback"].buttons["Cancel"].tap()
-        app.sheets.buttons["Delete Draft"].tap()
     }
 
     func testRate() {
