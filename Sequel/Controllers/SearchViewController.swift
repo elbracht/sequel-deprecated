@@ -69,7 +69,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             if #available(iOS 11, *) {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             } else {
-                make.top.equalTo(self.view).offset(Legacy.statusBarHeight)
+                make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
             }
         }
     }
@@ -203,7 +203,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [
-            "api_key": TMDb.apiKey,
+            "api_key": Config.TMDb.apiKey,
             "query": searchQuery,
             "page": page
         ]
