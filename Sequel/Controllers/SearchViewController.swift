@@ -202,9 +202,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 
     /* Helper */
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
+        var apiKey = ""
+        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                if let tmdb = dictionary["TMDb"] as? [String: Any] {
+                    if let tmdbApiKey = tmdb["API Key"] as? String {
+                        apiKey = tmdbApiKey
+                    }
+                }
+            }
+        }
+
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [
-            "api_key": TMDb.apiKey,
+            "api_key": apiKey,
             "query": searchQuery,
             "page": page
         ]

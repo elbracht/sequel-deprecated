@@ -17,5 +17,10 @@
 		<key>GitHub</key>
 		<string>https://github.com/elbracht</string>
 	</dict>
+	<key>TMDb</key>
+	<dict>
+		<key>API Key</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>

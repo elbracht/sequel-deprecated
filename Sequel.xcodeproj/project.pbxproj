@@ -30,7 +30,6 @@
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
 		11BA64241FA8912D003C0770 /* Humanize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BA64231FA8912D003C0770 /* Humanize.swift */; };
 		11BF4CA81F8965F000811C40 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA71F8965F000811C40 /* Series.swift */; };
-		11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA91F8965FB00811C40 /* TMDb.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchViewController.swift */; };
@@ -88,7 +87,6 @@
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11BA64231FA8912D003C0770 /* Humanize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Humanize.swift; sourceTree = "<group>"; };
 		11BF4CA71F8965F000811C40 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
-		11BF4CA91F8965FB00811C40 /* TMDb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDb.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				11ED81711F811A6200E8379E /* Font.swift */,
 				1168E1301FA242C800211DDC /* Legacy.swift */,
 				115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */,
-				11BF4CA91F8965FB00811C40 /* TMDb.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -518,7 +515,6 @@
 				118C8BDC1F7E8DC80018015E /* Color.swift in Sources */,
 				1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */,
 				11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */,
-				11BF4CAA1F8965FB00811C40 /* TMDb.swift in Sources */,
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				115F6E101FA33DB200CBA6B0 /* SettingsTableViewController.swift in Sources */,
 				11955B921F8663C0007AB6F3 /* SearchTextField.swift in Sources */,
