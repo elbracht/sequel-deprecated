@@ -16,7 +16,7 @@ class ExtendedButton: UIButton {
 
         self.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
-        self.addTarget(self, action: #selector(buttonTouchCancel), for: .touchCancel)
+        self.addTarget(self, action: #selector(buttonTouchUpOutside), for: .touchUpOutside)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -42,35 +42,35 @@ class ExtendedButton: UIButton {
     }
 
     /* Update */
-    func updateColor(_ colors: ThemeColorPicker) {
+    private func updateColor(_ colors: ThemeColorPicker) {
         self.theme_setTitleColor(colors, forState: .normal)
         self.theme_setTitleColor(colors, forState: .highlighted)
         self.imageView?.theme_tintColor = colors
     }
 
     /* Animation */
-    func animateDefault() {
+    private func animateDefault() {
         UIView.animate(withDuration: 0.1) {
             self.updateColor(self.colors)
         }
     }
 
-    func animateHighlight() {
+    private func animateHighlight() {
         UIView.animate(withDuration: 0.1) {
             self.updateColor(self.highlightColors)
         }
     }
 
     /* Events */
-    @objc func buttonTouchDown(sender: ExtendedButton!) {
+    @objc private func buttonTouchDown(sender: ExtendedButton!) {
         animateHighlight()
     }
 
-    @objc func buttonTouchUpInside(sender: ExtendedButton!) {
+    @objc private func buttonTouchUpInside(sender: ExtendedButton!) {
         animateDefault()
     }
 
-    @objc func buttonTouchCancel(sender: ExtendedButton!) {
+    @objc private func buttonTouchUpOutside(sender: ExtendedButton!) {
         animateDefault()
     }
 }
