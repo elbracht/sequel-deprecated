@@ -16,7 +16,7 @@ class ScrollIndicatorImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.image = UIImage(named: "arrow_down")?.withRenderingMode(.alwaysTemplate)
+        self.image = UIImage(named: "scroll_indicator")?.withRenderingMode(.alwaysTemplate)
         self.theme_tintColor = [Style.light.color]
         self.alpha = 0
     }
