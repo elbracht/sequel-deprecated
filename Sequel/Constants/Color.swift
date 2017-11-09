@@ -2,7 +2,9 @@ import UIKit
 
 struct Color {
     let background: String
-    let accent: String
+
+    let accentNormal: String
+    let accentHighlighted: String
 
     let blackPrimary: String
     let blackSecondary: String
@@ -16,7 +18,8 @@ struct Color {
 
     static let light = Color(
         background: UIColor(hue: 0.00, saturation: 0.00, brightness: 0.96, alpha: 1.00).hexString(true),
-        accent: UIColor(hue: 0.58, saturation: 0.70, brightness: 0.80, alpha: 1.00).hexString(true),
+        accentNormal: UIColor(hue: 0.58, saturation: 0.70, brightness: 0.80, alpha: 1.00).hexString(true),
+        accentHighlighted: UIColor(hue: 0.58, saturation: 0.70, brightness: 0.80, alpha: 0.32).hexString(true),
         blackPrimary: UIColor.black.withAlphaComponent(0.87).hexString(true),
         blackSecondary: UIColor.black.withAlphaComponent(0.54).hexString(true),
         blackDisabled: UIColor.black.withAlphaComponent(0.38).hexString(true),

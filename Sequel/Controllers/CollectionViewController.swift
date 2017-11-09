@@ -1,8 +1,9 @@
+import DeckTransition
 import SnapKit
 import SwiftTheme
 import UIKit
 
-class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate {
+class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsNavigationControllerDelegate {
 
     struct Style {
         let backgroundColor: String
@@ -15,11 +16,13 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     struct Measure {
+        static let settingsButtonHeight = 40 as CGFloat
         static let searchTriggerPosition = 250 as CGFloat
     }
 
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
+    var settingsButton: ExtendedButton!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -27,6 +30,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         initView()
         initSearchView()
         initScrollIndicator()
+        initSettingsButton()
 
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(detectPanGesture))
         self.view.addGestureRecognizer(panGestureRecognizer)
@@ -70,6 +74,37 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         }
     }
 
+    func initSettingsButton() {
+        settingsButton = ExtendedButton()
+        settingsButton.setTitle("Settigns", font: Font.body!)
+        settingsButton.setImage("settings")
+        settingsButton.setColors(colors: [Color.light.blackSecondary], highlightColors: [Color.light.blackPrimary])
+        settingsButton.addTarget(self, action: #selector(settingsButtonTouchUpInside), for: .touchUpInside)
+        self.view.addSubview(settingsButton)
+
+        settingsButton.snp.makeConstraints { (make) in
+            make.top.equalTo(searchView.snp.bottom)
+            make.centerX.equalTo(self.view)
+            make.height.equalTo(Measure.settingsButtonHeight)
+        }
+    }
+
+    /* SettingsButton */
+    @objc func settingsButtonTouchUpInside(sender: ExtendedButton!) {
+        let settingsNavigationController = SettingsNavigationController()
+        let deckTransitionDelegate = DeckTransitioningDelegate()
+        settingsNavigationController.dismissDelegate = self
+        settingsNavigationController.transitioningDelegate = deckTransitionDelegate
+        settingsNavigationController.modalPresentationStyle = .custom
+        present(settingsNavigationController, animated: true, completion: nil)
+    }
+
+    /* SettingsNavigationController */
+    func settingsNavigationControllerDismiss() {
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
+    }
+
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SearchTransition(transitionMode: .present)
     }
@@ -100,6 +135,10 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         }
 
         scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
+            make.top.equalTo(searchView.snp.bottom).offset(offset / 2)
+        }
+
+        settingsButton.snp.updateConstraints { (make) in
             make.top.equalTo(searchView.snp.bottom).offset(offset * 1.5)
         }
 
@@ -114,10 +153,9 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
         if sender.state == UIGestureRecognizerState.ended {
             searchView.searchTextField.animateTextFieldDefault()
             scrollIndicatorImageView.animateDefault()
+            scrollIndicatorImageView.animateFadeOut()
 
             animateRubberBand(completion: { _ in
-                self.scrollIndicatorImageView.animateFadeOut()
-
                 if yTranslation > Measure.searchTriggerPosition {
                     self.searchView.searchTextField.becomeFirstResponder()
                 }
@@ -137,6 +175,10 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
             }
 
             self.scrollIndicatorImageView.snp.updateConstraints { (make) -> Void in
+                make.top.equalTo(self.searchView.snp.bottom)
+            }
+
+            self.settingsButton.snp.updateConstraints { (make) in
                 make.top.equalTo(self.searchView.snp.bottom)
             }
 

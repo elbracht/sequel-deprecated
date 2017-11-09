@@ -9,7 +9,7 @@ class ScrollIndicatorImageView: UIImageView {
 
         static let light = Style(
             color: Color.light.blackDisabled,
-            highlightColor: Color.light.accent
+            highlightColor: Color.light.accentNormal
         )
     }
 
@@ -33,7 +33,7 @@ class ScrollIndicatorImageView: UIImageView {
     }
 
     func animateFadeOut() {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.1) {
             self.alpha = 0
         }
     }
