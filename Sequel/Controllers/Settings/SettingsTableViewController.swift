@@ -223,14 +223,8 @@ class SettingsTableViewController: UITableViewController {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
-            if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-                if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                    if let appId = dictionary["App ID"] {
-                        if let url = URL(string: "itms-apps://itunes.apple.com/app/\(appId)") {
-                            UIApplication.shared.openURL(url)
-                        }
-                    }
-                }
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/\(Config.App.identifier)") {
+                UIApplication.shared.openURL(url)
             }
         }
     }

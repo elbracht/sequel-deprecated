@@ -65,7 +65,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         searchView.snp.makeConstraints { (make) in
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
-            make.height.equalTo(SearchView.Measure.height + SearchView.Measure.offset.top)
 
             if #available(iOS 11, *) {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
@@ -202,20 +201,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
 
     /* Helper */
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
-        var apiKey = ""
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let tmdb = dictionary["TMDb"] as? [String: Any] {
-                    if let tmdbApiKey = tmdb["API Key"] as? String {
-                        apiKey = tmdbApiKey
-                    }
-                }
-            }
-        }
-
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [
-            "api_key": apiKey,
+            "api_key": Config.TMDb.apiKey,
             "query": searchQuery,
             "page": page
         ]
