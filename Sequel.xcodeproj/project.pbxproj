@@ -183,10 +183,10 @@
 				11E4BCA31F7D11C400169F6C /* Views */,
 				11E4BCA21F7D11B500169F6C /* Controllers */,
 				11BA64221FA8910C003C0770 /* Helper */,
-				11ED81731F811DBC00E8379E /* Constants */,
 				118C8BDA1F7E80A60018015E /* Transitions */,
-				11955B991F88F34B007AB6F3 /* Supporting Files */,
+				11ED81731F811DBC00E8379E /* Styleguide */,
 				11ED81601F81188F00E8379E /* Ressources */,
+				11955B991F88F34B007AB6F3 /* Supporting Files */,
 			);
 			path = Sequel;
 			sourceTree = "<group>";
@@ -260,14 +260,14 @@
 			path = Ressources;
 			sourceTree = "<group>";
 		};
-		11ED81731F811DBC00E8379E /* Constants */ = {
+		11ED81731F811DBC00E8379E /* Styleguide */ = {
 			isa = PBXGroup;
 			children = (
 				118C8BDB1F7E8DC80018015E /* Color.swift */,
 				11ED81711F811A6200E8379E /* Font.swift */,
 				115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */,
 			);
-			path = Constants;
+			path = Styleguide;
 			sourceTree = "<group>";
 		};
 		F2C710532032AB339822BD9A /* Pods */ = {
