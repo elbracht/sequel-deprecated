@@ -146,15 +146,7 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
         githubCell.imageView?.image = UIImage(named: "github")
         developerCells.append(githubCell)
 
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let developer = dictionary["Developer"] as? [String: Any] {
-                    if let name = developer["Name"] as? String {
-                        sections.append(Section(name: "Developed by \(name)", cells: developerCells))
-                    }
-                }
-            }
-        }
+        sections.append(Section(name: "Developed by \(Config.Developer.name)", cells: developerCells))
     }
 
     /* Buttons */
@@ -212,44 +204,20 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
 
     /* TableView Events */
     func websiteCellTouchUpInside() {
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let developer = dictionary["Developer"] as? [String: Any] {
-                    if let website = developer["Website"] as? String {
-                        if let url = URL(string: website) {
-                            UIApplication.shared.openURL(url)
-                        }
-                    }
-                }
-            }
+        if let url = URL(string: Config.Developer.website) {
+            UIApplication.shared.openURL(url)
         }
     }
 
     func twitterCellTouchUpInside() {
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let developer = dictionary["Developer"] as? [String: Any] {
-                    if let twitter = developer["Twitter"] as? String {
-                        if let url = URL(string: twitter) {
-                            UIApplication.shared.openURL(url)
-                        }
-                    }
-                }
-            }
+        if let url = URL(string: Config.Developer.twitter) {
+            UIApplication.shared.openURL(url)
         }
     }
 
     func githubCellTouchUpInside() {
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let developer = dictionary["Developer"] as? [String: Any] {
-                    if let github = developer["GitHub"] as? String {
-                        if let url = URL(string: github) {
-                            UIApplication.shared.openURL(url)
-                        }
-                    }
-                }
-            }
+        if let url = URL(string: Config.Developer.github) {
+            UIApplication.shared.openURL(url)
         }
     }
 
