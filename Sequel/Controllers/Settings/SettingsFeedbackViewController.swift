@@ -17,19 +17,7 @@ class SettingsFeedbackViewController: MFMailComposeViewController, MFMailCompose
     func initView() {
         self.mailComposeDelegate = self
         self.modalPresentationStyle = .custom
-
-        if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let dictionary = NSDictionary(contentsOfFile: path) as? [String: Any] {
-                if let developer = dictionary["Developer"] as? [String: Any] {
-                    let name = developer["Name"] as? String
-                    let mail = developer["Mail"] as? String
-
-                    if name != nil && mail != nil {
-                        self.setToRecipients(["\(name!) <\(mail!)>"])
-                    }
-                }
-            }
-        }
+        self.setToRecipients(["\(Config.Developer.name) <\(Config.Developer.mail)>"])
 
         if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
             self.setSubject("\(bundleName) Feedback")
