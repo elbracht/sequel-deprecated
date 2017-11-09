@@ -70,7 +70,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
             if #available(iOS 11, *) {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             } else {
-                make.top.equalTo(self.view).offset(Legacy.statusBarHeight)
+                make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
             }
         }
     }

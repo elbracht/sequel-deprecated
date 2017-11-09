@@ -14,7 +14,6 @@
 		115F6E0A1FA274B400CBA6B0 /* ExtendedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E091FA274B400CBA6B0 /* ExtendedButton.swift */; };
 		115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */; };
 		115F6E101FA33DB200CBA6B0 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */; };
-		1168E1311FA242C800211DDC /* Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168E1301FA242C800211DDC /* Legacy.swift */; };
 		11702CC51FB0B9CA009B5F19 /* SettingsAboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC41FB0B9CA009B5F19 /* SettingsAboutTableViewController.swift */; };
 		11702CC71FB0EDB1009B5F19 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* SearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */; };
@@ -65,7 +64,6 @@
 		115F6E091FA274B400CBA6B0 /* ExtendedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedButton.swift; sourceTree = "<group>"; };
 		115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		115F6E0F1FA33DB200CBA6B0 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		1168E1301FA242C800211DDC /* Legacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legacy.swift; sourceTree = "<group>"; };
 		11702CC41FB0B9CA009B5F19 /* SettingsAboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAboutTableViewController.swift; sourceTree = "<group>"; };
 		11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* SearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTransition.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 			children = (
 				118C8BDB1F7E8DC80018015E /* Color.swift */,
 				11ED81711F811A6200E8379E /* Font.swift */,
-				1168E1301FA242C800211DDC /* Legacy.swift */,
 				115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */,
 			);
 			path = Constants;
@@ -524,7 +521,6 @@
 				113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */,
 				11702CC51FB0B9CA009B5F19 /* SettingsAboutTableViewController.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* CollectionViewController.swift in Sources */,
-				1168E1311FA242C800211DDC /* Legacy.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
