@@ -3,7 +3,7 @@ import SnapKit
 import SwiftTheme
 import UIKit
 
-class CollectionViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsNavigationControllerDelegate {
+class MainViewController: UIViewController, UIViewControllerTransitioningDelegate, UITextFieldDelegate, SettingsNavigationControllerDelegate {
 
     struct Style {
         let backgroundColor: String
@@ -22,7 +22,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
 
     var searchView: SearchView!
     var scrollIndicatorImageView: ScrollIndicatorImageView!
-    var settingsButton: ExtendedButton!
+    var settingsButton: CustomButton!
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -75,7 +75,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     func initSettingsButton() {
-        settingsButton = ExtendedButton()
+        settingsButton = CustomButton()
         settingsButton.setTitle("Settigns", font: Font.body!)
         settingsButton.setImage("settings")
         settingsButton.setColors(colors: [Color.light.blackSecondary], highlightColors: [Color.light.blackPrimary])
@@ -90,7 +90,7 @@ class CollectionViewController: UIViewController, UIViewControllerTransitioningD
     }
 
     /* SettingsButton */
-    @objc func settingsButtonTouchUpInside(sender: ExtendedButton!) {
+    @objc func settingsButtonTouchUpInside(sender: CustomButton!) {
         let settingsNavigationController = SettingsNavigationController()
         let deckTransitionDelegate = DeckTransitioningDelegate()
         settingsNavigationController.dismissDelegate = self
