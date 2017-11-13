@@ -168,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				11E4BCA51F7D122F00169F6C /* SearchViewController.swift */,
+				11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 				11702CC31FB0B938009B5F19 /* Settings */,
 				1195E4521FB626B000FA5F68 /* Custom Controls */,
 				11955B951F88D569007AB6F3 /* ScrollIndicatorImageView.swift */,
-				11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */,
 				11955B911F8663C0007AB6F3 /* SearchTextField.swift */,
 				11955B931F86AB26007AB6F3 /* SearchView.swift */,
 			);
