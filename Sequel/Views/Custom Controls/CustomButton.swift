@@ -11,9 +11,6 @@ class CustomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setTitle("Hello World!", font: Font.body!)
-        setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
-
         self.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
         self.addTarget(self, action: #selector(buttonTouchUpOutside), for: .touchUpOutside)
