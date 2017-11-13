@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		111414701FAA592800905EFF /* Pods_Sequel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111414711FAA592800905EFF /* Pods_Sequel.framework */; };
 		113B5FB11FA8F69600D409D1 /* SettingsFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */; };
+		1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151000A1FB9CE380043BC72 /* CustomTextField.swift */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
 		115F6E0A1FA274B400CBA6B0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E091FA274B400CBA6B0 /* CustomButton.swift */; };
 		115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */; };
@@ -60,6 +61,7 @@
 		111414711FAA592800905EFF /* Pods_Sequel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Sequel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		111538A41FB48B0600157FCA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		113B5FB01FA8F69600D409D1 /* SettingsFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFeedbackViewController.swift; sourceTree = "<group>"; };
+		1151000A1FB9CE380043BC72 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		115F6E091FA274B400CBA6B0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		115F6E0B1FA3309F00CBA6B0 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				115F6E091FA274B400CBA6B0 /* CustomButton.swift */,
+				1151000A1FB9CE380043BC72 /* CustomTextField.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				11702CC51FB0B9CA009B5F19 /* SettingsAboutTableViewController.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* MainViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
+				1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
