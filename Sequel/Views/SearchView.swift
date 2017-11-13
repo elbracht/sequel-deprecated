@@ -17,7 +17,7 @@ class SearchView: UIView {
         static let cancelButtonOffset = 8 as CGFloat
     }
 
-    var cancelButton: ExtendedButton!
+    var cancelButton: CustomButton!
     var searchTextField: SearchTextField!
 
     override init(frame: CGRect) {
@@ -54,7 +54,7 @@ class SearchView: UIView {
     }
 
     func initCancelButton() {
-        cancelButton = ExtendedButton()
+        cancelButton = CustomButton()
         cancelButton.accessibilityIdentifier = "searchCancelButton"
         cancelButton.setTitle("Cancel", font: Font.body!)
         cancelButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])

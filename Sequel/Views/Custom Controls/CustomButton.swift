@@ -1,7 +1,7 @@
 import SwiftTheme
 import UIKit
 
-class ExtendedButton: UIButton {
+class CustomButton: UIButton {
 
     private var colors: ThemeColorPicker!
     private var highlightColors: ThemeColorPicker!
@@ -10,9 +10,6 @@ class ExtendedButton: UIButton {
     /* Init */
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        setTitle("Hello World!", font: Font.body!)
-        setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
 
         self.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         self.addTarget(self, action: #selector(buttonTouchUpInside), for: .touchUpInside)
@@ -62,15 +59,15 @@ class ExtendedButton: UIButton {
     }
 
     /* Events */
-    @objc private func buttonTouchDown(sender: ExtendedButton!) {
+    @objc private func buttonTouchDown(sender: CustomButton!) {
         animateHighlight()
     }
 
-    @objc private func buttonTouchUpInside(sender: ExtendedButton!) {
+    @objc private func buttonTouchUpInside(sender: CustomButton!) {
         animateDefault()
     }
 
-    @objc private func buttonTouchUpOutside(sender: ExtendedButton!) {
+    @objc private func buttonTouchUpOutside(sender: CustomButton!) {
         animateDefault()
     }
 }

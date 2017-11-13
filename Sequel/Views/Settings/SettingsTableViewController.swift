@@ -64,7 +64,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func initDoneButton() {
-        let doneButton = ExtendedButton()
+        let doneButton = CustomButton()
         doneButton.setTitle("Done", font: Font.body!)
         doneButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
         doneButton.addTarget(self, action: #selector(doneButtonTouchUpInside), for: .touchUpInside)

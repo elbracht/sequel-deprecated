@@ -63,7 +63,7 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
     }
 
     func initBackButton() {
-        let backButton = ExtendedButton()
+        let backButton = CustomButton()
         backButton.setTitle("Back", font: Font.body!)
         backButton.setImage("back")
         backButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
@@ -72,7 +72,7 @@ class SettingsAboutTableViewController: UITableViewController, UIGestureRecogniz
     }
 
     func initDoneButton() {
-        let doneButton = ExtendedButton()
+        let doneButton = CustomButton()
         doneButton.setTitle("Done", font: Font.body!)
         doneButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
         doneButton.addTarget(self, action: #selector(doneButtonTouchUpInside), for: .touchUpInside)
