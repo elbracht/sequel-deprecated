@@ -4,231 +4,130 @@ import SwiftTheme
 import SwiftyJSON
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    struct Style {
-        let backgroundColor: String
-        let statusBarStyle: UIStatusBarStyle
-
-        static let light = Style(
-            backgroundColor: Color.light.background,
-            statusBarStyle: .default
-        )
-    }
+class SearchViewController: UIViewController {
 
     struct Measure {
-        static let searchCollectionViewOffset = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
-        static let searchItemOffset = 12 as CGFloat
-        static let searchItemPerRow = 2 as CGFloat
-        static let searchItemRatioWidth = 2 as CGFloat
-        static let searchItemRatioHeight = 3 as CGFloat
+        static let searchViewOffset = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 0, right: 16.0)
+        static let searchViewHeight = 40 as CGFloat
+        static let searchCancelButtonOffset = 8 as CGFloat
     }
 
-    let reuseIdentifier = "SearchCollectionViewCell"
+    private var searchView: UIView!
+    private var searchTextField: CustomTextField!
+    private var searchCancelButton: CustomButton!
 
-    var series = [Series]()
-
-    var searchText = ""
-    var searchPage = 1
-    var searchTotalPage = 1
-
-    var searchView: SearchView!
-    var searchCollectionView: UICollectionView!
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         initView()
         initSearchView()
-        initSearchCollectionView()
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    /* Init */
     func initView() {
-        self.view.theme_backgroundColor = [Style.light.backgroundColor]
-        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: Style.light.statusBarStyle)
+        self.view.theme_backgroundColor = [Color.light.background]
+        let statusBarStylePicker = ThemeStatusBarStylePicker(styles: .default)
         UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
 
-    func initSearchView() {
-        searchView = SearchView()
-        searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTouchUpInside), for: .touchUpInside)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingChanged), for: .editingChanged)
-        searchView.searchTextField.addTarget(self, action: #selector(searchTextFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
-        searchView.searchTextField.delegate = self
+    private func initSearchView() {
+        searchView = UIView()
+        initSearchCancelButton()
+        initSearchTextField()
         self.view.addSubview(searchView)
 
         searchView.snp.makeConstraints { (make) in
+            if #available(iOS 11, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(Measure.searchViewOffset.top)
+            } else {
+                let statusBarHeight = UIApplication.shared.statusBarFrame.height
+                make.top.equalTo(self.view).offset(statusBarHeight + Measure.searchViewOffset.top)
+            }
+
             make.left.equalTo(self.view)
             make.right.equalTo(self.view)
+            make.height.equalTo(Measure.searchViewHeight)
+        }
+    }
 
-            if #available(iOS 11, *) {
-                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
-            } else {
-                make.top.equalTo(self.view).offset(UIApplication.shared.statusBarFrame.height)
+    func initSearchTextField() {
+        searchTextField = CustomTextField()
+        searchTextField.setPlaceholderText("Search series by name")
+        searchTextField.setFont(Font.body!)
+        searchTextField.setImage(UIImage(named: "search")!)
+        searchTextField.setClearImage(UIImage(named: "clear")!, colors: [Color.light.blackDisabled])
+        searchTextField.setBackgroundColors([Color.light.blackDivider])
+        searchTextField.setTextColors([Color.light.blackPrimary])
+        searchTextField.setPlaceholderColors([Color.light.blackDisabled])
+        searchTextField.setCornerRadius(Measure.searchViewHeight / 2)
+        searchView.addSubview(searchTextField)
+
+        searchTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(searchView)
+            make.bottom.equalTo(searchView)
+            make.left.equalTo(searchView).offset(Measure.searchViewOffset.left)
+            make.right.equalTo(searchCancelButton.snp.left).offset(-Measure.searchCancelButtonOffset)
+        }
+    }
+
+    func initSearchCancelButton() {
+        searchCancelButton = CustomButton()
+        searchCancelButton.addTarget(self, action: #selector(searchCancelButtonTouchUpInside), for: .touchUpInside)
+        searchCancelButton.setTitle("Cancel", font: Font.body!)
+        searchCancelButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        searchView.addSubview(searchCancelButton)
+
+        searchCancelButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(searchView)
+            make.bottom.equalTo(searchView)
+            make.right.equalTo(searchView).offset(-Measure.searchViewOffset.right)
+            make.width.equalTo(searchCancelButton.intrinsicContentSize.width)
+        }
+    }
+
+    func startEditingSearchTextField() {
+        searchTextField.becomeFirstResponder()
+    }
+
+    func endEditingSearchTextField() {
+        searchTextField.endEditing(true)
+    }
+
+    func animateSearchSwipe(completion: @escaping (_ success: Bool) -> Void) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.searchTextField.snp.updateConstraints { (make) -> Void in
+                make.right.equalTo(self.searchCancelButton.snp.left).offset(-Measure.searchViewOffset.right)
             }
-        }
+
+            self.searchCancelButton.snp.updateConstraints { (make) -> Void in
+                make.right.equalTo(self.searchView).offset(self.searchCancelButton.intrinsicContentSize.width)
+            }
+
+            self.view.layoutIfNeeded()
+        }, completion: { (success) in
+            completion(success)
+        })
     }
 
-    func initSearchCollectionView() {
-        searchCollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        searchCollectionView.backgroundColor = UIColor.clear
-        searchCollectionView.keyboardDismissMode = .onDrag
-        searchCollectionView.delegate = self
-        searchCollectionView.dataSource = self
-        self.view.addSubview(searchCollectionView)
+    func resetSearchSwipe() {
+        searchTextField.snp.updateConstraints { (make) -> Void in
+            make.right.equalTo(searchCancelButton.snp.left).offset(-Measure.searchCancelButtonOffset)
+        }
 
-        searchCollectionView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(searchView.snp.bottom).offset(16)
-            make.left.equalTo(self.view.snp.left)
-            make.bottom.equalTo(self.view.snp.bottom)
-            make.right.equalTo(self.view.snp.right)
+        searchCancelButton.snp.updateConstraints { (make) -> Void in
+            make.right.equalTo(searchView).offset(-Measure.searchViewOffset.right)
         }
     }
+}
 
-    /* UIButton */
-    @objc func cancelButtonTouchUpInside(sender: UIButton!) {
-        if searchView.searchTextField.hasText {
-            searchView.searchTextField.text = ""
-            searchView.searchTextField.animatePlaceholderFadeIn()
-            searchView.searchTextField.animateImagePlaceholder()
+extension SearchViewController {
+    @objc private func searchCancelButtonTouchUpInside() {
+        if searchTextField.hasText {
+            searchTextField.text = ""
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.dismiss(animated: true)
             }
         } else {
             self.dismiss(animated: true)
         }
-    }
-
-    /* UITextField */
-    @objc func searchTextFieldEditingChanged(sender: SearchTextField!) {
-        if sender.hasText {
-            sender.animatePlaceholderFadeOut()
-            sender.animateImageDefault()
-        } else {
-            sender.animatePlaceholderFadeIn()
-            sender.animateImagePlaceholder()
-        }
-    }
-
-    @objc func searchTextFieldEditingDidEndOnExit(sender: SearchTextField!) {
-        if let text = sender.text {
-            if !text.isEmpty {
-                series.removeAll()
-                searchCollectionView.reloadData()
-                searchCollectionView.contentOffset = .zero
-
-                searchText = text
-                searchPage = 1
-
-                fetchSeries(searchQuery: searchText, page: searchPage) {
-                    self.searchPage += 1
-                    self.searchCollectionView.reloadData()
-                }
-            }
-        }
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text {
-            if !text.isEmpty {
-                return true
-            }
-        }
-
-        return false
-    }
-
-    /* UICollectionView */
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return series.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? SearchCollectionViewCell {
-            let currentSeries = series[indexPath.row]
-
-            cell.updateNameText(currentSeries.name)
-            cell.updateCaptionText("New")
-
-            let url = "https://image.tmdb.org/t/p/w342\(currentSeries.posterPath)"
-            cell.updateImage(url: url)
-
-            return cell
-        }
-
-        return UICollectionViewCell()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let lastElement = series.count - 1
-        if indexPath.row == lastElement {
-            if searchPage <= searchTotalPage {
-                fetchSeries(searchQuery: searchText, page: searchPage) {
-                    self.searchPage += 1
-                    self.searchCollectionView.reloadData()
-                }
-            }
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let columnSpaceInside = (Measure.searchItemPerRow - 1) * Measure.searchItemOffset
-        let columnSpace = columnSpaceInside + Measure.searchCollectionViewOffset.left + Measure.searchCollectionViewOffset.right
-        let availableWidth = searchCollectionView.frame.width - columnSpace
-        let widthPerItem = (availableWidth / Measure.searchItemPerRow)
-        let heightPerItem = widthPerItem / Measure.searchItemRatioWidth * Measure.searchItemRatioHeight
-
-        return CGSize(width: widthPerItem, height: heightPerItem)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return Measure.searchCollectionViewOffset
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Measure.searchItemOffset
-    }
-
-    /* Helper */
-    func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
-        let url = "https://api.themoviedb.org/3/search/tv"
-        let parameters: Parameters = [
-            "api_key": Config.TMDb.apiKey,
-            "query": searchQuery,
-            "page": page
-        ]
-
-        Alamofire.request(url, parameters: parameters).responseJSON { (response) in
-            if let json = response.result.value {
-                self.parseSeries(json: JSON(json))
-                completion()
-            }
-        }
-    }
-
-    func parseSeries(json: JSON) {
-        if let totalPage = json["total_pages"].int {
-            searchTotalPage = totalPage
-        }
-
-        json["results"].forEach({ (_, subJson) in
-            let name = subJson["name"].string
-            let posterPath = subJson["poster_path"].string
-
-            if name != nil && posterPath != nil {
-                let seriesObject = Series(name: name!, posterPath: posterPath!)
-                series.append(seriesObject)
-            }
-        })
     }
 }

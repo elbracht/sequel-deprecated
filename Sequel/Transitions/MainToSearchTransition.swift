@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
+class MainToSearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
     enum TransitionMode: Int {
         case present, dismiss
@@ -34,14 +34,13 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 containerView.addSubview(toController.view)
 
                 toController.view.alpha = 0
-                toController.searchView.searchTextField.becomeFirstResponder()
-                toController.searchView.swipeLeft()
+                toController.startEditingSearchTextField()
 
-                fromController.searchView.animateSwipeLeft(completion: { (success) in
+                fromController.animateSearchSwipe(completion: { (success) in
                     transitionContext.completeTransition(success)
 
                     toController.view.alpha = 1
-                    fromController.searchView.swipeRight()
+                    fromController.resetSearchSwipe()
                 })
             }
         }
@@ -49,13 +48,13 @@ class SearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
     func dismiss(transitionContext: UIViewControllerContextTransitioning) {
         if let fromController = transitionContext.viewController(forKey: .from) as? SearchViewController {
-            fromController.searchView.searchTextField.endEditing(true)
+            fromController.endEditingSearchTextField()
 
-            fromController.searchView.animateSwipeRight(completion: { (success) in
+            fromController.animateSearchSwipe(completion: { (success) in
                 transitionContext.completeTransition(success)
 
                 fromController.view.removeFromSuperview()
-                fromController.searchView.swipeLeft()
+                fromController.resetSearchSwipe()
             })
         }
     }
