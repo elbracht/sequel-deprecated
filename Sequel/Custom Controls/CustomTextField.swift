@@ -118,6 +118,12 @@ class CustomTextField: UITextField {
         }
     }
 
+    /* Functions */
+    public func clearText() {
+        self.text = nil
+        searchTextFieldEditingChanged()
+    }
+
     /* Animations */
     private func animatePlaceholderFadeIn() {
         UIView.animate(withDuration: 0.1) {
@@ -158,7 +164,15 @@ class CustomTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         let left = leftOffset + leftInnerOffset + image.size.width
         let right = rightOffset + rightInnerOffset + clearImage.size.width
-        return CGRect(x: left, y: 1, width: self.frame.width - left - right + 8, height: self.frame.height)
+        let offset = UIEdgeInsets(top: 1, left: left, bottom: 0, right: right - 8)
+        return UIEdgeInsetsInsetRect(bounds, offset)
+    }
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let left = leftOffset + leftInnerOffset + image.size.width
+        let right = rightOffset + rightInnerOffset + clearImage.size.width
+        let offset = UIEdgeInsets(top: 1, left: left, bottom: 0, right: right - 8)
+        return UIEdgeInsetsInsetRect(bounds, offset)
     }
 
     override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {

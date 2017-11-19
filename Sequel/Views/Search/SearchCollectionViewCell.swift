@@ -1,35 +1,22 @@
-import Kingfisher
 import SnapKit
 import SwiftTheme
 import UIKit
 
+struct SearchCollectiobViewCellMeasure {
+    static let cornerRadius = 4 as CGFloat
+    static let titleViewHeight = 54
+    static let nameLabelHeight = 16
+    static let nameLabelOffset = UIEdgeInsets(top: 12, left: 8, bottom: 0, right: 8)
+    static let captionLabelHeight = 14
+    static let captionLabelOffset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+}
+
 class SearchCollectionViewCell: UICollectionViewCell {
-
-    struct Style {
-        let backgroundColor: String
-        let textColor: String
-
-        static let light = Style(
-            backgroundColor: Color.light.blackDivider,
-            textColor: Color.light.whitePrimary
-        )
-    }
-
-    struct Measure {
-        static let cornerRadius = 4 as CGFloat
-        static let titleViewHeight = 54
-        static let nameLabelHeight = 16
-        static let nameLabelOffset = UIEdgeInsets(top: 12, left: 8, bottom: 0, right: 8)
-        static let captionLabelHeight = 14
-        static let captionLabelOffset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-    }
-
-    var imageView: UIImageView!
-    var titleView: UIView!
-    var blurEffectView: UIVisualEffectView!
-    var nameLabel: UILabel!
-    var captionLabel: UILabel!
-    var progressView: UIView!
+    public var imageView: UIImageView!
+    public var titleView: UIView!
+    public var blurEffectView: UIVisualEffectView!
+    public var nameLabel: UILabel!
+    public var captionLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,26 +33,24 @@ class SearchCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
 
-    /* Init */
-    func initView() {
-        self.theme_backgroundColor = [Style.light.backgroundColor]
+    private func initView() {
+        self.theme_backgroundColor = [Color.light.blackDivider]
 
-        self.contentView.layer.cornerRadius = Measure.cornerRadius
+        self.contentView.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.contentView.layer.masksToBounds = true
 
         self.layer.shadowColor = Shadow.small.color
         self.layer.shadowOpacity = 0
         self.layer.shadowOffset = Shadow.small.offset
         self.layer.shadowRadius = Shadow.small.radius
-        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: Measure.cornerRadius).cgPath
-        self.layer.cornerRadius = Measure.cornerRadius
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: SearchCollectiobViewCellMeasure.cornerRadius).cgPath
+        self.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.layer.masksToBounds = false
     }
 
-    func initImageView() {
+    private func initImageView() {
         imageView = UIImageView()
         imageView.alpha = 0
-
         self.contentView.addSubview(imageView)
 
         imageView.snp.makeConstraints { (make) -> Void in
@@ -73,24 +58,22 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func initTitleView() {
+    private func initTitleView() {
         titleView = UIView()
-
         self.contentView.addSubview(titleView)
 
         titleView.snp.makeConstraints { (make) -> Void in
             make.left.equalTo(self.contentView)
             make.bottom.equalTo(self.contentView)
             make.right.equalTo(self.contentView)
-            make.height.equalTo(Measure.titleViewHeight)
+            make.height.equalTo(SearchCollectiobViewCellMeasure.titleViewHeight)
         }
     }
 
-    func initBlurEffectView() {
+    private func initBlurEffectView() {
         let blurEffect = UIBlurEffect(style: .dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0
-
         titleView.addSubview(blurEffectView)
 
         blurEffectView.snp.makeConstraints { (make) -> Void in
@@ -98,62 +81,41 @@ class SearchCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func initNameLabel() {
+    private func initNameLabel() {
         nameLabel = UILabel()
-        nameLabel.theme_textColor = [Style.light.textColor]
+        nameLabel.theme_textColor = [Color.light.whitePrimary]
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
-
         titleView.addSubview(nameLabel)
 
         nameLabel.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(titleView).offset(Measure.nameLabelOffset.top)
-            make.left.equalTo(titleView).offset(Measure.nameLabelOffset.left)
-            make.right.equalTo(titleView).offset(-Measure.nameLabelOffset.right)
-            make.height.equalTo(Measure.nameLabelHeight)
+            make.top.equalTo(titleView).offset(SearchCollectiobViewCellMeasure.nameLabelOffset.top)
+            make.left.equalTo(titleView).offset(SearchCollectiobViewCellMeasure.nameLabelOffset.left)
+            make.right.equalTo(titleView).offset(-SearchCollectiobViewCellMeasure.nameLabelOffset.right)
+            make.height.equalTo(SearchCollectiobViewCellMeasure.nameLabelHeight)
         }
     }
 
-    func initCaptionLabel() {
+    private func initCaptionLabel() {
         captionLabel = UILabel()
-        captionLabel.theme_textColor = [Style.light.textColor]
+        captionLabel.theme_textColor = [Color.light.whitePrimary]
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
-
         titleView.addSubview(captionLabel)
 
         captionLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(nameLabel.snp.bottom)
-            make.left.equalTo(titleView).offset(Measure.captionLabelOffset.left)
-            make.right.equalTo(titleView).offset(-Measure.captionLabelOffset.right)
-            make.height.equalTo(Measure.captionLabelHeight)
+            make.left.equalTo(titleView).offset(SearchCollectiobViewCellMeasure.captionLabelOffset.left)
+            make.right.equalTo(titleView).offset(-SearchCollectiobViewCellMeasure.captionLabelOffset.right)
+            make.height.equalTo(SearchCollectiobViewCellMeasure.captionLabelHeight)
         }
     }
 
-    func updateImage(url: String) {
-        if let url = URL(string: url) {
-            imageView.kf.setImage(with: url, completionHandler: { (_, _, _, _) in
-                self.animateFadeIn()
-            })
-        }
-    }
-
-    func updateNameText(_ text: String) {
-        nameLabel.text = text
-    }
-
-    func updateCaptionText(_ text: String) {
-        captionLabel.text = text
-    }
-
-    /* Animation */
-    func animateFadeIn() {
+    public func showCell() {
         if self.imageView.alpha == 0 && self.blurEffectView.alpha == 0 {
-            UIView.animate(withDuration: 0.2) {
-                self.layer.shadowOpacity = Shadow.small.opacity
-                self.imageView.alpha = 1
-                self.blurEffectView.alpha = 1
-            }
+            self.layer.shadowOpacity = Shadow.small.opacity
+            self.imageView.alpha = 1
+            self.blurEffectView.alpha = 1
         }
     }
 }

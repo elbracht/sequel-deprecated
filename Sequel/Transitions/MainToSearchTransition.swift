@@ -29,32 +29,36 @@ class MainToSearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func present(transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
 
-        if let toController = transitionContext.viewController(forKey: .to) as? SearchViewController {
-            if let fromController = transitionContext.viewController(forKey: .from) as? MainViewController {
-                containerView.addSubview(toController.view)
+        if let searchViewController = transitionContext.viewController(forKey: .to) as? SearchViewController {
+            if let mainViewController = transitionContext.viewController(forKey: .from) as? MainViewController {
+                containerView.addSubview(searchViewController.view)
 
-                toController.view.alpha = 0
-                toController.startEditingSearchTextField()
+                searchViewController.searchView.alpha = 0
+                searchViewController.searchView.searchInputView.textField.becomeFirstResponder()
 
-                fromController.animateSearchSwipe(completion: { (success) in
+                UIView.animate(withDuration: 0.2, animations: {
+                    mainViewController.mainView.searchInputView.showCancelButton()
+                    mainViewController.mainView.layoutIfNeeded()
+                }, completion: { (success) in
                     transitionContext.completeTransition(success)
-
-                    toController.view.alpha = 1
-                    fromController.resetSearchSwipe()
+                    searchViewController.searchView.alpha = 1
+                    mainViewController.mainView.searchInputView.hideCancelButton()
                 })
             }
         }
     }
 
     func dismiss(transitionContext: UIViewControllerContextTransitioning) {
-        if let fromController = transitionContext.viewController(forKey: .from) as? SearchViewController {
-            fromController.endEditingSearchTextField()
+        if let searchViewController = transitionContext.viewController(forKey: .from) as? SearchViewController {
+            searchViewController.searchView.searchInputView.textField.endEditing(true)
 
-            fromController.animateSearchSwipe(completion: { (success) in
+            UIView.animate(withDuration: 0.2, animations: {
+                searchViewController.searchView.searchInputView.hideCancelButton()
+                searchViewController.searchView.layoutIfNeeded()
+            }, completion: { (success) in
                 transitionContext.completeTransition(success)
-
-                fromController.view.removeFromSuperview()
-                fromController.resetSearchSwipe()
+                searchViewController.view.removeFromSuperview()
+                searchViewController.searchView.searchInputView.showCancelButton()
             })
         }
     }
