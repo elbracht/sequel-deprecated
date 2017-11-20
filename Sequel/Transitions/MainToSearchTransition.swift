@@ -44,6 +44,7 @@ class MainToSearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                     transitionContext.completeTransition(success)
                     searchViewController.searchView.alpha = 1
                     mainViewController.mainView.searchInputView.hideCancelButton()
+                    mainViewController.mainView.layoutIfNeeded()
                     mainViewController.mainView.searchInputView.textField.setPlaceholderAlignment(.center)
                 })
             }
