@@ -8,6 +8,7 @@ struct MainViewMeasure {
 }
 
 class MainView: UIView {
+    public var searchHeaderView: UIVisualEffectView!
     public var searchInputView: SearchInputView!
     public var settingsButton: CustomButton!
 
@@ -15,6 +16,7 @@ class MainView: UIView {
         super.init(frame: frame)
 
         initView()
+        initSearchHeader()
         initSearchInputView()
         initSettingsButton()
     }
@@ -29,19 +31,25 @@ class MainView: UIView {
         UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
 
+    private func initSearchHeader() {
+        searchHeaderView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        self.addSubview(searchHeaderView)
+
+        searchHeaderView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self)
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+            make.height.equalTo(UIApplication.shared.statusBarFrame.height + SearchViewMeasure.searchHeaderHeight)
+        }
+    }
+
     private func initSearchInputView() {
         searchInputView = SearchInputView()
         searchInputView.hideCancelButton()
         self.addSubview(searchInputView)
 
         searchInputView.snp.makeConstraints { (make) in
-            if #available(iOS 11, *) {
-                make.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).offset(SearchViewMeasure.searchInputOffsetTop)
-            } else {
-                let statusBarHeight = UIApplication.shared.statusBarFrame.height
-                make.top.equalTo(self).offset(statusBarHeight + SearchViewMeasure.searchInputOffsetTop)
-            }
-
+            make.top.equalTo(self).offset(UIApplication.shared.statusBarFrame.height + SearchViewMeasure.searchInputOffsetTop)
             make.left.equalTo(self)
             make.right.equalTo(self)
             make.height.equalTo(SearchInputViewMeasure.height)
@@ -56,7 +64,7 @@ class MainView: UIView {
         self.addSubview(settingsButton)
 
         settingsButton.snp.makeConstraints { (make) in
-            make.top.equalTo(searchInputView.snp.bottom).offset(MainViewMeasure.settingsButtonOffset)
+            make.top.equalTo(searchHeaderView.snp.bottom).offset(MainViewMeasure.settingsButtonOffset)
             make.centerX.equalTo(self)
             make.height.equalTo(MainViewMeasure.settingsButtonHeight)
         }
