@@ -75,8 +75,6 @@ class SearchInputView: UIView {
         cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(self).offset(-SearchInputViewMeasure.offsetRight)
         }
-
-        self.layoutIfNeeded()
     }
 
     public func hideCancelButton() {
@@ -87,7 +85,5 @@ class SearchInputView: UIView {
         cancelButton.snp.updateConstraints { (make) -> Void in
             make.right.equalTo(self).offset(cancelButton.intrinsicContentSize.width)
         }
-
-        self.layoutIfNeeded()
     }
 }
