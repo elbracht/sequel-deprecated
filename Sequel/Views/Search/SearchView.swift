@@ -65,6 +65,8 @@ class SearchView: UIView {
         searchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
         searchCollectionView.contentInset = SearchViewMeasure.searchCollectionViewOffset
+        searchCollectionView.scrollIndicatorInsets.top = SearchViewMeasure.searchCollectionViewOffset.top
+        searchCollectionView.scrollIndicatorInsets.bottom = SearchViewMeasure.searchCollectionViewOffset.bottom
         searchCollectionView.backgroundColor = UIColor.clear
         searchCollectionView.keyboardDismissMode = .onDrag
         self.addSubview(searchCollectionView)
