@@ -13,6 +13,7 @@
 		111E82501FC1D151001EE27A /* SearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111E824F1FC1D151001EE27A /* SearchInputView.swift */; };
 		112CC98E1FC1FAA60056ABC8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CC98D1FC1FAA60056ABC8 /* SettingsView.swift */; };
 		112CC9901FC20D8B0056ABC8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CC98F1FC20D8B0056ABC8 /* AboutView.swift */; };
+		112CC9921FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CC9911FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift */; };
 		113B5FB11FA8F69600D409D1 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B5FB01FA8F69600D409D1 /* FeedbackViewController.swift */; };
 		1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151000A1FB9CE380043BC72 /* CustomTextField.swift */; };
 		115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */; };
@@ -67,6 +68,7 @@
 		111E824F1FC1D151001EE27A /* SearchInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputView.swift; sourceTree = "<group>"; };
 		112CC98D1FC1FAA60056ABC8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		112CC98F1FC20D8B0056ABC8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		112CC9911FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTextField+PlaceholderAlignment.swift"; sourceTree = "<group>"; };
 		113B5FB01FA8F69600D409D1 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		1151000A1FB9CE380043BC72 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		115A0E5A1F9E3FAA00D8D534 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				115F6E091FA274B400CBA6B0 /* CustomButton.swift */,
 				1151000A1FB9CE380043BC72 /* CustomTextField.swift */,
+				112CC9911FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				11B6A6F41F7C5D2700AD3FCE /* MainViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				112CC9901FC20D8B0056ABC8 /* AboutView.swift in Sources */,
+				112CC9921FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift in Sources */,
 				1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */,
 				111E824A1FC1A62D001EE27A /* MainView.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,

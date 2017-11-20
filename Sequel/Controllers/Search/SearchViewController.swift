@@ -33,7 +33,8 @@ SearchCancelButton to dismiss SearchViewController
 extension SearchViewController {
     @objc private func searchCancelButtonTouchUpInside() {
         if searchView.searchInputView.textField.hasText {
-            searchView.searchInputView.textField.clearText()
+            searchView.searchInputView.textField.text = nil
+            searchView.searchInputView.textField.searchTextFieldEditingChanged()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 self.dismiss(animated: true)
             }

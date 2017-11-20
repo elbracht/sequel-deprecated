@@ -3,15 +3,15 @@ import UIKit
 
 class CustomTextField: UITextField {
 
-    private let placeholderLabel = UILabel()
-    private let imageView = UIImageView()
+    public let placeholderLabel = UILabel()
+    public let imageView = UIImageView()
     private var image = UIImage()
     private var clearImage = UIImage()
 
-    private var leftOffset = 16 as CGFloat
-    private var rightOffset = 16 as CGFloat
-    private var leftInnerOffset = 8 as CGFloat
-    private var rightInnerOffset = 8 as CGFloat
+    public var leftOffset = 16 as CGFloat
+    public var rightOffset = 16 as CGFloat
+    public var leftInnerOffset = 8 as CGFloat
+    public var rightInnerOffset = 8 as CGFloat
 
     /* Init */
     override init(frame: CGRect) {
@@ -118,12 +118,6 @@ class CustomTextField: UITextField {
         }
     }
 
-    /* Functions */
-    public func clearText() {
-        self.text = nil
-        searchTextFieldEditingChanged()
-    }
-
     /* Animations */
     private func animatePlaceholderFadeIn() {
         UIView.animate(withDuration: 0.1) {
@@ -150,7 +144,7 @@ class CustomTextField: UITextField {
     }
 
     /* Events */
-    @objc private func searchTextFieldEditingChanged() {
+    @objc public func searchTextFieldEditingChanged() {
         if self.hasText {
             self.animatePlaceholderFadeOut()
             self.animateImageColorToText()

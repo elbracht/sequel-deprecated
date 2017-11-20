@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
         mainView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
+
+        mainView.searchInputView.textField.setPlaceholderAlignment(.center)
     }
 }
 

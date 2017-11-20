@@ -37,12 +37,14 @@ class MainToSearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 searchViewController.searchView.searchInputView.textField.becomeFirstResponder()
 
                 UIView.animate(withDuration: 0.2, animations: {
+                    mainViewController.mainView.searchInputView.textField.setPlaceholderAlignment(.left)
                     mainViewController.mainView.searchInputView.showCancelButton()
                     mainViewController.mainView.layoutIfNeeded()
                 }, completion: { (success) in
                     transitionContext.completeTransition(success)
                     searchViewController.searchView.alpha = 1
                     mainViewController.mainView.searchInputView.hideCancelButton()
+                    mainViewController.mainView.searchInputView.textField.setPlaceholderAlignment(.center)
                 })
             }
         }
@@ -54,10 +56,12 @@ class MainToSearchTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
             UIView.animate(withDuration: 0.2, animations: {
                 searchViewController.searchView.searchInputView.hideCancelButton()
+                searchViewController.searchView.searchInputView.textField.setPlaceholderAlignment(.center)
                 searchViewController.searchView.layoutIfNeeded()
             }, completion: { (success) in
                 transitionContext.completeTransition(success)
                 searchViewController.view.removeFromSuperview()
+                searchViewController.searchView.searchInputView.textField.setPlaceholderAlignment(.left)
                 searchViewController.searchView.searchInputView.showCancelButton()
             })
         }
