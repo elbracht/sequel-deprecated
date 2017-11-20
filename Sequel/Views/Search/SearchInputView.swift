@@ -54,6 +54,7 @@ class SearchInputView: UIView {
 
     private func initSearchCancelButton() {
         cancelButton = CustomButton()
+        cancelButton.accessibilityIdentifier = "SearchCancelButton"
         cancelButton.setTitle("Cancel", font: Font.body!)
         cancelButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
         self.addSubview(cancelButton)
