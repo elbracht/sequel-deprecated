@@ -2,9 +2,9 @@ import SwiftTheme
 import UIKit
 
 class CustomTextField: UITextField {
-
     public let placeholderLabel = UILabel()
     public let imageView = UIImageView()
+
     private var image = UIImage()
     private var clearImage = UIImage()
 
@@ -13,7 +13,6 @@ class CustomTextField: UITextField {
     public var leftInnerOffset = 8 as CGFloat
     public var rightInnerOffset = 8 as CGFloat
 
-    /* Init */
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -26,6 +25,10 @@ class CustomTextField: UITextField {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    override func drawPlaceholder(in rect: CGRect) {
+        // Don't draw any placeholders
     }
 
     private func initImageView() {
@@ -51,13 +54,12 @@ class CustomTextField: UITextField {
     private func initClearButton() {
         self.clearButtonMode = .whileEditing
     }
+}
 
-    /* Draw */
-    override func drawPlaceholder(in rect: CGRect) {
-        // Don't draw any placeholders
-    }
-
-    /* Set */
+/**
+Set CustomTextField properties
+*/
+extension CustomTextField {
     func setPlaceholderText(_ text: String) {
         placeholderLabel.text = text
     }
@@ -117,44 +119,29 @@ class CustomTextField: UITextField {
             make.left.equalTo(imageView.snp.right).offset(leftInnerOffset)
         }
     }
+}
 
-    /* Animations */
-    private func animatePlaceholderFadeIn() {
-        UIView.animate(withDuration: 0.1) {
-            self.placeholderLabel.alpha = 1
-        }
-    }
-
-    private func animatePlaceholderFadeOut() {
-        UIView.animate(withDuration: 0.1) {
-            self.placeholderLabel.alpha = 0
-        }
-    }
-
-    private func animateImageColorToText() {
-        UIView.animate(withDuration: 0.1) {
-            self.imageView.theme_tintColor = self.theme_textColor
-        }
-    }
-
-    private func animateImageColorToPlaceholder() {
-        UIView.animate(withDuration: 0.1) {
-            self.imageView.theme_tintColor = self.placeholderLabel.theme_textColor
-        }
-    }
-
-    /* Events */
+/**
+TextField event to disable placeholder and highlight image
+*/
+extension CustomTextField {
     @objc public func searchTextFieldEditingChanged() {
-        if self.hasText {
-            self.animatePlaceholderFadeOut()
-            self.animateImageColorToText()
-        } else {
-            self.animatePlaceholderFadeIn()
-            self.animateImageColorToPlaceholder()
+        UIView.animate(withDuration: 0.1) {
+            if self.hasText {
+                self.placeholderLabel.alpha = 0
+                self.imageView.theme_tintColor = self.theme_textColor
+            } else {
+                self.placeholderLabel.alpha = 1
+                self.imageView.theme_tintColor = self.placeholderLabel.theme_textColor
+            }
         }
     }
+}
 
-    /* Offsets */
+/**
+TextField offsets
+*/
+extension CustomTextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         let left = leftOffset + leftInnerOffset + image.size.width
         let right = rightOffset + rightInnerOffset + clearImage.size.width
