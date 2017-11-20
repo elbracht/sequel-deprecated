@@ -1,20 +1,9 @@
 import MessageUI
-import SwiftTheme
-import UIKit
 
-class SettingsFeedbackViewController: MFMailComposeViewController, MFMailComposeViewControllerDelegate {
-
+class FeedbackViewController: MFMailComposeViewController, MFMailComposeViewControllerDelegate {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
-        initView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    func initView() {
         self.mailComposeDelegate = self
         self.modalPresentationStyle = .custom
         self.setToRecipients(["\(Config.Developer.name) <\(Config.Developer.mail)>"])
@@ -22,6 +11,10 @@ class SettingsFeedbackViewController: MFMailComposeViewController, MFMailCompose
         if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
             self.setSubject("\(bundleName) Feedback")
         }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     override func viewWillAppear(_ animated: Bool) {

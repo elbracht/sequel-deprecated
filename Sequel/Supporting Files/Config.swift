@@ -12,6 +12,6 @@ struct Config {
     }
 
     struct TMDb {
-        static let apiKey = ""
+        static let apiKey = "8977c92484548bc3b94b536acecf590d"
     }
 }
