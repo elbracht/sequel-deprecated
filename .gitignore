@@ -62,3 +62,6 @@ playground.xcworkspace
 
 ### CocoaPods ###
 Pods/
+
+### Project ###
+Config+API.swift
