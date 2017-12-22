@@ -357,8 +357,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "Sequel" */;
 			buildPhases = (
-				11F7C6921FED2C0C00AFD809 /* [Sourcery] Environment Variables */,
 				1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */,
+				11F7C6921FED2C0C00AFD809 /* Load Environment Variables */,
 				11B6A6EA1F7C5D2700AD3FCE /* Sources */,
 				11B6A6EB1F7C5D2700AD3FCE /* Frameworks */,
 				11B6A6EC1F7C5D2700AD3FCE /* Resources */,
@@ -503,14 +503,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		11F7C6921FED2C0C00AFD809 /* [Sourcery] Environment Variables */ = {
+		11F7C6921FED2C0C00AFD809 /* Load Environment Variables */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[Sourcery] Environment Variables";
+			name = "Load Environment Variables";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
