@@ -7,6 +7,7 @@ target 'Sequel' do
   pod 'DeckTransition'
   pod 'Kingfisher'
   pod 'SnapKit'
+  pod 'Sourcery'
   pod 'SwiftTheme'
   pod 'SwiftyJSON'
 end

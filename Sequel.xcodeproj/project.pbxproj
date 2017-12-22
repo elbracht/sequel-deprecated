@@ -515,7 +515,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n./Sourcery/bin/sourcery --templates \"./Sequel/Supporting Files\" --sources . --output \"./Sequel/Supporting Files\" --args tmdbApiKey=$TMDB_API_KEY";
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n$PODS_ROOT/Sourcery/bin/sourcery --templates \"./Sequel/Supporting Files\" --sources . --output \"./Sequel/Supporting Files\" --args tmdbApiKey=$TMDB_API_KEY";
 		};
 		1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
