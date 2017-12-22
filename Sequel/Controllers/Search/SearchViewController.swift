@@ -3,7 +3,7 @@ import Kingfisher
 import SwiftyJSON
 
 class SearchViewController: UIViewController {
-    private var series = [Series]()
+    public var series = [Series]()
     private var searchText = ""
     private var searchPage = 1
     private var searchTotalPage = 1
