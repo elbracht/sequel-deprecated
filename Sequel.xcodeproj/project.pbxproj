@@ -34,7 +34,6 @@
 		11BF4CA81F8965F000811C40 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA71F8965F000811C40 /* Series.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
 		11DACC961FB4B256008FB3AE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111538A41FB48B0600157FCA /* Config.swift */; };
-		11DB3C641FED38DE00BCEE85 /* Credentials.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 11DB3C631FED38DD00BCEE85 /* Credentials.stencil */; };
 		11DB3C661FED3A9500BCEE85 /* Credentials.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchViewController.swift */; };
@@ -96,7 +95,6 @@
 		11BA64231FA8912D003C0770 /* Humanize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Humanize.swift; sourceTree = "<group>"; };
 		11BF4CA71F8965F000811C40 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		11DB3C631FED38DD00BCEE85 /* Credentials.stencil */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = Credentials.stencil; sourceTree = "<group>"; };
 		11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.generated.swift; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			children = (
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
 				111538A41FB48B0600157FCA /* Config.swift */,
-				11DB3C631FED38DD00BCEE85 /* Credentials.stencil */,
 				11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
@@ -467,7 +464,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				11ED817B1F81227200E8379E /* Montserrat-Regular.ttf in Resources */,
-				11DB3C641FED38DE00BCEE85 /* Credentials.stencil in Resources */,
 				11ED81791F81227200E8379E /* Montserrat-Light.ttf in Resources */,
 				11ED817A1F81227200E8379E /* Montserrat-Medium.ttf in Resources */,
 				11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */,
