@@ -127,10 +127,9 @@ Fetch and parse data
 */
 extension SearchViewController {
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
-        let apiKey = ProcessInfo.processInfo.environment["TMDB_API_KEY"]
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [
-            "api_key": apiKey != nil ? apiKey! : "",
+            "api_key": Credentials.TMDb.apiKey,
             "query": searchQuery,
             "page": page
         ]

@@ -8,4 +8,8 @@
 
 ## Getting started
 
-To access the TMDb API you need to create an environment variable with `TMDB_API_KEY` as name and the API Key (v3 auth) from https://www.themoviedb.org/settings/api as value.
+To access the TMDb API you need to create a shell script `./env-vars.sh` and insert the following environment variable with the API Key (v3 auth) from https://www.themoviedb.org/settings/api.
+
+```bash
+export TMDB_API_KEY=123456
+```
