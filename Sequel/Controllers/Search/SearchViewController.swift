@@ -3,7 +3,7 @@ import Kingfisher
 import SwiftyJSON
 
 class SearchViewController: UIViewController {
-    private var series = [Series]()
+    public var series = [Series]()
     private var searchText = ""
     private var searchPage = 1
     private var searchTotalPage = 1
@@ -129,7 +129,7 @@ extension SearchViewController {
     func fetchSeries(searchQuery: String, page: Int, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/search/tv"
         let parameters: Parameters = [
-            "api_key": Config.TMDb.apiKey,
+            "api_key": Credentials.TMDb.apiKey,
             "query": searchQuery,
             "page": page
         ]
