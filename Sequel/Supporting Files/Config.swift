@@ -10,8 +10,4 @@ struct Config {
         static let twitter = "https://twitter.com/a_elbracht"
         static let github = "https://github.com/elbracht"
     }
-
-    struct TMDb {
-        static let apiKey = "8977c92484548bc3b94b536acecf590d"
-    }
 }
