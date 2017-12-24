@@ -519,7 +519,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n$PODS_ROOT/Sourcery/bin/sourcery --templates \"./Sequel/Supporting Files\" --sources . --output \"./Sequel/Supporting Files\" --args tmdbApiKey=$TMDB_API_KEY";
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n$PODS_ROOT/Sourcery/bin/sourcery --templates \"./Sequel/Supporting Files\" --sources . --output \"./Sequel/Supporting Files\" --args tmdbApiKey=$TMDB_API_KEY,fabricApiKey=$FABRIC_API_KEY";
 		};
 		1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -579,7 +579,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 969fa2d514404fd8faa2bb7630aaf9d638f51f60 760865899d4ade73d43400cb501e1b8b187a435e45bd256ab74b5a87fbace3cf";
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\"${PODS_ROOT}/Fabric/run\" $FABRIC_API_KEY $FABRIC_BUILD_SECRET";
 		};
 		D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

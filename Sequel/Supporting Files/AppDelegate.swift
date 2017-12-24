@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = MainViewController()
         self.window?.makeKeyAndVisible()
 
-        Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.start(withAPIKey: Credentials.Fabric.apiKey)])
 
         return true
     }
