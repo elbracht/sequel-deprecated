@@ -35,7 +35,9 @@
 		11BB13731FC362D0001C0940 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB13721FC362D0001C0940 /* SeriesView.swift */; };
 		11BF4CA81F8965F000811C40 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA71F8965F000811C40 /* Series.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
+		11C0D6A81FED7E660051219C /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C0D6A71FED7E660051219C /* SearchViewControllerTests.swift */; };
 		11DACC961FB4B256008FB3AE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111538A41FB48B0600157FCA /* Config.swift */; };
+		11DB3C661FED3A9500BCEE85 /* Credentials.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */; };
 		11DEDA971F7EDA520048F9DC /* SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DEDA961F7EDA520048F9DC /* SearchUITests.swift */; };
 		11E4BCA61F7D122F00169F6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E4BCA51F7D122F00169F6C /* SearchViewController.swift */; };
 		11ED81721F811A6200E8379E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED81711F811A6200E8379E /* Font.swift */; };
@@ -98,6 +100,8 @@
 		11BB13721FC362D0001C0940 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		11BF4CA71F8965F000811C40 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		11C0D6A71FED7E660051219C /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
+		11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.generated.swift; sourceTree = "<group>"; };
 		11DEDA961F7EDA520048F9DC /* SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUITests.swift; sourceTree = "<group>"; };
 		11E4BCA51F7D122F00169F6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		11ED81711F811A6200E8379E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			children = (
 				11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */,
 				111538A41FB48B0600157FCA /* Config.swift */,
+				11DB3C651FED3A9500BCEE85 /* Credentials.generated.swift */,
 				11B6A7001F7C5D2700AD3FCE /* Info.plist */,
 				11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */,
 				11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */,
@@ -262,6 +267,7 @@
 			children = (
 				11B6A70B1F7C5D2700AD3FCE /* Info.plist */,
 				11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */,
+				11C0D6A71FED7E660051219C /* SearchViewControllerTests.swift */,
 			);
 			path = SequelTests;
 			sourceTree = "<group>";
@@ -377,12 +383,14 @@
 			buildConfigurationList = 11B6A7191F7C5D2700AD3FCE /* Build configuration list for PBXNativeTarget "Sequel" */;
 			buildPhases = (
 				1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */,
+				11F7C6921FED2C0C00AFD809 /* Load Environment Variables */,
 				11B6A6EA1F7C5D2700AD3FCE /* Sources */,
 				11B6A6EB1F7C5D2700AD3FCE /* Frameworks */,
 				11B6A6EC1F7C5D2700AD3FCE /* Resources */,
 				8A50DD478574CF24550C6215 /* [CP] Embed Pods Frameworks */,
 				D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */,
 				11BF4C9E1F88FF7700811C40 /* SwiftLint */,
+				B447AA5B1FCEBCAF0085F3A8 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -521,6 +529,20 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		11F7C6921FED2C0C00AFD809 /* Load Environment Variables */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Load Environment Variables";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n$PODS_ROOT/Sourcery/bin/sourcery --templates \"./Sequel/Supporting Files\" --sources . --output \"./Sequel/Supporting Files\" --args tmdbApiKey=$TMDB_API_KEY,fabricApiKey=$FABRIC_API_KEY";
+		};
 		1A74C38783DE279164B74E2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -567,6 +589,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sequel/Pods-Sequel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B447AA5B1FCEBCAF0085F3A8 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\"${PODS_ROOT}/Fabric/run\" $FABRIC_API_KEY $FABRIC_BUILD_SECRET";
+		};
 		D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,6 +639,7 @@
 				11BB13731FC362D0001C0940 /* SeriesView.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* MainViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
+				11DB3C661FED3A9500BCEE85 /* Credentials.generated.swift in Sources */,
 				112CC9901FC20D8B0056ABC8 /* AboutView.swift in Sources */,
 				112CC9921FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift in Sources */,
 				1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */,
@@ -623,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11955B981F88EFDE007AB6F3 /* HumanizeTests.swift in Sources */,
+				11C0D6A81FED7E660051219C /* SearchViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

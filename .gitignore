@@ -62,3 +62,7 @@ playground.xcworkspace
 
 ### CocoaPods ###
 Pods/
+
+### Project ###
+env-vars.sh
+Credentials.generated.swift
