@@ -13,3 +13,10 @@ To access the TMDb API you need to create a shell script `./env-vars.sh` and ins
 ```bash
 export TMDB_API_KEY=123456
 ```
+
+We use Fabric to track user behaviour and crashes. To activate this function you need to insert the API Key and Build Secret from https://www.fabric.io/ in `./env-vars.sh`.
+
+```bash
+export FABRIC_API_KEY=123456
+export FABRIC_BUILD_SECRET=123456
+```
