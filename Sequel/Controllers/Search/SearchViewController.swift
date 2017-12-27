@@ -1,4 +1,5 @@
 import Alamofire
+import Crashlytics
 import Kingfisher
 import SwiftyJSON
 
@@ -56,6 +57,8 @@ extension SearchViewController {
 
                 searchText = text
                 searchPage = 1
+
+                Answers.logSearch(withQuery: searchText, customAttributes: [:])
 
                 fetchSeries(searchQuery: searchText, page: searchPage) {
                     self.searchPage += 1

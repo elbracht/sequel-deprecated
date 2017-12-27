@@ -4,7 +4,9 @@ target 'Sequel' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Crashlytics'
   pod 'DeckTransition'
+  pod 'Fabric'
   pod 'Kingfisher'
   pod 'SnapKit'
   pod 'Sourcery'

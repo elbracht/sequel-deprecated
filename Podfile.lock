@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.5.1)
+  - Crashlytics (3.9.0):
+    - Fabric (~> 1.7.0)
   - DeckTransition (1.4.0)
+  - Fabric (1.7.0)
   - Kingfisher (4.2.0)
   - SnapKit (4.0.0)
   - Sourcery (0.10.1)
@@ -9,7 +12,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Crashlytics
   - DeckTransition
+  - Fabric
   - Kingfisher
   - SnapKit
   - Sourcery
@@ -18,13 +23,15 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
   DeckTransition: d678005a9b35c2745fe8b683c39c41f840ad69d7
+  Fabric: e6be012366472553807dada21243c5ab8d904151
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
   SwiftTheme: 548eff28a606d0975e04b2e708b879d7eea660f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 53cb90ff71c7b0de9c60450feccdc0e7179cd1a8
+PODFILE CHECKSUM: 774b307efe93faaed9f9888c949215cf85e24965
 
 COCOAPODS: 1.3.1

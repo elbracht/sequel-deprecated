@@ -1,5 +1,7 @@
-import UIKit
 import CoreData
+import Crashlytics
+import Fabric
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,6 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = MainViewController()
         self.window?.makeKeyAndVisible()
+
+        Fabric.with([Crashlytics.start(withAPIKey: Credentials.Fabric.apiKey)])
 
         return true
     }
