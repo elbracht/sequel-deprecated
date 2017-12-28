@@ -60,9 +60,13 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
-### CocoaPods ###
+### Project ###
+# CocoaPods
 Pods/
 
-### Project ###
+# Code coverage
+Coverage/
+
+# Environment variables
 env-vars.sh
 Credentials.generated.swift

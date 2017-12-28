@@ -1,0 +1,9 @@
+coverage_service: cobertura_xml
+workspace: Sequel.xcworkspace
+xcodeproj: Sequel.xcodeproj
+scheme: Sequel
+source_directory: Sequel/
+output_directory: Coverage/
+ignore:
+  - ExamplePodCode/*
+  - ProjectTestsGroup/*

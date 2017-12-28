@@ -6,6 +6,7 @@ before_install:
   - brew update
   - brew outdated swiftlint || brew upgrade swiftlint
   - pod repo update
+  - gem install slather --no-rdoc --no-ri --no-document --quiet
 
 before_script:
   - swiftlint
@@ -14,4 +15,5 @@ script:
   - xcodebuild clean build test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.0' -workspace Sequel.xcworkspace -scheme Sequel
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - slather
+  - bash <(curl -s https://codecov.io/bash) -f Coverage/cobertura.xml -X coveragepy -X gcov -X xcode
