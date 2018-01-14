@@ -5,7 +5,6 @@ cache: cocoapods
 before_install:
   - brew update
   - brew outdated swiftlint || brew upgrade swiftlint
-  - pod repo update
 
 before_script:
   - swiftlint
