@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (4.5.1)
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - DeckTransition (1.4.0)
-  - Fabric (1.7.0)
-  - Kingfisher (4.2.0)
+  - Alamofire (4.6.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - DeckTransition (2.0.0)
+  - Fabric (1.7.2)
+  - Kingfisher (4.6.1)
   - SnapKit (4.0.0)
   - Sourcery (0.10.1)
-  - SwiftTheme (0.4.0)
-  - SwiftyJSON (3.1.4)
+  - SwiftTheme (0.4.1)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -22,15 +22,15 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  DeckTransition: d678005a9b35c2745fe8b683c39c41f840ad69d7
-  Fabric: e6be012366472553807dada21243c5ab8d904151
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  DeckTransition: 2300694f94fbeca2c103f365dc9dc09ffae14a4f
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
-  SwiftTheme: 548eff28a606d0975e04b2e708b879d7eea660f6
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftTheme: 36d71c4eed4b2c401c782cf036e4586c749a8173
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
 PODFILE CHECKSUM: 774b307efe93faaed9f9888c949215cf85e24965
 
