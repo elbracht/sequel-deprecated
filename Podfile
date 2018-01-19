@@ -5,7 +5,7 @@ target 'Sequel' do
 
   pod 'Alamofire'
   pod 'Crashlytics'
-  pod 'DeckTransition'
+  pod 'DeckTransition', '1.4.2'
   pod 'Fabric'
   pod 'Kingfisher'
   pod 'SnapKit'
