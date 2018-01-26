@@ -160,11 +160,12 @@ extension SearchViewController {
         }
 
         json["results"].forEach({ (_, subJson) in
+            let id = subJson["id"].int
             let name = subJson["name"].string
             let posterPath = subJson["poster_path"].string
 
-            if name != nil && posterPath != nil {
-                let seriesObject = Series(name: name!, posterPath: posterPath!)
+            if id != nil && name != nil && posterPath != nil {
+                let seriesObject = Series(id: id!, name: name!, overview: "", posterPath: posterPath!)
                 series.append(seriesObject)
             }
         })
