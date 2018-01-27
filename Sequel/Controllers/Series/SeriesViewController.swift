@@ -4,7 +4,7 @@ import SnapKit
 import SwiftyJSON
 
 class SeriesViewController: UIViewController {
-    private var series: Series?
+    private var series: Series!
 
     public var seriesView: SeriesView!
 
@@ -27,13 +27,24 @@ class SeriesViewController: UIViewController {
     }
 
     public func setup(series: Series) {
+        self.series = series
+
+        setupCurrentValues()
+        setupMissingValues()
+    }
+
+    private func setupCurrentValues() {
+        self.seriesView.nameLabel.text = series.name
+        if let url = URL(string: "https://image.tmdb.org/t/p/w342\(series.posterPath)") {
+            self.seriesView.imageView.kf.setImage(with: url)
+        }
+    }
+
+    private func setupMissingValues() {
         fetchSeries(id: series.id) {
-            if let currentSeries = self.series {
-                self.seriesView.nameLabel.text = currentSeries.name
-                self.seriesView.overviewLabel.text = currentSeries.overview
-                if let url = URL(string: "https://image.tmdb.org/t/p/w780\(currentSeries.posterPath)") {
-                    self.seriesView.imageView.kf.setImage(with: url)
-                }
+            self.seriesView.overviewLabel.text = self.series.overview
+            if let url = URL(string: "https://image.tmdb.org/t/p/w780\(self.series.posterPath)") {
+                self.seriesView.imageView.kf.setImage(with: url, placeholder: self.seriesView.imageView.image, options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
     }
@@ -92,13 +103,8 @@ extension SeriesViewController {
     }
 
     func parseSeries(json: JSON) {
-        let id = json["id"].int
-        let name = json["name"].string
-        let overview = json["overview"].string
-        let posterPath = json["poster_path"].string
-
-        if id != nil && name != nil && overview != nil && posterPath != nil {
-            series = Series(id: id!, name: name!, overview: overview!, posterPath: posterPath!)
+        if let overview = json["overview"].string {
+            series.overview = overview
         }
     }
 }
