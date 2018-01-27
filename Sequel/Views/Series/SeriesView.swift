@@ -6,7 +6,9 @@ struct SeriesViewMeasure {
     static let imageHeight = 360 as CGFloat
 }
 
-class SeriesView: UIScrollView {
+class SeriesView: UIView {
+    public var closeButton: CustomCloseButton!
+    public var scrollView: UIScrollView!
     public var headerView: UIView!
     public var imageView: UIImageView!
     public var contentView: UIView!
@@ -17,8 +19,10 @@ class SeriesView: UIScrollView {
         super.init(frame: frame)
 
         initView()
+        initScrollView()
         initHeaderView()
         initContentView()
+        initCloseButton()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,9 +32,32 @@ class SeriesView: UIScrollView {
     private func initView() {
         self.theme_backgroundColor = [Color.light.background]
         UIApplication.shared.isStatusBarHidden = true
+    }
 
+    private func initCloseButton() {
+        closeButton = CustomCloseButton()
+        closeButton.setColor(colors: [Color.light.blackPrimary])
+        closeButton.setBlurEffect(style: .extraLight)
+        self.addSubview(closeButton)
+
+        closeButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self).offset(16)
+            make.right.equalTo(self).offset(-16)
+            make.width.equalTo(closeButton.frame.size.width)
+            make.height.equalTo(closeButton.frame.size.height)
+        }
+    }
+
+    private func initScrollView() {
+        scrollView = UIScrollView()
         if #available(iOS 11.0, *) {
-            self.contentInsetAdjustmentBehavior = .never
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+
+        self.addSubview(scrollView)
+
+        scrollView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self)
         }
     }
 
@@ -42,11 +69,11 @@ class SeriesView: UIScrollView {
         headerView.clipsToBounds = true
         headerView.addSubview(imageView)
 
-        self.addSubview(headerView)
+        scrollView.addSubview(headerView)
 
         headerView.snp.makeConstraints { (make) in
-            make.top.equalTo(self)
-            make.width.equalTo(self)
+            make.top.equalTo(scrollView)
+            make.width.equalTo(scrollView)
             make.height.equalTo(SeriesViewMeasure.imageHeight)
         }
 
@@ -74,12 +101,12 @@ class SeriesView: UIScrollView {
         contentView.addSubview(nameLabel)
         contentView.addSubview(overviewLabel)
 
-        self.addSubview(contentView)
+        scrollView.addSubview(contentView)
 
         contentView.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(SeriesViewMeasure.imageHeight)
-            make.bottom.equalTo(self)
-            make.width.equalTo(self)
+            make.top.equalTo(scrollView).offset(SeriesViewMeasure.imageHeight)
+            make.bottom.equalTo(scrollView)
+            make.width.equalTo(scrollView)
         }
 
         nameLabel.snp.makeConstraints { (make) in

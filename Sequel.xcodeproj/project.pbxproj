@@ -23,6 +23,7 @@
 		11702CC51FB0B9CA009B5F19 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC41FB0B9CA009B5F19 /* AboutViewController.swift */; };
 		11702CC71FB0EDB1009B5F19 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* MainToSearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */; };
+		118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B981F88EFDE007AB6F3 /* HumanizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		11702CC41FB0B9CA009B5F19 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToSearchTransition.swift; sourceTree = "<group>"; };
+		118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCloseButton.swift; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanizeTests.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sequel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				115F6E091FA274B400CBA6B0 /* CustomButton.swift */,
 				1151000A1FB9CE380043BC72 /* CustomTextField.swift */,
 				112CC9911FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift */,
+				118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				115F6E101FA33DB200CBA6B0 /* SettingsViewController.swift in Sources */,
 				115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */,
 				115F6E0A1FA274B400CBA6B0 /* CustomButton.swift in Sources */,
+				118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */,
 				113B5FB11FA8F69600D409D1 /* FeedbackViewController.swift in Sources */,
 				11702CC51FB0B9CA009B5F19 /* AboutViewController.swift in Sources */,
 				112CC98E1FC1FAA60056ABC8 /* SettingsView.swift in Sources */,

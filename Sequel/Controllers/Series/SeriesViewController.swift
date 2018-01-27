@@ -12,8 +12,9 @@ class SeriesViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         seriesView = SeriesView()
-        seriesView.alwaysBounceVertical = true
-        seriesView.delegate = self
+        seriesView.scrollView.alwaysBounceVertical = true
+        seriesView.scrollView.delegate = self
+        seriesView.closeButton.addTarget(self, action: #selector(closeButtonTouchUpInside), for: .touchUpInside)
         self.view.addSubview(seriesView)
 
         seriesView.snp.makeConstraints { (make) in
@@ -35,6 +36,16 @@ class SeriesViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+/**
+ CloseButton event to dismiss SeriesViewController
+ */
+extension SeriesViewController {
+    @objc private func closeButtonTouchUpInside() {
+        UIApplication.shared.isStatusBarHidden = false
+        self.dismiss(animated: true)
     }
 }
 
