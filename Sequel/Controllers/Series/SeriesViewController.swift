@@ -12,6 +12,7 @@ class SeriesViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         seriesView = SeriesView()
+        seriesView.alwaysBounceVertical = true
         seriesView.delegate = self
         self.view.addSubview(seriesView)
 
