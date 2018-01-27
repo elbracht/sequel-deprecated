@@ -29,6 +29,7 @@ class SeriesViewController: UIViewController {
     public func setup(series: Series) {
         self.series = series
 
+        setupCloseButton()
         setupCurrentValues()
         setupMissingValues()
     }
@@ -46,6 +47,22 @@ class SeriesViewController: UIViewController {
             if let url = URL(string: "https://image.tmdb.org/t/p/w780\(self.series.posterPath)") {
                 self.seriesView.imageView.kf.setImage(with: url, placeholder: self.seriesView.imageView.image, options: nil, progressBlock: nil, completionHandler: nil)
             }
+        }
+    }
+
+    private func setupCloseButton() {
+        if let url = URL(string: "https://image.tmdb.org/t/p/w342\(series.posterPath)") {
+            KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, _, _, _ in
+                if image != nil {
+                    if image!.isDark {
+                        self.seriesView.closeButton.setColor(colors: [Color.light.blackPrimary])
+                        self.seriesView.closeButton.setBlurEffect(style: .extraLight)
+                    } else {
+                        self.seriesView.closeButton.setColor(colors: [Color.light.whiteSecondary])
+                        self.seriesView.closeButton.setBlurEffect(style: .dark)
+                    }
+                }
+            })
         }
     }
 }

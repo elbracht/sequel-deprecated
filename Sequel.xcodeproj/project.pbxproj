@@ -24,6 +24,7 @@
 		11702CC71FB0EDB1009B5F19 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* MainToSearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */; };
 		118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */; };
+		118B75CD201CEBAB0037F8D3 /* UIImage+Darkness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B981F88EFDE007AB6F3 /* HumanizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 		11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToSearchTransition.swift; sourceTree = "<group>"; };
 		118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCloseButton.swift; sourceTree = "<group>"; };
+		118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Darkness.swift"; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanizeTests.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sequel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				11BA64231FA8912D003C0770 /* Humanize.swift */,
+				118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */,
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				115F6E101FA33DB200CBA6B0 /* SettingsViewController.swift in Sources */,
+				118B75CD201CEBAB0037F8D3 /* UIImage+Darkness.swift in Sources */,
 				115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */,
 				115F6E0A1FA274B400CBA6B0 /* CustomButton.swift in Sources */,
 				118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */,
