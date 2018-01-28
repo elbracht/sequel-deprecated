@@ -90,13 +90,13 @@ extension SeriesViewController {
  Parallax scrolling effect and update close button color
  */
 extension SeriesViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         parallaxScroll(offsetY: offsetY)
         updateCloseButton(offsetY: offsetY)
     }
 
-    func parallaxScroll(offsetY: CGFloat) {
+    private func parallaxScroll(offsetY: CGFloat) {
         if offsetY < 0 {
             seriesView.headerView.transform = CGAffineTransform(translationX: 0, y: offsetY)
             seriesView.contentView.transform = CGAffineTransform(translationX: 0, y: offsetY)
@@ -113,7 +113,7 @@ extension SeriesViewController: UIScrollViewDelegate {
         }
     }
 
-    func updateCloseButton(offsetY: CGFloat) {
+    private func updateCloseButton(offsetY: CGFloat) {
         let headerOffset = seriesView.headerView.frame.size.height
         let buttonOffset = seriesView.closeButton.frame.size.height / 2 + seriesView.closeButton.frame.origin.y
         if offsetY > 0 {
@@ -138,7 +138,7 @@ extension SeriesViewController: UIScrollViewDelegate {
  Fetch and parse data
  */
 extension SeriesViewController {
-    func fetchSeries(id: Int, completion: @escaping () -> Void) {
+    private func fetchSeries(id: Int, completion: @escaping () -> Void) {
         let url = "https://api.themoviedb.org/3/tv/\(id)"
         let parameters: Parameters = [
             "api_key": Credentials.TMDb.apiKey
@@ -152,7 +152,7 @@ extension SeriesViewController {
         }
     }
 
-    func parseSeries(json: JSON) {
+    private func parseSeries(json: JSON) {
         series.overview = json["overview"].string
         series.voteAverage = json["vote_average"].float
         series.voteCount = json["vote_count"].int
