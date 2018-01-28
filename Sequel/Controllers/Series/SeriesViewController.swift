@@ -1,12 +1,16 @@
 import Alamofire
 import Kingfisher
 import SnapKit
+import SwiftTheme
 import SwiftyJSON
 
 class SeriesViewController: UIViewController {
     private var series: Series!
 
     public var seriesView: SeriesView!
+
+    private var closeButtonColor: ThemeColorPicker?
+    private var closeButtonBlurStyle: UIBlurEffectStyle?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -55,12 +59,15 @@ class SeriesViewController: UIViewController {
             KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, _, _, _ in
                 if image != nil {
                     if image!.isDark {
-                        self.seriesView.closeButton.setColor(colors: [Color.light.blackPrimary])
-                        self.seriesView.closeButton.setBlurEffect(style: .extraLight)
+                        self.closeButtonColor = [Color.light.blackPrimary]
+                        self.closeButtonBlurStyle = .extraLight
                     } else {
-                        self.seriesView.closeButton.setColor(colors: [Color.light.whiteSecondary])
-                        self.seriesView.closeButton.setBlurEffect(style: .dark)
+                        self.closeButtonColor = [Color.light.whiteSecondary]
+                        self.closeButtonBlurStyle = .dark
                     }
+
+                    self.seriesView.closeButton.setColor(colors: self.closeButtonColor!)
+                    self.seriesView.closeButton.setBlurEffect(style: self.closeButtonBlurStyle!)
                 }
             })
         }
@@ -78,11 +85,16 @@ extension SeriesViewController {
 }
 
 /**
- Parallax scrolling effect
+ Parallax scrolling effect and update close button color
  */
 extension SeriesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
+        parallaxScroll(offsetY: offsetY)
+        updateCloseButton(offsetY: offsetY)
+    }
+
+    func parallaxScroll(offsetY: CGFloat) {
         if offsetY < 0 {
             seriesView.headerView.transform = CGAffineTransform(translationX: 0, y: offsetY)
             seriesView.contentView.transform = CGAffineTransform(translationX: 0, y: offsetY)
@@ -97,6 +109,26 @@ extension SeriesViewController: UIScrollViewDelegate {
                 make.left.equalTo(seriesView.headerView).offset(offsetY / 8)
                 make.right.equalTo(seriesView.headerView).offset(-offsetY / 8)
             })
+        }
+    }
+
+    func updateCloseButton(offsetY: CGFloat) {
+        let headerOffset = seriesView.headerView.frame.size.height
+        let buttonOffset = seriesView.closeButton.frame.size.height / 2 + seriesView.closeButton.frame.origin.y
+        if offsetY > 0 {
+            if offsetY > headerOffset - buttonOffset {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.seriesView.closeButton.setColor(colors: [Color.light.whiteSecondary])
+                    self.seriesView.closeButton.setBlurEffect(style: .dark)
+                })
+            } else {
+                if closeButtonColor != nil && closeButtonBlurStyle != nil {
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.seriesView.closeButton.setColor(colors: self.closeButtonColor!)
+                        self.seriesView.closeButton.setBlurEffect(style: self.closeButtonBlurStyle!)
+                    })
+                }
+            }
         }
     }
 }
