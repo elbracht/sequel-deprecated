@@ -50,9 +50,27 @@ class SeriesViewController: UIViewController {
             if let overview = self.series.overview {
                 self.seriesView.overviewLabel.text = overview
             }
+
+            if let episodeRunTime = self.series.episodeRunTime {
+                self.seriesView.runTimeLabel.text = "\(episodeRunTime) minutes"
+            }
+
+            if let firstAirDate = self.series.firstAirDate {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd MMM yyyy"
+                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+                self.seriesView.airDateLabel.text = dateFormatter.string(from: firstAirDate)
+            }
+
+            if let voteAverage = self.series.voteAverage {
+                self.seriesView.voteLabel.text = String(describing: voteAverage)
+            }
+
             if let url = URL(string: "https://image.tmdb.org/t/p/w780\(self.series.posterPath)") {
                 self.seriesView.imageView.kf.setImage(with: url, placeholder: self.seriesView.imageView.image, options: nil, progressBlock: nil, completionHandler: nil)
             }
+
+            self.seriesView.layoutIfNeeded()
         }
     }
 
@@ -99,17 +117,24 @@ extension SeriesViewController: UIScrollViewDelegate {
     private func parallaxScroll(offsetY: CGFloat) {
         if offsetY < 0 {
             seriesView.headerView.transform = CGAffineTransform(translationX: 0, y: offsetY)
+
+            seriesView.keyFiguresView.transform = CGAffineTransform(translationX: 0, y: offsetY)
+            seriesView.keyFiguresInnerView.transform = CGAffineTransform(translationX: 0, y: -offsetY / 12)
+
             seriesView.contentView.transform = CGAffineTransform(translationX: 0, y: offsetY)
-            seriesView.overviewLabel.transform = CGAffineTransform(translationX: 0, y: -offsetY / 2)
-            seriesView.nameLabel.transform = CGAffineTransform(translationX: 0, y: -offsetY / 2)
+            seriesView.contentInnerView.transform = CGAffineTransform(translationX: 0, y: -offsetY / 6)
 
-            seriesView.headerView.snp.updateConstraints({ (make) in
+            seriesView.headerView.snp.updateConstraints { (make) in
                 make.height.equalTo(SeriesViewMeasure.imageHeight - offsetY / 3)
-            })
+            }
 
-            seriesView.imageView.snp.updateConstraints({ (make) in
+            seriesView.imageView.snp.updateConstraints { (make) in
                 make.width.equalTo(UIScreen.main.bounds.width - offsetY / 6)
-            })
+            }
+
+            seriesView.contentView.snp.updateConstraints { (make) in
+                make.bottom.equalTo(seriesView.scrollView).offset(-offsetY / 3)
+            }
         }
     }
 
@@ -158,7 +183,9 @@ extension SeriesViewController {
         series.voteCount = json["vote_count"].int
 
         if let episodeRunTimes = json["episode_run_time"].arrayObject as? [Int] {
-            series.episodeRunTime = episodeRunTimes.reduce(0, +) / episodeRunTimes.count
+            if episodeRunTimes.count > 0 {
+                series.episodeRunTime = episodeRunTimes.reduce(0, +) / episodeRunTimes.count
+            }
         }
 
         let dateFormatter = DateFormatter()
