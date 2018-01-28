@@ -165,7 +165,7 @@ extension SearchViewController {
             let posterPath = subJson["poster_path"].string
 
             if id != nil && name != nil && posterPath != nil {
-                let seriesObject = Series(id: id!, name: name!, overview: "", posterPath: posterPath!)
+                let seriesObject = Series(id: id!, name: name!, posterPath: posterPath!)
                 series.append(seriesObject)
             }
         })

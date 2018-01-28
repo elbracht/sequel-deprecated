@@ -47,7 +47,9 @@ class SeriesViewController: UIViewController {
 
     private func setupMissingValues() {
         fetchSeries(id: series.id) {
-            self.seriesView.overviewLabel.text = self.series.overview
+            if let overview = self.series.overview {
+                self.seriesView.overviewLabel.text = overview
+            }
             if let url = URL(string: "https://image.tmdb.org/t/p/w780\(self.series.posterPath)") {
                 self.seriesView.imageView.kf.setImage(with: url, placeholder: self.seriesView.imageView.image, options: nil, progressBlock: nil, completionHandler: nil)
             }
@@ -151,8 +153,30 @@ extension SeriesViewController {
     }
 
     func parseSeries(json: JSON) {
-        if let overview = json["overview"].string {
-            series.overview = overview
+        series.overview = json["overview"].string
+        series.voteAverage = json["vote_average"].float
+        series.voteCount = json["vote_count"].int
+
+        if let episodeRunTimes = json["episode_run_time"].arrayObject as? [Int] {
+            series.episodeRunTime = episodeRunTimes.reduce(0, +) / episodeRunTimes.count
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+
+        if let firstAirDate = json["first_air_date"].string {
+            series.firstAirDate = dateFormatter.date(from: firstAirDate)
+        }
+
+        if let lastAirDate = json["last_air_date"].string {
+            series.lastAirDate = dateFormatter.date(from: lastAirDate)
+        }
+
+        if let homepage = json["homepage"].string {
+            if let url = URL(string: homepage) {
+                series.homepage = url
+            }
         }
     }
 }
