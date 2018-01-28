@@ -79,10 +79,9 @@ class SeriesView: UIView {
 
         imageView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView)
-            make.left.equalTo(headerView)
-            make.right.equalTo(headerView)
             make.width.equalTo(UIScreen.main.bounds.width)
             make.height.equalTo(UIScreen.main.bounds.width * 1.5)
+            make.centerX.equalTo(headerView)
         }
     }
 

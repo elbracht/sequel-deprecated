@@ -106,8 +106,7 @@ extension SeriesViewController: UIScrollViewDelegate {
             })
 
             seriesView.imageView.snp.updateConstraints({ (make) in
-                make.left.equalTo(seriesView.headerView).offset(offsetY / 8)
-                make.right.equalTo(seriesView.headerView).offset(-offsetY / 8)
+                make.width.equalTo(UIScreen.main.bounds.width - offsetY / 6)
             })
         }
     }
