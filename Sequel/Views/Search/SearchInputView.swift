@@ -30,10 +30,10 @@ class SearchInputView: UIView {
         textField.setPlaceholderText("Search series by name")
         textField.setFont(Font.body!)
         textField.setImage(UIImage(named: "search")!)
-        textField.setClearImage(UIImage(named: "clear")!, colors: [Color.light.blackDisabled])
-        textField.setBackgroundColors([Color.light.blackDivider])
-        textField.setTextColors([Color.light.blackPrimary])
-        textField.setPlaceholderColors([Color.light.blackDisabled])
+        textField.setClearImage(UIImage(named: "clear")!, colors: [Color.Black.disabled.hexString(true)])
+        textField.setBackgroundColors([Color.Black.divider.hexString(true)])
+        textField.setTextColors([Color.Black.primary.hexString(true)])
+        textField.setPlaceholderColors([Color.Black.disabled.hexString(true)])
         textField.setCornerRadius(SearchInputViewMeasure.height / 2)
 
         textField.theme_keyboardAppearance = [.light]
@@ -56,7 +56,7 @@ class SearchInputView: UIView {
         cancelButton = CustomButton()
         cancelButton.accessibilityIdentifier = "SearchCancelButton"
         cancelButton.setTitle("Cancel", font: Font.body!)
-        cancelButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        cancelButton.setColors(colors: [Color.Primary.normal.hexString(true)], highlightColors: [Color.Primary.highlight.hexString(true)])
         self.addSubview(cancelButton)
 
         cancelButton.snp.makeConstraints { (make) -> Void in

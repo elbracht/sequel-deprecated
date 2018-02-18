@@ -44,7 +44,7 @@ class AboutView: NSObject {
     func initTitle() {
         titleLabel = UILabel()
         titleLabel.text = "About"
-        titleLabel.theme_textColor = [Color.light.blackSecondary]
+        titleLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
         titleLabel.font = Font.title
         navigationItem.titleView = titleLabel
     }
@@ -53,19 +53,19 @@ class AboutView: NSObject {
         backButton = CustomButton()
         backButton.setTitle("Back", font: Font.body!)
         backButton.setImage("back")
-        backButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        backButton.setColors(colors: [Color.Primary.normal.hexString(true)], highlightColors: [Color.Primary.highlight.hexString(true)])
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 
     func initDoneButton() {
         doneButton = CustomButton()
         doneButton.setTitle("Done", font: Font.body!)
-        doneButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        doneButton.setColors(colors: [Color.Primary.normal.hexString(true)], highlightColors: [Color.Primary.highlight.hexString(true)])
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
 
     func initTableView() {
-        tableView.theme_backgroundColor = [Color.light.background]
+        tableView.theme_backgroundColor = [Color.Background.light.hexString(true)]
     }
 
     func initTableViewHeader() {
@@ -86,7 +86,7 @@ class AboutView: NSObject {
         if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
             titleLabel.text = bundleName
             titleLabel.font = Font.display
-            titleLabel.theme_textColor = [Color.light.blackPrimary]
+            titleLabel.theme_textColor = [Color.Black.primary.hexString(true)]
             titleLabel.textAlignment = .center
         }
         tableHeaderView.addSubview(titleLabel)
@@ -102,7 +102,7 @@ class AboutView: NSObject {
         if let bundleVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             versionLabel.text = "Version \(bundleVersion)"
             versionLabel.font = Font.small
-            versionLabel.theme_textColor = [Color.light.blackSecondary]
+            versionLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
             versionLabel.textAlignment = .center
         }
         tableHeaderView.addSubview(versionLabel)

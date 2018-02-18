@@ -31,7 +31,7 @@ class SearchView: UIView {
     }
 
     private func initView() {
-        self.theme_backgroundColor = [Color.light.background]
+        self.theme_backgroundColor = [Color.Background.light.hexString(true)]
         let statusBarStylePicker = ThemeStatusBarStylePicker(styles: .default)
         UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
