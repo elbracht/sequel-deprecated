@@ -26,7 +26,7 @@ class MainView: UIView {
     }
 
     private func initView() {
-        self.theme_backgroundColor = [Color.light.background]
+        self.theme_backgroundColor = [Color.Background.light.hexString(true)]
         let statusBarStylePicker = ThemeStatusBarStylePicker(styles: .default)
         UIApplication.shared.theme_setStatusBarStyle(statusBarStylePicker, animated: true)
     }
@@ -60,7 +60,7 @@ class MainView: UIView {
         settingsButton = CustomButton()
         settingsButton.setTitle("Settigns", font: Font.body!)
         settingsButton.setImage("settings")
-        settingsButton.setColors(colors: [Color.light.blackSecondary], highlightColors: [Color.light.blackPrimary])
+        settingsButton.setColors(colors: [Color.Black.secondary.hexString(true)], highlightColors: [Color.Black.primary.hexString(true)])
         self.addSubview(settingsButton)
 
         settingsButton.snp.makeConstraints { (make) in

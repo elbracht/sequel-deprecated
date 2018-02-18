@@ -34,7 +34,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     private func initView() {
-        self.theme_backgroundColor = [Color.light.blackDivider]
+        self.theme_backgroundColor = [Color.Black.divider.hexString(true)]
 
         self.contentView.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.contentView.layer.masksToBounds = true
@@ -83,7 +83,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     private func initNameLabel() {
         nameLabel = UILabel()
-        nameLabel.theme_textColor = [Color.light.whitePrimary]
+        nameLabel.theme_textColor = [Color.White.primary.hexString(true)]
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
         titleView.addSubview(nameLabel)
@@ -98,7 +98,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     private func initCaptionLabel() {
         captionLabel = UILabel()
-        captionLabel.theme_textColor = [Color.light.whitePrimary]
+        captionLabel.theme_textColor = [Color.White.primary.hexString(true)]
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
         titleView.addSubview(captionLabel)

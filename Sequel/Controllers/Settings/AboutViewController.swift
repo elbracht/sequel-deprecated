@@ -62,7 +62,7 @@ extension AboutViewController {
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.theme_textColor = [Color.light.blackSecondary]
+            header.textLabel?.theme_textColor = [Color.Black.secondary.hexString(true)]
             header.textLabel?.font = Font.caption
             header.textLabel?.text = aboutView.sections[section].name
         }
