@@ -34,15 +34,15 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     private func initView() {
-        self.theme_backgroundColor = [Color.light.blackDivider]
+        self.theme_backgroundColor = [Color.Black.divider.hexString(true)]
 
         self.contentView.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.contentView.layer.masksToBounds = true
 
-        self.layer.shadowColor = Shadow.small.color
+        self.layer.shadowColor = Shadow.depth1.color
         self.layer.shadowOpacity = 0
-        self.layer.shadowOffset = Shadow.small.offset
-        self.layer.shadowRadius = Shadow.small.radius
+        self.layer.shadowOffset = Shadow.depth1.offset
+        self.layer.shadowRadius = Shadow.depth1.radius
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: SearchCollectiobViewCellMeasure.cornerRadius).cgPath
         self.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.layer.masksToBounds = false
@@ -83,7 +83,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     private func initNameLabel() {
         nameLabel = UILabel()
-        nameLabel.theme_textColor = [Color.light.whitePrimary]
+        nameLabel.theme_textColor = [Color.White.primary.hexString(true)]
         nameLabel.font = Font.caption
         nameLabel.textAlignment = .center
         titleView.addSubview(nameLabel)
@@ -98,7 +98,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     private func initCaptionLabel() {
         captionLabel = UILabel()
-        captionLabel.theme_textColor = [Color.light.whitePrimary]
+        captionLabel.theme_textColor = [Color.White.primary.hexString(true)]
         captionLabel.font = Font.small
         captionLabel.textAlignment = .center
         titleView.addSubview(captionLabel)
@@ -113,7 +113,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     public func showCell() {
         if self.imageView.alpha == 0 && self.blurEffectView.alpha == 0 {
-            self.layer.shadowOpacity = Shadow.small.opacity
+            self.layer.shadowOpacity = Shadow.depth1.opacity
             self.imageView.alpha = 1
             self.blurEffectView.alpha = 1
         }

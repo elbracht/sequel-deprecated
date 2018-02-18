@@ -47,13 +47,13 @@ class SeriesView: UIView {
     }
 
     private func initView() {
-        self.theme_backgroundColor = [Color.light.background]
+        self.theme_backgroundColor = [Color.Background.light.hexString(true)]
         UIApplication.shared.isStatusBarHidden = true
     }
 
     private func initCloseButton() {
         closeButton = CustomCloseButton()
-        closeButton.setColor(colors: [Color.light.blackPrimary])
+        closeButton.setColor(colors: [Color.Black.primary.hexString(true)])
         closeButton.setBlurEffect(style: .extraLight)
         self.addSubview(closeButton)
 
@@ -140,12 +140,12 @@ class SeriesView: UIView {
     private func initRunTimeView() {
         runTimeImageView = UIImageView()
         runTimeImageView.image = UIImage(named: "clock")?.withRenderingMode(.alwaysTemplate)
-        runTimeImageView.theme_tintColor = [Color.light.blackSecondary]
+        runTimeImageView.theme_tintColor = [Color.Black.secondary.hexString(true)]
 
         runTimeLabel = UILabel()
         runTimeLabel.text = "–"
         runTimeLabel.font = Font.caption
-        runTimeLabel.theme_textColor = [Color.light.blackSecondary]
+        runTimeLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
 
         runTimeView = UIView()
         runTimeView.addSubview(runTimeImageView)
@@ -179,12 +179,12 @@ class SeriesView: UIView {
     private func initAirDateView() {
         airDateImageView = UIImageView()
         airDateImageView.image = UIImage(named: "calendar")?.withRenderingMode(.alwaysTemplate)
-        airDateImageView.theme_tintColor = [Color.light.blackSecondary]
+        airDateImageView.theme_tintColor = [Color.Black.secondary.hexString(true)]
 
         airDateLabel = UILabel()
         airDateLabel.text = "–"
         airDateLabel.font = Font.caption
-        airDateLabel.theme_textColor = [Color.light.blackSecondary]
+        airDateLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
 
         airDateView = UIView()
         airDateView.addSubview(airDateImageView)
@@ -218,12 +218,12 @@ class SeriesView: UIView {
     private func initVoteView() {
         voteImageView = UIImageView()
         voteImageView.image = UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate)
-        voteImageView.theme_tintColor = [Color.light.blackSecondary]
+        voteImageView.theme_tintColor = [Color.Black.secondary.hexString(true)]
 
         voteLabel = UILabel()
         voteLabel.text = "–"
         voteLabel.font = Font.caption
-        voteLabel.theme_textColor = [Color.light.blackSecondary]
+        voteLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
 
         voteView = UIView()
         voteView.addSubview(voteImageView)
@@ -258,12 +258,12 @@ class SeriesView: UIView {
     private func initContentView() {
         nameLabel = UILabel()
         nameLabel.font = Font.headline2
-        nameLabel.theme_textColor = [Color.light.blackPrimary]
+        nameLabel.theme_textColor = [Color.Black.primary.hexString(true)]
         nameLabel.numberOfLines = 0
 
         overviewLabel = UILabel()
         overviewLabel.font = Font.body
-        overviewLabel.theme_textColor = [Color.light.blackPrimary]
+        overviewLabel.theme_textColor = [Color.Black.primary.hexString(true)]
         overviewLabel.numberOfLines = 0
 
         contentInnerView = UIView()

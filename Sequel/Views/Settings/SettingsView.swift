@@ -36,7 +36,7 @@ class SettingsView: NSObject {
     private func initTitle() {
         titleLabel = UILabel()
         titleLabel.text = "Settings"
-        titleLabel.theme_textColor = [Color.light.blackSecondary]
+        titleLabel.theme_textColor = [Color.Black.secondary.hexString(true)]
         titleLabel.font = Font.title
         navigationItem.titleView = titleLabel
     }
@@ -44,12 +44,12 @@ class SettingsView: NSObject {
     private func initDoneButton() {
         doneButton = CustomButton()
         doneButton.setTitle("Done", font: Font.body!)
-        doneButton.setColors(colors: [Color.light.accentNormal], highlightColors: [Color.light.accentHighlighted])
+        doneButton.setColors(colors: [Color.Primary.normal.hexString(true)], highlightColors: [Color.Primary.highlight.hexString(true)])
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: doneButton)
     }
 
     private func initTableView() {
-        tableView.theme_backgroundColor = [Color.light.background]
+        tableView.theme_backgroundColor = [Color.Background.light.hexString(true)]
     }
 
     private func initStorageSection() {
@@ -57,16 +57,16 @@ class SettingsView: NSObject {
 
         let cacheSizeCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
         cacheSizeCell.textLabel?.text = "Cache Size"
-        cacheSizeCell.textLabel?.theme_textColor = [Color.light.blackPrimary]
+        cacheSizeCell.textLabel?.theme_textColor = [Color.Black.primary.hexString(true)]
         cacheSizeCell.textLabel?.font = Font.body
-        cacheSizeCell.detailTextLabel?.theme_textColor = [Color.light.blackSecondary]
+        cacheSizeCell.detailTextLabel?.theme_textColor = [Color.Black.secondary.hexString(true)]
         cacheSizeCell.detailTextLabel?.font = Font.body
         cacheSizeCell.selectionStyle = .none
         storageCells.append(cacheSizeCell)
 
         let clearCacheCell = UITableViewCell()
         clearCacheCell.textLabel?.text = "Remove Cache"
-        clearCacheCell.textLabel?.theme_textColor = [Color.light.accentNormal]
+        clearCacheCell.textLabel?.theme_textColor = [Color.Primary.normal.hexString(true)]
         clearCacheCell.textLabel?.font = Font.body
         storageCells.append(clearCacheCell)
 
@@ -78,21 +78,21 @@ class SettingsView: NSObject {
 
         let aboutCell = UITableViewCell()
         aboutCell.textLabel?.text = "About"
-        aboutCell.textLabel?.theme_textColor = [Color.light.blackPrimary]
+        aboutCell.textLabel?.theme_textColor = [Color.Black.primary.hexString(true)]
         aboutCell.textLabel?.font = Font.body
         aboutCell.accessoryType = .disclosureIndicator
         otherCells.append(aboutCell)
 
         let feedbackCell = UITableViewCell()
         feedbackCell.textLabel?.text = "Feedback"
-        feedbackCell.textLabel?.theme_textColor = [Color.light.blackPrimary]
+        feedbackCell.textLabel?.theme_textColor = [Color.Black.primary.hexString(true)]
         feedbackCell.textLabel?.font = Font.body
         feedbackCell.accessoryType = .disclosureIndicator
         otherCells.append(feedbackCell)
 
         let rateCell = UITableViewCell()
         rateCell.textLabel?.text = "Rate"
-        rateCell.textLabel?.theme_textColor = [Color.light.blackPrimary]
+        rateCell.textLabel?.theme_textColor = [Color.Black.primary.hexString(true)]
         rateCell.textLabel?.font = Font.body
         rateCell.accessoryType = .disclosureIndicator
         otherCells.append(rateCell)

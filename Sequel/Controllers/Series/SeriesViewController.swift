@@ -79,10 +79,10 @@ class SeriesViewController: UIViewController {
             KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, _, _, _ in
                 if image != nil {
                     if image!.isDark {
-                        self.closeButtonColor = [Color.light.blackPrimary]
+                        self.closeButtonColor = [Color.Black.primary.hexString(true)]
                         self.closeButtonBlurStyle = .extraLight
                     } else {
-                        self.closeButtonColor = [Color.light.whiteSecondary]
+                        self.closeButtonColor = [Color.White.secondary.hexString(true)]
                         self.closeButtonBlurStyle = .dark
                     }
 
@@ -144,7 +144,7 @@ extension SeriesViewController: UIScrollViewDelegate {
         if offsetY > 0 {
             if offsetY > headerOffset - buttonOffset {
                 UIView.animate(withDuration: 0.2, animations: {
-                    self.seriesView.closeButton.setColor(colors: [Color.light.whiteSecondary])
+                    self.seriesView.closeButton.setColor(colors: [Color.White.secondary.hexString(true)])
                     self.seriesView.closeButton.setBlurEffect(style: .dark)
                 })
             } else {
