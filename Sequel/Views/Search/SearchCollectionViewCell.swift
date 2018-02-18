@@ -39,10 +39,10 @@ class SearchCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.contentView.layer.masksToBounds = true
 
-        self.layer.shadowColor = Shadow.small.color
+        self.layer.shadowColor = Shadow.depth1.color
         self.layer.shadowOpacity = 0
-        self.layer.shadowOffset = Shadow.small.offset
-        self.layer.shadowRadius = Shadow.small.radius
+        self.layer.shadowOffset = Shadow.depth1.offset
+        self.layer.shadowRadius = Shadow.depth1.radius
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: SearchCollectiobViewCellMeasure.cornerRadius).cgPath
         self.layer.cornerRadius = SearchCollectiobViewCellMeasure.cornerRadius
         self.layer.masksToBounds = false
@@ -113,7 +113,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
     public func showCell() {
         if self.imageView.alpha == 0 && self.blurEffectView.alpha == 0 {
-            self.layer.shadowOpacity = Shadow.small.opacity
+            self.layer.shadowOpacity = Shadow.depth1.opacity
             self.imageView.alpha = 1
             self.blurEffectView.alpha = 1
         }

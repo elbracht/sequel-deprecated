@@ -8,21 +8,21 @@ struct Shadow {
 }
 
 extension Shadow {
-    static let small = Shadow(
+    static let depth1 = Shadow(
         color: UIColor.black.cgColor,
         opacity: 0.1,
         offset: CGSize(width: 0, height: 1),
         radius: 2
     )
 
-    static let medium = Shadow(
+    static let depth2 = Shadow(
         color: UIColor.black.cgColor,
         opacity: 0.2,
         offset: CGSize(width: 0, height: 2),
         radius: 4
     )
 
-    static let large = Shadow(
+    static let depth3 = Shadow(
         color: UIColor.black.cgColor,
         opacity: 0.3,
         offset: CGSize(width: 0, height: 4),
