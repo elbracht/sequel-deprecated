@@ -27,4 +27,4 @@ Sequel is available under the MIT license. See the [LICENSE](https://github.com/
 
 ---
 
-<p align="center">Made with :heart: by <a href="https://github.com/elbracht">Alexander Elbracht</a></p>
+<p align="center">Made with :heart: by <a href="https://elbracht.org">Alexander Elbracht</a></p>
