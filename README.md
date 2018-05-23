@@ -20,3 +20,11 @@ We use Fabric to track user behaviour and crashes. To activate this function you
 export FABRIC_API_KEY=123456
 export FABRIC_BUILD_SECRET=123456
 ```
+
+## License
+
+Sequel is available under the MIT license. See the [LICENSE](https://github.com/elbracht/sequel/blob/master/LICENSE) file for more details.
+
+---
+
+<p align="center">Made with :heart: by <a href="https://github.com/elbracht">Alexander Elbracht</a></p>
