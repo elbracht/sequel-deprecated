@@ -58,7 +58,7 @@ class SeriesViewController: UIViewController {
             if let firstAirDate = self.series.firstAirDate {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd MMM yyyy"
-                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
                 self.seriesView.airDateLabel.text = dateFormatter.string(from: firstAirDate)
             }
 
@@ -190,7 +190,7 @@ extension SeriesViewController {
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
         if let firstAirDate = json["first_air_date"].string {
             series.firstAirDate = dateFormatter.date(from: firstAirDate)
