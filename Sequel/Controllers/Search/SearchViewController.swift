@@ -91,6 +91,18 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout, UICollection
         return SearchViewMeasure.searchItemOffset
     }
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElement = series.count - 1
+        if indexPath.row == lastElement {
+            if searchPage <= searchTotalPage {
+                fetchSeries(searchQuery: searchText, page: searchPage) {
+                    self.searchPage += 1
+                    self.searchView.searchCollectionView.reloadData()
+                }
+            }
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell {
             let currentSeries = series[indexPath.row]
@@ -112,16 +124,13 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout, UICollection
         return UICollectionViewCell()
     }
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let lastElement = series.count - 1
-        if indexPath.row == lastElement {
-            if searchPage <= searchTotalPage {
-                fetchSeries(searchQuery: searchText, page: searchPage) {
-                    self.searchPage += 1
-                    self.searchView.searchCollectionView.reloadData()
-                }
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentSeries = series[indexPath.row]
+
+        let seriesViewController = SeriesViewController(nibName: nil, bundle: nil)
+        seriesViewController.setup(series: currentSeries)
+        seriesViewController.modalPresentationStyle = .custom
+        present(seriesViewController, animated: true)
     }
 }
 
@@ -151,11 +160,12 @@ extension SearchViewController {
         }
 
         json["results"].forEach({ (_, subJson) in
+            let id = subJson["id"].int
             let name = subJson["name"].string
             let posterPath = subJson["poster_path"].string
 
-            if name != nil && posterPath != nil {
-                let seriesObject = Series(name: name!, posterPath: posterPath!)
+            if id != nil && name != nil && posterPath != nil {
+                let seriesObject = Series(id: id!, name: name!, posterPath: posterPath!)
                 series.append(seriesObject)
             }
         })

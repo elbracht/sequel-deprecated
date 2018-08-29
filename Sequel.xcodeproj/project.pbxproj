@@ -23,6 +23,8 @@
 		11702CC51FB0B9CA009B5F19 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC41FB0B9CA009B5F19 /* AboutViewController.swift */; };
 		11702CC71FB0EDB1009B5F19 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */; };
 		1170EB0E1F7D74DC0089FA7D /* MainToSearchTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */; };
+		118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */; };
+		118B75CD201CEBAB0037F8D3 /* UIImage+Darkness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */; };
 		118C8BDC1F7E8DC80018015E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118C8BDB1F7E8DC80018015E /* Color.swift */; };
 		11955B981F88EFDE007AB6F3 /* HumanizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */; };
 		11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F11F7C5D2700AD3FCE /* AppDelegate.swift */; };
@@ -30,7 +32,10 @@
 		11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A6F81F7C5D2700AD3FCE /* Sequel.xcdatamodeld */; };
 		11B6A6FC1F7C5D2700AD3FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FB1F7C5D2700AD3FCE /* Assets.xcassets */; };
 		11B6A6FF1F7C5D2700AD3FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B6A6FD1F7C5D2700AD3FCE /* LaunchScreen.storyboard */; };
+		11B6A7E5201DEED1007BBC90 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6A7E4201DEED1007BBC90 /* Actor.swift */; };
 		11BA64241FA8912D003C0770 /* Humanize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BA64231FA8912D003C0770 /* Humanize.swift */; };
+		11BB13701FC36196001C0940 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB136F1FC36196001C0940 /* SeriesViewController.swift */; };
+		11BB13731FC362D0001C0940 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB13721FC362D0001C0940 /* SeriesView.swift */; };
 		11BF4CA81F8965F000811C40 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CA71F8965F000811C40 /* Series.swift */; };
 		11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */; };
 		11C0D6A81FED7E660051219C /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C0D6A71FED7E660051219C /* SearchViewControllerTests.swift */; };
@@ -80,6 +85,8 @@
 		11702CC41FB0B9CA009B5F19 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		11702CC61FB0EDB1009B5F19 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		1170EB0D1F7D74DC0089FA7D /* MainToSearchTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToSearchTransition.swift; sourceTree = "<group>"; };
+		118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCloseButton.swift; sourceTree = "<group>"; };
+		118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Darkness.swift"; sourceTree = "<group>"; };
 		118C8BDB1F7E8DC80018015E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		11955B971F88EFDE007AB6F3 /* HumanizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanizeTests.swift; sourceTree = "<group>"; };
 		11B6A6EE1F7C5D2700AD3FCE /* Sequel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sequel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +100,10 @@
 		11B6A70B1F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11B6A7101F7C5D2700AD3FCE /* SequelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SequelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B6A7161F7C5D2700AD3FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11B6A7E4201DEED1007BBC90 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		11BA64231FA8912D003C0770 /* Humanize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Humanize.swift; sourceTree = "<group>"; };
+		11BB136F1FC36196001C0940 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
+		11BB13721FC362D0001C0940 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		11BF4CA71F8965F000811C40 /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		11BF4CB61F8A481D00811C40 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		11C0D6A71FED7E660051219C /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
@@ -216,6 +226,7 @@
 				115F6E091FA274B400CBA6B0 /* CustomButton.swift */,
 				1151000A1FB9CE380043BC72 /* CustomTextField.swift */,
 				112CC9911FC2FEA80056ABC8 /* CustomTextField+PlaceholderAlignment.swift */,
+				118B75CA201CD0DF0037F8D3 /* CustomCloseButton.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -282,8 +293,25 @@
 			isa = PBXGroup;
 			children = (
 				11BA64231FA8912D003C0770 /* Humanize.swift */,
+				118B75CC201CEBAB0037F8D3 /* UIImage+Darkness.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		11BB136E1FC36164001C0940 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				11BB136F1FC36196001C0940 /* SeriesViewController.swift */,
+			);
+			path = Series;
+			sourceTree = "<group>";
+		};
+		11BB13711FC362C2001C0940 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				11BB13721FC362D0001C0940 /* SeriesView.swift */,
+			);
+			path = Series;
 			sourceTree = "<group>";
 		};
 		11E4BCA21F7D11B500169F6C /* Controllers */ = {
@@ -291,6 +319,7 @@
 			children = (
 				1195E4501FB625B700FA5F68 /* Main */,
 				1195E4511FB625C600FA5F68 /* Search */,
+				11BB136E1FC36164001C0940 /* Series */,
 				11702CC31FB0B938009B5F19 /* Settings */,
 			);
 			path = Controllers;
@@ -301,6 +330,7 @@
 			children = (
 				111E82481FC1A620001EE27A /* Main */,
 				111E824B1FC1AF86001EE27A /* Search */,
+				11BB13711FC362C2001C0940 /* Series */,
 				112CC98C1FC1FA960056ABC8 /* Settings */,
 			);
 			path = Views;
@@ -310,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				11BF4CA71F8965F000811C40 /* Series.swift */,
+				11B6A7E4201DEED1007BBC90 /* Actor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Alexander Elbracht";
 				TargetAttributes = {
 					11B6A6ED1F7C5D2700AD3FCE = {
@@ -592,12 +623,15 @@
 				11B6A6FA1F7C5D2700AD3FCE /* Sequel.xcdatamodeld in Sources */,
 				115A0E5B1F9E3FAA00D8D534 /* Shadow.swift in Sources */,
 				115F6E101FA33DB200CBA6B0 /* SettingsViewController.swift in Sources */,
+				118B75CD201CEBAB0037F8D3 /* UIImage+Darkness.swift in Sources */,
 				115F6E0C1FA3309F00CBA6B0 /* SettingsNavigationController.swift in Sources */,
 				115F6E0A1FA274B400CBA6B0 /* CustomButton.swift in Sources */,
+				118B75CB201CD0DF0037F8D3 /* CustomCloseButton.swift in Sources */,
 				113B5FB11FA8F69600D409D1 /* FeedbackViewController.swift in Sources */,
 				11702CC51FB0B9CA009B5F19 /* AboutViewController.swift in Sources */,
 				112CC98E1FC1FAA60056ABC8 /* SettingsView.swift in Sources */,
 				111E824D1FC1AF9F001EE27A /* SearchView.swift in Sources */,
+				11BB13731FC362D0001C0940 /* SeriesView.swift in Sources */,
 				11B6A6F41F7C5D2700AD3FCE /* MainViewController.swift in Sources */,
 				11ED81721F811A6200E8379E /* Font.swift in Sources */,
 				11DB3C661FED3A9500BCEE85 /* Credentials.generated.swift in Sources */,
@@ -606,6 +640,8 @@
 				1151000B1FB9CE380043BC72 /* CustomTextField.swift in Sources */,
 				111E824A1FC1A62D001EE27A /* MainView.swift in Sources */,
 				11BF4CB71F8A481D00811C40 /* SearchCollectionViewCell.swift in Sources */,
+				11B6A7E5201DEED1007BBC90 /* Actor.swift in Sources */,
+				11BB13701FC36196001C0940 /* SeriesViewController.swift in Sources */,
 				11BF4CA81F8965F000811C40 /* Series.swift in Sources */,
 				11B6A6F21F7C5D2700AD3FCE /* AppDelegate.swift in Sources */,
 				11DACC961FB4B256008FB3AE /* Config.swift in Sources */,
@@ -674,6 +710,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -681,6 +718,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -731,6 +769,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -738,6 +777,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
