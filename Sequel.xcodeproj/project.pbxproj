@@ -366,7 +366,6 @@
 				11B6A6EB1F7C5D2700AD3FCE /* Frameworks */,
 				11B6A6EC1F7C5D2700AD3FCE /* Resources */,
 				8A50DD478574CF24550C6215 /* [CP] Embed Pods Frameworks */,
-				D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */,
 				11BF4C9E1F88FF7700811C40 /* SwiftLint */,
 				B447AA5B1FCEBCAF0085F3A8 /* Fabric */,
 			);
@@ -580,21 +579,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n\"${PODS_ROOT}/Fabric/run\" $FABRIC_API_KEY $FABRIC_BUILD_SECRET";
-		};
-		D3726F56A4D189104E09C078 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sequel/Pods-Sequel-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
